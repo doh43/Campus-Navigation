@@ -1,3 +1,0 @@
-### Campus Navigation App
-
-The goal of this project is to develop an application that makes it easier for people to navigate the interior spaces of a university campus, specifically Western University. The application will utilize the public floor plans made by the university to create a GIS (Geographic Information System) software product. The proposed application aims to improve the UX of the floor plans by allowing users to search for rooms and points of interest in buildings, browse through the maps, and create and save their own personal points of interest. Additionally, the application will have an editing tool to facilitate the creation and editing of map metadata by developers.
