@@ -2,8 +2,10 @@ package org.example;
 
 import javax.swing.*;
 import javax.swing.JTextField;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 
 public class LoginPage extends JFrame implements ActionListener {
@@ -47,7 +49,7 @@ public class LoginPage extends JFrame implements ActionListener {
 
         resetButton = new JButton("Reset");
         resetButton.setBounds(425,300,100,40);
-        resetButton.addActionListener(this);
+//        resetButton.addActionListener(this);
         resetButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
         message = new JLabel();
@@ -68,8 +70,11 @@ public class LoginPage extends JFrame implements ActionListener {
     /* For any events (none yet) */
     @Override
     public void actionPerformed(ActionEvent event) {
-        String message = "Login successful.";
-
+        if (event.getSource()==button) {
+            String message = "Login successful.";
+            this.dispose();
+            landingPage frame = new landingPage();
+        }
     }
 
 
