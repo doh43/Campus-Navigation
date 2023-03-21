@@ -8,6 +8,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
 import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import org.json.simple.parser.JSONParser;
 
 
 public class LoginPage extends JFrame implements ActionListener {
@@ -16,6 +21,8 @@ public class LoginPage extends JFrame implements ActionListener {
     JLabel passwordLabel, usernameLabel, message, title;
     JButton button, resetButton, registerButton;
     JCheckBox showPassword;
+
+    JSONArray arr = new JSONArray();
 
     LoginPage() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,7 +64,7 @@ public class LoginPage extends JFrame implements ActionListener {
         */
         registerButton = new JButton("Register");
         registerButton.setBounds(420,300,100,40);
-        // registerButton.addActionListener(this);
+        registerButton.addActionListener(this);
         registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
         message = new JLabel();
@@ -76,14 +83,44 @@ public class LoginPage extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
-    /* For any events (none yet) */
-    @Override
     public void actionPerformed(ActionEvent event) {
-        if (event.getSource()==button) {
-            String message = "Login successful.";
+        JSONArray jArr = new JSONArray();
+        Object object = null;
+        JSONParser parser = new JSONParser();
+
+        if (event.getSource() == button) {
+            try {
+                FileReader file = new FileReader("./data/userData.json");
+                object = parser.parse(file);
+                jArr = (JSONArray) object;
+                file.close();
+            } catch(Exception poop) {
+                JOptionPane.showMessageDialog(null, "Error occurred while fetching!");
+            }
             this.dispose();
             landingPage frame = new landingPage();
         }
+
+        JSONObject obj = new JSONObject();
+
+        if (event.getSource() == registerButton) {
+
+            obj.put("Username", username.getText());
+            obj.put("Password", password.getText());
+
+            arr.add(obj);
+
+            JOptionPane.showMessageDialog(null, arr);
+
+            try {
+                FileWriter file = new FileWriter("./data/userData.json");
+                file.write(arr.toJSONString());
+                file.close();
+            } catch(Exception poop) {
+                JOptionPane.showMessageDialog(null, "An error occurred.");
+            }
+        }
+
     }
 
 
