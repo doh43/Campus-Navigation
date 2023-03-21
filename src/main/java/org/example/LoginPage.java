@@ -7,12 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
+import org.json.simple.JSONObject;
+
 
 public class LoginPage extends JFrame implements ActionListener {
     JPasswordField password;
     JTextField username;
     JLabel passwordLabel, usernameLabel, message, title;
-    JButton button, resetButton;
+    JButton button, resetButton, registerButton;
     JCheckBox showPassword;
 
     LoginPage() {
@@ -47,10 +49,16 @@ public class LoginPage extends JFrame implements ActionListener {
         button.addActionListener(this);
         button.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
+        /*
         resetButton = new JButton("Reset");
         resetButton.setBounds(425,300,100,40);
-//        resetButton.addActionListener(this);
+        // resetButton.addActionListener(this);
         resetButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        */
+        registerButton = new JButton("Register");
+        registerButton.setBounds(420,300,100,40);
+        // registerButton.addActionListener(this);
+        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
         message = new JLabel();
         message.setBounds(300,350,300,40);
@@ -61,7 +69,8 @@ public class LoginPage extends JFrame implements ActionListener {
         this.add(password);
         // this.add(showPassword);
         this.add(button);
-        this.add(resetButton);
+        //this.add(resetButton);
+        this.add(registerButton);
         this.add(message);
 
         this.setVisible(true);
