@@ -1,5 +1,6 @@
 package org.example;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.FileWriter;
@@ -36,5 +37,8 @@ public final class Data {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public JSONArray getPois(String building, int floorNum) {
+        return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).getJSONArray("pois");
     }
 }

@@ -84,7 +84,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
 
     @Override
     public void addPoi(String building, int floorNum, JSONObject o) {
-        d.savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).getJSONArray("pois").put(o);
+        d.getPois(building, floorNum).put(o);
         d.storeData(d.savedData);
     }
 }
