@@ -20,14 +20,21 @@
         },
         {
           "name": "Second Floor",
-          "id": 1,
+          "id": 2,
           "pois": [
 
           ]
         },
         {
           "name": "Third Floor",
-          "id": 1,
+          "id": 3,
+          "pois": [
+
+          ]
+        },
+        {
+          "name": "Fourth Floor",
+          "id": 4,
           "pois": [
 
           ]
