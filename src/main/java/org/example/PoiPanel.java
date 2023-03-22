@@ -16,16 +16,18 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
 
     Data d;
 
+    int panelWidth = 280;
+
     PoiPanel() {
         d = Data.getInstance();
-        this.setBounds(0,375,150,100);
+        this.setBounds(0,710,panelWidth,100);
         this.setBackground(Color.GRAY);
         this.setLayout(null);
 
         button = new JButton();
         button.setText("ADD");
         button.setFocusable(false);
-        button.setBounds(0,0,150,100);
+        button.setBounds(0,0,panelWidth,100);
         button.addActionListener(this);
 
         poiName = new JTextField("Name");
@@ -42,11 +44,11 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
         submit.setBounds(5, 160, 100,20);
         submit.addActionListener(this);
 
-        poiName.setBounds(5,10, 140, 20);
-        poiId.setBounds(5,40, 140, 20);
-        poiType.setBounds(5,70, 140, 20);
-        poiRoomNum.setBounds(5,100, 140, 20);
-        poiDesc.setBounds(5,130, 140, 20);
+        poiName.setBounds(5,10, panelWidth-10, 20);
+        poiId.setBounds(5,40, panelWidth-10, 20);
+        poiType.setBounds(5,70, panelWidth-10, 20);
+        poiRoomNum.setBounds(5,100, panelWidth-10, 20);
+        poiDesc.setBounds(5,130, panelWidth-10, 20);
 
         this.add(button);
         this.add(poiName);
@@ -59,12 +61,12 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
             if (button.getText().equals("ADD")) {
-                this.setBounds(0, 0, 150, 500);
-                button.setBounds(0,375, 150,100);
+                this.setBounds(0, 0, panelWidth, 1000);
+                button.setBounds(0,710, panelWidth,100);
                 button.setText("CLOSE");
             } else {
-                this.setBounds(0, 375, 150, 100);
-                button.setBounds(0,0, 150,100);
+                this.setBounds(0,710,panelWidth,100);
+                button.setBounds(0,0, panelWidth,100);
                 button.setText("ADD");
             }
         } else if (e.getSource() == submit) {

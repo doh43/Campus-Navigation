@@ -18,6 +18,7 @@ public class Maps extends JFrame implements ActionListener {
         back.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
         this.add(back);
+        this.add(new PoiPanel());
         this.setVisible(true);
     }
 
