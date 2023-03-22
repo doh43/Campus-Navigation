@@ -1,9 +1,11 @@
 package org.example;
 
+import org.json.JSONObject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class PoiPanel extends JPanel implements ActionListener {
+public class PoiPanel extends JPanel implements ActionListener, EditTool {
     JButton button;
     JButton submit;
     JTextField poiName;
@@ -12,7 +14,10 @@ public class PoiPanel extends JPanel implements ActionListener {
     JTextField poiRoomNum;
     JTextField poiDesc;
 
+    Data d;
+
     PoiPanel() {
+        d = Data.getInstance();
         this.setBounds(0,375,150,100);
         this.setBackground(Color.GRAY);
         this.setLayout(null);
@@ -73,7 +78,13 @@ public class PoiPanel extends JPanel implements ActionListener {
                     0,
                     0
                     );
-            System.out.println(p.convertJSON());
+            addPoi("mc",0,p.convertJSON());
         }
+    }
+
+    @Override
+    public void addPoi(String building, int floorNum, JSONObject o) {
+        d.savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).getJSONArray("pois").put(o);
+        d.storeData(d.savedData);
     }
 }
