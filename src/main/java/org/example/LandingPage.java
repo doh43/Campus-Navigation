@@ -1,17 +1,13 @@
 package org.example;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.Component;
 
-public class landingPage extends JFrame implements ActionListener {
+public class LandingPage extends JFrame implements ActionListener {
     JComboBox campusBuildings;
     JLabel boxLabel;
     JButton help, back, about;
-    JPanel middle;
-    landingPage() {
+    LandingPage() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(700, 500);
         this.setTitle("Western Campus Navigation");
@@ -60,12 +56,12 @@ public class landingPage extends JFrame implements ActionListener {
 
         if (event.getSource() == help) {
             this.dispose();
-            help frame = new help();
+            Help frame = new Help();
         }
 
         if (event.getSource() == about) {
             this.dispose();
-            about frame = new about();
+            About frame = new About();
         }
     }
 }

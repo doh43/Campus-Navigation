@@ -1,17 +1,13 @@
 package org.example;
-
 import javax.swing.*;
 import javax.swing.JTextField;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-
 
 public class LoginPage extends JFrame implements ActionListener {
     JPasswordField password;
     JTextField username;
-    JLabel passwordLabel, usernameLabel, message, title;
+    JLabel passwordLabel, usernameLabel, message;
     JButton button, resetButton;
     JCheckBox showPassword;
 
@@ -73,7 +69,7 @@ public class LoginPage extends JFrame implements ActionListener {
         if (event.getSource()==button) {
             String message = "Login successful.";
             this.dispose();
-            landingPage frame = new landingPage();
+            LandingPage frame = new LandingPage();
         }
     }
 
