@@ -1,15 +1,10 @@
 package org.example;
-
 import javax.swing.*;
 import javax.swing.JTextField;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import org.json.simple.parser.JSONParser;
@@ -19,10 +14,9 @@ public class LoginPage extends JFrame implements ActionListener {
     JPasswordField password;
     JTextField username;
     JLabel passwordLabel, usernameLabel, message, title;
-    JButton button, resetButton, registerButton;
+    JButton button, registerButton;
     JCheckBox showPassword;
-
-    JSONArray arr = new JSONArray();
+    JSONArray jArr = new JSONArray();
 
     LoginPage() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,24 +39,65 @@ public class LoginPage extends JFrame implements ActionListener {
         password = new JPasswordField();
         password.setBounds(300,250,300,40);
 
-        /*
-        showPassword = new JCheckBox("Show password");
-        showPassword.setBounds(300,250,300,40);
-        showPassword.addActionListener(this);
-        */
+        /* Verify user sign in */
+        button = new JButton(new AbstractAction("Sign in") {
+            public void actionPerformed(ActionEvent e) {
+                JSONArray jArr = new JSONArray();
+                Object object = null;
+                JSONParser parser = new JSONParser();
 
-        button = new JButton("Sign in");
+                try {
+                    FileReader file = new FileReader("./data/userData.json");
+                    object = parser.parse(file);
+                    jArr = (JSONArray) object;
+                    file.close();
+
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(null, "An error occurred while fetching data.");
+                }
+
+                JSONObject obj = new JSONObject();
+                obj.put("Username", username.getText());
+                obj.put("Password", password.getText());
+
+                for (int i = 0; i < jArr.size(); i++) {
+                    if (obj.equals(jArr.get(i))) {
+                        JOptionPane.showMessageDialog(null, "Password matched!");
+                        this.dispose();
+                        landingPage frame = new landingPage();
+
+                    } else if (i == jArr.size()-1) {
+                        JOptionPane.showMessageDialog(null, "The password or user is incorrect.");
+                    }
+                }
+            }
+            private void dispose() {
+            }
+        });
         button.setBounds(300,300,100,40);
         button.addActionListener(this);
         button.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
-        /*
-        resetButton = new JButton("Reset");
-        resetButton.setBounds(425,300,100,40);
-        // resetButton.addActionListener(this);
-        resetButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
-        */
-        registerButton = new JButton("Register");
+        /* Register Function */
+        registerButton = new JButton(new AbstractAction("Register") {
+            public void actionPerformed(ActionEvent event) {
+                JSONObject obj = new JSONObject();
+
+                obj.put("Username", username.getText());
+                obj.put("Password", password.getText());
+
+                jArr.add(obj);
+
+                try {
+                    FileWriter file = new FileWriter("./data/userData.json");
+                    file.write(jArr.toJSONString());
+                    file.close();
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(null, "An error occurred.");
+                }
+                JOptionPane.showMessageDialog(null, jArr);
+            }
+        });
         registerButton.setBounds(420,300,100,40);
         registerButton.addActionListener(this);
         registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
@@ -74,61 +109,21 @@ public class LoginPage extends JFrame implements ActionListener {
         this.add(username);
         this.add(passwordLabel);
         this.add(password);
-        // this.add(showPassword);
         this.add(button);
-        //this.add(resetButton);
         this.add(registerButton);
         this.add(message);
 
         this.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent event) {
-        JSONArray jArr = new JSONArray();
-        Object object = null;
-        JSONParser parser = new JSONParser();
-
-        if (event.getSource() == button) {
-            try {
-                FileReader file = new FileReader("./data/userData.json");
-                object = parser.parse(file);
-                jArr = (JSONArray) object;
-                file.close();
-            } catch(Exception poop) {
-                JOptionPane.showMessageDialog(null, "Error occurred while fetching!");
-            }
-            this.dispose();
-            landingPage frame = new landingPage();
-        }
-
-        JSONObject obj = new JSONObject();
-
-        if (event.getSource() == registerButton) {
-
-            obj.put("Username", username.getText());
-            obj.put("Password", password.getText());
-
-            arr.add(obj);
-
-            JOptionPane.showMessageDialog(null, arr);
-
-            try {
-                FileWriter file = new FileWriter("./data/userData.json");
-                file.write(arr.toJSONString());
-                file.close();
-            } catch(Exception poop) {
-                JOptionPane.showMessageDialog(null, "An error occurred.");
-            }
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
-
-
 
     /* Launch the application */
     public static void main(String[] args) {
 
         LoginPage frame = new LoginPage();
     }
-
 }
