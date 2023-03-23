@@ -11,12 +11,10 @@ import org.json.simple.parser.JSONParser;
 
 
 public class LoginPage extends JFrame implements ActionListener {
-    JPasswordField password;
-    JTextField username;
-    JLabel passwordLabel, usernameLabel, message, title;
-    JButton button, registerButton;
-    JCheckBox showPassword;
-    JSONArray jArr = new JSONArray();
+    private JPasswordField password;
+    private JTextField username;
+    private JLabel passwordLabel, usernameLabel, message;
+    private JButton button, registerButton;
 
     LoginPage() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,16 +60,16 @@ public class LoginPage extends JFrame implements ActionListener {
 
                 for (int i = 0; i < jArr.size(); i++) {
                     if (obj.equals(jArr.get(i))) {
-                        JOptionPane.showMessageDialog(null, "Password matched!");
+
                         this.dispose();
                         landingPage frame = new landingPage();
 
                     } else if (i == jArr.size()-1) {
-                        JOptionPane.showMessageDialog(null, "The password or user is incorrect.");
+                        JOptionPane.showMessageDialog(null, "Your username or password is incorrect.");
                     }
                 }
             }
-            private void dispose() {
+            private static void dispose() {
             }
         });
         button.setBounds(300,300,100,40);
@@ -81,7 +79,17 @@ public class LoginPage extends JFrame implements ActionListener {
         /* Register Function */
         registerButton = new JButton(new AbstractAction("Register") {
             public void actionPerformed(ActionEvent event) {
+                JSONArray jArr = new JSONArray();
                 JSONObject obj = new JSONObject();
+                JSONParser jp = new JSONParser();
+
+                try {
+                    FileReader file = new FileReader("./data/UserData.json");
+                    jArr =(JSONArray)jp.parse(file);
+                } catch(Exception ex){
+                    JOptionPane.showMessageDialog(null,"An error occurred.");
+                }
+
 
                 obj.put("Username", username.getText());
                 obj.put("Password", password.getText());
@@ -95,7 +103,7 @@ public class LoginPage extends JFrame implements ActionListener {
                 } catch (Exception exception) {
                     JOptionPane.showMessageDialog(null, "An error occurred.");
                 }
-                JOptionPane.showMessageDialog(null, jArr);
+                JOptionPane.showMessageDialog(null, "Successfully added user.");
             }
         });
         registerButton.setBounds(420,300,100,40);
