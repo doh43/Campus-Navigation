@@ -4,23 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AddPoiPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FavouritesPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FloorPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LayerPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MainPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PoiListPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SearchPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
+    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them).">
+      <change afterPath="$PROJECT_DIR$/data/maps/ncb/ncb1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/maps/ncb/ncb2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/maps/ncb/ncb3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/maps/ncb/ncb4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/maps/ncb/ncb5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ah/ah1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ah/ah2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ah/ah3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc5.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/nsc/nsc1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/nsc/nsc2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/nsc/nsc3.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +140,14 @@
       <workItem from="1678765177013" duration="535000" />
       <workItem from="1679405643831" duration="2329000" />
     </task>
+    <task id="LOCAL-00001" summary="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them).">
+      <created>1679697931707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679697931707</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,5 +175,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them)." />
   </component>
 </project>
