@@ -1,6 +1,6 @@
 package org.example;
 import javax.swing.*;
-import java.awt*;
+import java.awt.*;
 
 public class Maps extends JFrame implements ActionListener {
     
@@ -120,6 +120,7 @@ public class Maps extends JFrame implements ActionListener {
 
         setTitle("Western Campus Navigation - Map Page");
         setLayout(new BorderLayout());
+        setSize(1400,1000);
         setVisible(true);
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
