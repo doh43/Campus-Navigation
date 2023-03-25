@@ -2,99 +2,81 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class SidePanel extends JPanel implements ActionListener {
-    private SpringLayout layout;
-    private PoiListPanel poiPan;
-    private LayerPanel layerPan;
-    private FavouritesPanel favPan;
-    private PoiPanel addPoiPan;
-    private JButton addBtn;
-
+public class SidePanel extends JLayeredPane {
+    JPanel poiList;
+    JPanel layer;
+    JPanel favourites;
+    JPanel poiPanel;
+    JPanel selection;
     SidePanel() {
-        layout = new SpringLayout();
+        setLayout(null);
         setPreferredSize(new Dimension(200,1000));
-        setLayout(layout);
 
-        poiPan = new PoiListPanel();
-        layerPan = new LayerPanel();
-        favPan = new FavouritesPanel();
-        addPoiPan = new PoiPanel();
+        selection = new JPanel();
+        selection.setBounds(0,0,200,600);
 
-        addBtn = new JButton("+");
-        addBtn.setFocusable(false);
-        addBtn.addActionListener(this);
+        // PoiListPanel
+        poiList = new JPanel();
+        poiList.setLayout(new BorderLayout());
+        poiList.setBackground(Color.lightGray);
+        poiList.setPreferredSize(new Dimension(200,150));
 
-        setDefaultLayout();
+        JLabel poiSelect = new JLabel("Select POI:");
+        String[] pois = {"Classroom1","Rest2","Lab3","Stair"};
+        JComboBox<String> cb = new JComboBox<>(pois);
 
-        add(poiPan);
-        add(layerPan);
-        add(favPan);
-        add(addBtn);
+
+
+        poiList.add(poiSelect, BorderLayout.NORTH);
+        poiList.add(cb, BorderLayout.CENTER);
+
+        // LayerPanel
+        layer = new JPanel();
+        layer.setLayout(new GridLayout(8,1));
+        layer.setBackground(Color.lightGray);
+        layer.setPreferredSize(new Dimension(200,300));
+
+        JLabel layerSelect = new JLabel("Layers");
+
+        JCheckBox cRoom = new JCheckBox("Classrooms",true);
+        JCheckBox nav = new JCheckBox("Navigation",true);
+        JCheckBox wash = new JCheckBox("Washrooms",true);
+        JCheckBox entry = new JCheckBox("Entry/Exit",true);
+        JCheckBox genL = new JCheckBox("Labs",true);
+        JCheckBox res = new JCheckBox("Restaurants",true);
+        JCheckBox collab = new JCheckBox("Collaborative Rooms",true);
+
+
+        layer.add(layerSelect);
+        layer.add(cRoom);
+        layer.add(nav);
+        layer.add(wash);
+        layer.add(entry);
+        layer.add(genL);
+        layer.add(res);
+        layer.add(collab);
+
+        // Favourites
+        favourites = new JPanel();
+        favourites.setLayout(new BorderLayout());
+        favourites.setBackground(Color.lightGray);
+        favourites.setPreferredSize(new Dimension(200,150));
+
+        JLabel favSelect = new JLabel("Favourites");
+        String[] favs = {"fav1","fav2","fav3","fav4"};
+        JComboBox<String> favBox = new JComboBox<>(favs);
+
+        favourites.add(favSelect, BorderLayout.NORTH);
+        favourites.add(favBox, BorderLayout.CENTER);
+
+        selection.add(poiList);
+        selection.add(layer);
+        selection.add(favourites);
+
+        add(selection, Integer.valueOf(0));
+        add(new PoiPanel(), Integer.valueOf(1));
+
     }
 
-    /* Sets the default layout */
-    private void setDefaultLayout() {
-        layout.putConstraint(SpringLayout.WEST, poiPan, 0, SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.EAST, poiPan, 0, SpringLayout.EAST, this);
-
-        layout.putConstraint(SpringLayout.WEST, layerPan, 0, SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.EAST, layerPan, 0, SpringLayout.EAST, this);
-        layout.putConstraint(SpringLayout.NORTH, layerPan, 150, SpringLayout.SOUTH, poiPan);
-
-        layout.putConstraint(SpringLayout.WEST, favPan, 0, SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.EAST, favPan, 0, SpringLayout.EAST, this);
-        layout.putConstraint(SpringLayout.NORTH, favPan, 5, SpringLayout.SOUTH, layerPan);
-
-        layout.putConstraint(SpringLayout.WEST, addBtn, 0, SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.EAST, addBtn, 0, SpringLayout.EAST, this);
-        layout.putConstraint(SpringLayout.NORTH, addBtn, 150, SpringLayout.SOUTH, favPan);
-        layout.putConstraint(SpringLayout.SOUTH, addBtn, 0, SpringLayout.SOUTH, this);
-
-    }
-
-    /* Sets the layout after the addPOI button is pressed */
-    private void setUpdateLayout() {
-        layout.putConstraint(SpringLayout.WEST, addPoiPan, 0, SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.EAST, addPoiPan, 0, SpringLayout.EAST, this);
-
-        layout.putConstraint(SpringLayout.WEST, addBtn, 0, SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.EAST, addBtn, 0, SpringLayout.EAST, this);
-        layout.putConstraint(SpringLayout.SOUTH, addBtn, 0, SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.NORTH, addBtn, 570, SpringLayout.SOUTH, addPoiPan);
-    }
-
-    /* Method that changes the panel depending on the add poi button. When shifting to the POI panel the button shows
-    * but the POI panel doesn't. When it returns to the default layout everything works perfectly. TODO: Fix method */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (addBtn.getText().equals("+")) {
-            remove(addBtn);
-            remove(poiPan);
-            remove(layerPan);
-            remove(favPan);
-
-            setUpdateLayout();
-
-            add(addPoiPan);
-            add(addBtn);
-            addPoiPan.setVisible(true);
-            addBtn.setText("CLOSE");
-        }
-        else if (addBtn.getText().equals("CLOSE")) {
-            addPoiPan.setVisible(false);
-            remove(addPoiPan);
-            remove(addBtn);
-
-            setDefaultLayout();
-
-            add(poiPan);
-            add(layerPan);
-            add(favPan);
-            add(addBtn);
-            addBtn.setText("+");
-        }
-    }
 }
