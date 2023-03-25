@@ -7,8 +7,7 @@ public class Maps extends JFrame {
         setTitle("Western Campus Navigation - Map Page");
         setLayout(new BorderLayout());
         setSize(1400,1000);
-        setVisible(true);
-        pack();
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Must be in Maps because of the dispose method
@@ -25,6 +24,9 @@ public class Maps extends JFrame {
 
         add(new SidePanel(), BorderLayout.WEST);
         add(new MainPanel(botPan), BorderLayout.CENTER);
+        pack();
+        setVisible(true);
+
     }
 
     public static void main(String[] args) {
