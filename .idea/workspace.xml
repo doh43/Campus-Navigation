@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Edited image formatting and changed the NSC buildings to NCB buildings">
+    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Changed the toggle buttons to regular buttons - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FloorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FloorPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AddPoiPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LayerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LayerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679699677314</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Changed the toggle buttons to regular buttons - Tomas Garcia">
+      <created>1679703423235</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679703423235</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +173,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="front" />
+                        <option value="origin/maps" />
                       </list>
                     </value>
                   </entry>
@@ -175,6 +188,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them)." />
     <MESSAGE value="Edited image formatting and changed the NSC buildings to NCB buildings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited image formatting and changed the NSC buildings to NCB buildings" />
+    <MESSAGE value="Changed the toggle buttons to regular buttons - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the toggle buttons to regular buttons - Tomas Garcia" />
   </component>
 </project>

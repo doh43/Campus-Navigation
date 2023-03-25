@@ -19,7 +19,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
     PoiPanel() {
         d = Data.getInstance();
         this.setLayout(null);
-        this.setBackground(Color.GRAY);
+        this.setBackground(Color.lightGray);
 
         poiName = new JTextField("Name");
         poiRoomNum = new JTextField("Room Num");

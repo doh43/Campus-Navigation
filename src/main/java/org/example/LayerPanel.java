@@ -5,10 +5,12 @@ import java.awt.*;
 
 public class LayerPanel extends JPanel {
     LayerPanel() {
-        setLayout(new GridLayout(8,1));
+        setLayout(new BorderLayout());
         setBackground(Color.lightGray);
 
         JLabel layerSelect = new JLabel("Layers");
+
+        JPanel checkPan = new JPanel(new GridLayout(7,1));
 
         JCheckBox cRoom = new JCheckBox("Classrooms",true);
         JCheckBox nav = new JCheckBox("Navigation",true);
@@ -18,13 +20,16 @@ public class LayerPanel extends JPanel {
         JCheckBox res = new JCheckBox("Restaurants",true);
         JCheckBox collab = new JCheckBox("Collaborative Rooms",true);
 
-        add(layerSelect);
-        add(cRoom);
-        add(nav);
-        add(wash);
-        add(entry);
-        add(genL);
-        add(res);
-        add(collab);
+        checkPan.add(cRoom);
+        checkPan.add(nav);
+        checkPan.add(wash);
+        checkPan.add(entry);
+        checkPan.add(genL);
+        checkPan.add(res);
+        checkPan.add(collab);
+
+        add(layerSelect, BorderLayout.NORTH);
+        add(checkPan, BorderLayout.CENTER);
+
     }
 }
