@@ -59,12 +59,11 @@ public class SidePanel extends JPanel implements ActionListener {
     private void setUpdateLayout() {
         layout.putConstraint(SpringLayout.WEST, addPoiPan, 0, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.EAST, addPoiPan, 0, SpringLayout.EAST, this);
-        layout.putConstraint(SpringLayout.NORTH, addPoiPan, 0, SpringLayout.NORTH, this);
 
         layout.putConstraint(SpringLayout.WEST, addBtn, 0, SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.EAST, addBtn, 0, SpringLayout.EAST, this);
         layout.putConstraint(SpringLayout.SOUTH, addBtn, 0, SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.EAST, poiPan, 0, SpringLayout.EAST, this);
+        layout.putConstraint(SpringLayout.NORTH, addBtn, 570, SpringLayout.SOUTH, addPoiPan);
     }
 
     /* Method that changes the panel depending on the add poi button. When shifting to the POI panel the button shows
