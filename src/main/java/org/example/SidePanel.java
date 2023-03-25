@@ -7,7 +7,6 @@ public class SidePanel extends JLayeredPane {
     JPanel poiList;
     JPanel layer;
     JPanel favourites;
-    JPanel poiPanel;
     JPanel selection;
     SidePanel() {
         setLayout(null);

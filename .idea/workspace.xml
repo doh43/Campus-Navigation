@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" afterDir="false" />
+    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679722199730</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia">
+      <created>1679778458783</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679778458783</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +205,7 @@
     <MESSAGE value="Changed the toggle buttons to regular buttons - Tomas Garcia" />
     <MESSAGE value="Made minor changes to many classes, deleted AddPoiPanel.java, changed the side panel to spring layout. A bug on the action listener method of the side panel has been documented and must be corrected. - Tomas Garcia" />
     <MESSAGE value="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia" />
+    <MESSAGE value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
   </component>
 </project>
