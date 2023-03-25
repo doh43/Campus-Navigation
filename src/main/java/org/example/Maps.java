@@ -1,33 +1,32 @@
 package org.example;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-public class Maps extends JFrame implements ActionListener {
-    JButton back;
-    //JPanel mapImage;
+import java.awt.*;
+
+public class Maps extends JFrame {
     Maps() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1400, 1000);
-        this.setTitle("Western Campus Navigation");
-        this.setLocationRelativeTo(null);
-        this.setLayout(null);
+        setTitle("Western Campus Navigation - Map Page");
+        setLayout(new BorderLayout());
+        setSize(1400,1000);
 
-        back = new JButton("Back");
-        back.setBounds(290, 400, 100, 40);
-        back.addActionListener(this);
-        back.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        this.add(back);
-        this.add(new PoiPanel());
-        this.setVisible(true);
-    }
+        // Must be in Maps because of the dispose method
+        JButton back = new JButton("Back");
+        back.addActionListener(e -> {
+            if (e.getSource() == back) {
+                dispose();
+                new LandingPage();
 
-    @Override
-    public void actionPerformed(ActionEvent event) {
-        if (event.getSource() == back) {
-            this.dispose();
-            LandingPage frame = new LandingPage();
-        }
+            }
+        });
+
+        BottomPanel botPan = new BottomPanel(back);
+
+        add(new SidePanel(), BorderLayout.WEST);
+        add(new MainPanel(botPan), BorderLayout.CENTER);
+        pack();
+        setVisible(true);
+
     }
 
     public static void main(String[] args) {
