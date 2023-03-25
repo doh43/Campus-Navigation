@@ -7,10 +7,10 @@ public class FloorPanel extends JPanel {
     FloorPanel(){
         setLayout(new GridLayout());
 
-        JToggleButton floor1 = new JToggleButton("1",true);
-        JToggleButton floor2 = new JToggleButton("2");
-        JToggleButton floor3 = new JToggleButton("3");
-        JToggleButton floor4 = new JToggleButton("4");
+        JButton floor1 = new JButton("1");
+        JButton floor2 = new JButton("2");
+        JButton floor3 = new JButton("3");
+        JButton floor4 = new JButton("4");
 
         add(floor1);
         add(floor2);
