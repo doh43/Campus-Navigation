@@ -21,8 +21,8 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
     PoiPanel() {
         d = Data.getInstance();
         this.setBounds(0,605,panelWidth,200);
-        this.setBackground(Color.GRAY);
         this.setLayout(null);
+        this.setBackground(Color.lightGray);
 
         button = new JButton();
         button.setText("ADD");
