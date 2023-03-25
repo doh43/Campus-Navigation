@@ -8,7 +8,21 @@ public class BottomPanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(new Color(0,0,0,65));
 
-        add(new FloorPanel(), BorderLayout.WEST);
+        // FloorPanel
+        JPanel floorPanel = new JPanel();
+        floorPanel.setLayout(new GridLayout());
+
+        JButton floor1 = new JButton("1");
+        JButton floor2 = new JButton("2");
+        JButton floor3 = new JButton("3");
+        JButton floor4 = new JButton("4");
+
+        floorPanel.add(floor1);
+        floorPanel.add(floor2);
+        floorPanel.add(floor3);
+        floorPanel.add(floor4);
+
+        add(floorPanel, BorderLayout.WEST);
         add(btn, BorderLayout.EAST);
     }
 }
