@@ -6,7 +6,6 @@ import java.awt.*;
 public class BottomPanel extends JPanel {
     BottomPanel(JButton btn) {
         setLayout(new BorderLayout());
-        setBackground(new Color(0,0,0,65));
 
         // FloorPanel
         JPanel floorPanel = new JPanel();

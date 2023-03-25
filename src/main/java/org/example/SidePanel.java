@@ -7,7 +7,6 @@ public class SidePanel extends JLayeredPane {
     JPanel poiList;
     JPanel layer;
     JPanel favourites;
-    JPanel poiPanel;
     JPanel selection;
     SidePanel() {
         setLayout(null);
@@ -20,7 +19,7 @@ public class SidePanel extends JLayeredPane {
         poiList = new JPanel();
         poiList.setLayout(new BorderLayout());
         poiList.setBackground(Color.lightGray);
-        poiList.setPreferredSize(new Dimension(200,150));
+        poiList.setPreferredSize(new Dimension(200,50));
 
         JLabel poiSelect = new JLabel("Select POI:");
         String[] pois = {"Classroom1","Rest2","Lab3","Stair"};
@@ -33,11 +32,13 @@ public class SidePanel extends JLayeredPane {
 
         // LayerPanel
         layer = new JPanel();
-        layer.setLayout(new GridLayout(8,1));
+        layer.setLayout(new BorderLayout());
         layer.setBackground(Color.lightGray);
-        layer.setPreferredSize(new Dimension(200,300));
+        layer.setPreferredSize(new Dimension(200,220));
 
         JLabel layerSelect = new JLabel("Layers");
+
+        JPanel checkPan = new JPanel(new GridLayout(7,1));
 
         JCheckBox cRoom = new JCheckBox("Classrooms",true);
         JCheckBox nav = new JCheckBox("Navigation",true);
@@ -48,20 +49,22 @@ public class SidePanel extends JLayeredPane {
         JCheckBox collab = new JCheckBox("Collaborative Rooms",true);
 
 
-        layer.add(layerSelect);
-        layer.add(cRoom);
-        layer.add(nav);
-        layer.add(wash);
-        layer.add(entry);
-        layer.add(genL);
-        layer.add(res);
-        layer.add(collab);
+        checkPan.add(cRoom);
+        checkPan.add(nav);
+        checkPan.add(wash);
+        checkPan.add(entry);
+        checkPan.add(genL);
+        checkPan.add(res);
+        checkPan.add(collab);
+
+        layer.add(layerSelect, BorderLayout.NORTH);
+        layer.add(checkPan, BorderLayout.CENTER);
 
         // Favourites
         favourites = new JPanel();
         favourites.setLayout(new BorderLayout());
         favourites.setBackground(Color.lightGray);
-        favourites.setPreferredSize(new Dimension(200,150));
+        favourites.setPreferredSize(new Dimension(200,50));
 
         JLabel favSelect = new JLabel("Favourites");
         String[] favs = {"fav1","fav2","fav3","fav4"};
@@ -70,7 +73,11 @@ public class SidePanel extends JLayeredPane {
         favourites.add(favSelect, BorderLayout.NORTH);
         favourites.add(favBox, BorderLayout.CENTER);
 
+        JPanel emptyPan = new JPanel();
+        emptyPan.setPreferredSize(new Dimension(200,130));
+
         selection.add(poiList);
+        selection.add(emptyPan);
         selection.add(layer);
         selection.add(favourites);
 

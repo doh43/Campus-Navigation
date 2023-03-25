@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Edited image formatting and changed the NSC buildings to NCB buildings">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FloorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FloorPanel.java" afterDir="false" />
+    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +142,35 @@
       <option name="project" value="LOCAL" />
       <updated>1679699677314</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Changed the toggle buttons to regular buttons - Tomas Garcia">
+      <created>1679703423235</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679703423235</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Made minor changes to many classes, deleted AddPoiPanel.java, changed the side panel to spring layout. A bug on the action listener method of the side panel has been documented and must be corrected. - Tomas Garcia">
+      <created>1679721331282</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679721331282</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia">
+      <created>1679722199730</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679722199730</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia">
+      <created>1679778458783</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679778458783</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +187,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="front" />
+                        <option value="origin/maps" />
                       </list>
                     </value>
                   </entry>
@@ -175,6 +202,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them)." />
     <MESSAGE value="Edited image formatting and changed the NSC buildings to NCB buildings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited image formatting and changed the NSC buildings to NCB buildings" />
+    <MESSAGE value="Changed the toggle buttons to regular buttons - Tomas Garcia" />
+    <MESSAGE value="Made minor changes to many classes, deleted AddPoiPanel.java, changed the side panel to spring layout. A bug on the action listener method of the side panel has been documented and must be corrected. - Tomas Garcia" />
+    <MESSAGE value="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia" />
+    <MESSAGE value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
   </component>
 </project>

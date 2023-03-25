@@ -5,7 +5,7 @@ import java.awt.*;
 public class Maps extends JFrame {
     Maps() {
         setTitle("Western Campus Navigation - Map Page");
-        setSize(1400,1000);
+        setSize(1400,820);
         setLayout(new BorderLayout());
 
 

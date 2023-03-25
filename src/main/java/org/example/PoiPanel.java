@@ -10,7 +10,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
     JButton submit;
     JTextField poiName;
     JTextField poiId;
-    JComboBox poiType;
+    JComboBox<String> poiType;
     JTextField poiRoomNum;
     JTextField poiDesc;
 
@@ -21,8 +21,8 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
     PoiPanel() {
         d = Data.getInstance();
         this.setBounds(0,605,panelWidth,200);
-        this.setBackground(Color.GRAY);
         this.setLayout(null);
+        this.setBackground(Color.lightGray);
 
         button = new JButton();
         button.setText("ADD");
@@ -36,7 +36,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
         poiDesc = new JTextField("Desc");
 
         String[] choices = {"Classroom", "Navigation", "Washroom", "Entry / Exit", "Restaurant", "Lab", "Collaborative Room"};
-        poiType = new JComboBox(choices);
+        poiType = new JComboBox<>(choices);
 
 
         submit = new JButton("Submit");
