@@ -3,21 +3,32 @@ import javax.swing.*;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import java.io.FileReader;
 import java.io.FileWriter;
 import org.json.simple.parser.JSONParser;
+=======
+>>>>>>> 5e6769a949e99e31937374d46a7563204159e8b1
 
 /**
  * Login page that handles both user registration and login by storing data in /data/userData.json.
  * @author doh43
  */
 public class LoginPage extends JFrame implements ActionListener {
+<<<<<<< HEAD
     private JPasswordField password;
     private JTextField username;
     private JLabel passwordLabel, usernameLabel, message;
     private JButton button, registerButton;
+=======
+    JPasswordField password;
+    JTextField username;
+    JLabel passwordLabel, usernameLabel, message;
+    JButton button, resetButton;
+    JCheckBox showPassword;
+>>>>>>> 5e6769a949e99e31937374d46a7563204159e8b1
 
     /** Displays the login page */
     LoginPage() {
@@ -138,7 +149,16 @@ public class LoginPage extends JFrame implements ActionListener {
     }
 
     @Override
+<<<<<<< HEAD
     public void actionPerformed(ActionEvent e) {
+=======
+    public void actionPerformed(ActionEvent event) {
+        if (event.getSource()==button) {
+            String message = "Login successful.";
+            this.dispose();
+            LandingPage frame = new LandingPage();
+        }
+>>>>>>> 5e6769a949e99e31937374d46a7563204159e8b1
     }
 
     /** Launch the application */
