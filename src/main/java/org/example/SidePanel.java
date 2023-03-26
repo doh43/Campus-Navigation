@@ -4,9 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SidePanel extends JLayeredPane {
-    JPanel poiList;
-    JPanel layer;
-    JPanel favourites;
+    private static JPanel poiList;
+    private static JPanel layer;
+    private static JPanel favourites;
+    private static JPanel checkPan;
     JPanel selection;
     SidePanel() {
         setLayout(null);
@@ -38,7 +39,7 @@ public class SidePanel extends JLayeredPane {
 
         JLabel layerSelect = new JLabel("Layers");
 
-        JPanel checkPan = new JPanel(new GridLayout(7,1));
+        checkPan = new JPanel(new GridLayout(7,1));
 
         JCheckBox cRoom = new JCheckBox("Classrooms",true);
         JCheckBox nav = new JCheckBox("Navigation",true);
@@ -84,6 +85,24 @@ public class SidePanel extends JLayeredPane {
         add(selection, Integer.valueOf(0));
         add(new PoiPanel(), Integer.valueOf(1));
 
+    }
+    public static void disableSelection() {
+        poiList.getComponent(1).setEnabled(false);
+        favourites.getComponent(1).setEnabled(false);
+        for (Component c: checkPan.getComponents()) {
+            if (c instanceof JCheckBox) {
+                c.setEnabled(false);
+            }
+        }
+    }
+    public static void enableSelection() {
+        poiList.getComponent(1).setEnabled(true);
+        favourites.getComponent(1).setEnabled(true);
+        for (Component c: checkPan.getComponents()) {
+            if (c instanceof JCheckBox) {
+                c.setEnabled(true);
+            }
+        }
     }
 
 }

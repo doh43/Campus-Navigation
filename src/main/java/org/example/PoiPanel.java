@@ -30,31 +30,52 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
         button.setBounds(0,0,panelWidth,200);
         button.addActionListener(this);
 
-        poiName = new JTextField("Name");
-        poiId = new JTextField("Id");
-        poiRoomNum = new JTextField("Room Num");
-        poiDesc = new JTextField("Desc");
+        JLabel poiNameLabel = new JLabel("Name");
+        poiName = new JTextField();
 
+        JLabel poiIdLabel = new JLabel("Id");
+        poiId = new JTextField();
+
+        JLabel poiRoomNumLabel = new JLabel("Room Number");
+        poiRoomNum = new JTextField();
+
+        JLabel poiDescLabel = new JLabel("Description");
+        poiDesc = new JTextField();
+
+        JLabel poiTypeLabel = new JLabel("Types");
         String[] choices = {"Classroom", "Navigation", "Washroom", "Entry / Exit", "Restaurant", "Lab", "Collaborative Room"};
         poiType = new JComboBox<>(choices);
 
+        poiNameLabel.setBounds(5,10,panelWidth-10, 20);
+        poiName.setBounds(5,30, panelWidth-10, 40);
+
+        poiIdLabel.setBounds(5,80,panelWidth-10,20);
+        poiId.setBounds(5,100, panelWidth-10, 40);
+
+        poiTypeLabel.setBounds(5,150,panelWidth-10,20);
+        poiType.setBounds(5,170, panelWidth-10, 40);
+
+        poiRoomNumLabel.setBounds(5,220,panelWidth-10,20);
+        poiRoomNum.setBounds(5,240, panelWidth-10, 40);
+
+        poiDescLabel.setBounds(5,290,panelWidth-10,20);
+        poiDesc.setBounds(5,310, panelWidth-10, 40);
 
         submit = new JButton("Submit");
         submit.setFocusable(false);
-        submit.setBounds(5, 160, 100,20);
+        submit.setBounds(5, 360, panelWidth - 10,40);
         submit.addActionListener(this);
 
-        poiName.setBounds(5,10, panelWidth-10, 20);
-        poiId.setBounds(5,40, panelWidth-10, 20);
-        poiType.setBounds(5,70, panelWidth-10, 20);
-        poiRoomNum.setBounds(5,100, panelWidth-10, 20);
-        poiDesc.setBounds(5,130, panelWidth-10, 20);
-
         this.add(button);
+        this.add(poiNameLabel);
         this.add(poiName);
+        this.add(poiIdLabel);
         this.add(poiId);
+        this.add(poiTypeLabel);
         this.add(poiType);
+        this.add(poiRoomNumLabel);
         this.add(poiRoomNum);
+        this.add(poiDescLabel);
         this.add(poiDesc);
         this.add(submit);
     }
@@ -64,10 +85,12 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
                 this.setBounds(0, 0, panelWidth, 1000);
                 button.setBounds(0,605, panelWidth,200);
                 button.setText("CLOSE");
+                SidePanel.disableSelection();
             } else {
                 this.setBounds(0,605,panelWidth,200);
                 button.setBounds(0,0, panelWidth,200);
                 button.setText("ADD");
+                SidePanel.enableSelection();
             }
         } else if (e.getSource() == submit) {
             Poi p = new Poi(
