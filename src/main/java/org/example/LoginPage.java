@@ -9,13 +9,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import org.json.simple.parser.JSONParser;
 
-
+/**
+ * Login page that handles both user registration and login by storing data in /data/userData.json.
+ * @author doh43
+ */
 public class LoginPage extends JFrame implements ActionListener {
     private JPasswordField password;
     private JTextField username;
     private JLabel passwordLabel, usernameLabel, message;
     private JButton button, registerButton;
 
+    /** Displays the login page */
     LoginPage() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(700,500);
@@ -37,7 +41,11 @@ public class LoginPage extends JFrame implements ActionListener {
         password = new JPasswordField();
         password.setBounds(300,250,300,40);
 
-        /* Verify user sign in */
+        /** Sign-in button that verifies username and password.
+         *
+         * @param ActionEvent
+         * @throws exception
+         * */
         button = new JButton(new AbstractAction("Sign in") {
             public void actionPerformed(ActionEvent e) {
                 JSONArray jArr = new JSONArray();
@@ -54,6 +62,7 @@ public class LoginPage extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "An error occurred while fetching data.");
                 }
 
+                /** Creates a new JSONObject with the user's inputted username and password and compares it with each object in the JSONArray. */
                 JSONObject obj = new JSONObject();
                 obj.put("Username", username.getText());
                 obj.put("Password", password.getText());
@@ -76,7 +85,11 @@ public class LoginPage extends JFrame implements ActionListener {
         button.addActionListener(this);
         button.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
-        /* Register Function */
+        /** Register button that saves new username and password.
+         *
+         * @param ActionEvent
+         * @throws exception
+         * */
         registerButton = new JButton(new AbstractAction("Register") {
             public void actionPerformed(ActionEvent event) {
                 JSONArray jArr = new JSONArray();
@@ -126,10 +139,9 @@ public class LoginPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
     }
 
-    /* Launch the application */
+    /** Launch the application */
     public static void main(String[] args) {
 
         LoginPage frame = new LoginPage();
