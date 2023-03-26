@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="">
+
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment=""/>
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/userData.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LoginPage.java" afterDir="false" />
-=======
+
     <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
->>>>>>> 5e6769a949e99e31937374d46a7563204159e8b1
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,11 +212,10 @@
       </map>
     </option>
   </component>
-<<<<<<< HEAD
-  <component name="XSLT-Support.FileAssociations.UIState">
+
+  <component name="XSLT-Support.FileAssociations.UIState"/>
     <expand />
     <select />
-=======
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them)." />
     <MESSAGE value="Edited image formatting and changed the NSC buildings to NCB buildings" />
@@ -226,6 +224,5 @@
     <MESSAGE value="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia" />
     <MESSAGE value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
     <option name="LAST_COMMIT_MESSAGE" value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
->>>>>>> 5e6769a949e99e31937374d46a7563204159e8b1
   </component>
 </project>
