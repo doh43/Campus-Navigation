@@ -39,6 +39,6 @@ public final class Data {
         }
     }
     public JSONArray getPois(String building, int floorNum) {
-        return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).getJSONArray("pois");
+        return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum - 1).getJSONArray("pois");
     }
 }

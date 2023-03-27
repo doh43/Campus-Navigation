@@ -121,7 +121,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
                     mousePosAbsolute.x,
                     mousePosAbsolute.y
             );
-            addPoi("mc",0,p.convertJSON());
+            addPoi(Maps.getBuildingCode(),MapPanel.getFloorNum(),p.convertJSON());
         } else if (e.getSource() == poiPos) {
             if (!posMode) {
                 posMode = true;
