@@ -16,11 +16,13 @@ public class LandingPage extends JFrame implements ActionListener {
     JComboBox campusBuildings;
     JLabel boxLabel;
     JButton help, back, about, openMap;
+    String choice;
 
     /**
      * Generates all the buttons for the landing page and the dropdown list.
      */
     LandingPage() {
+        choice = "ncb";
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(700, 500);
         this.setTitle("Western Campus Navigation");
@@ -74,19 +76,17 @@ public class LandingPage extends JFrame implements ActionListener {
      */
     private void buildingSelection(JComboBox campusBuildings) {
         try {
-            Data buildingName = Data.getInstance();
             String string = campusBuildings.getSelectedItem().toString();
-            JSONObject o = null;
             if (string.equals("Middlesex College")) {
-                o = buildingName.savedData.getJSONObject("mc");
+                choice = "mc";
             }
             if (string.equals("Alumni Hall")) {
-                o=buildingName.savedData.getJSONObject("ah");
+                choice = "ah";
             }
             if (string.equals("North Campus Building")) {
-                o = buildingName.savedData.getJSONObject("ncb");
+                choice = "ncb";
             }
-            System.out.print(o); // Remove later, testing to see what prints.
+            System.out.print(choice); // Remove later, testing to see what prints.
         }
         // Whenever a building cannot be found, it will print a message.
         catch (Exception e)  {
@@ -118,7 +118,7 @@ public class LandingPage extends JFrame implements ActionListener {
         }
         if (event.getSource() == openMap) {
             this.dispose();
-            Maps newMap = new Maps(); // Opens a map page for users to view.
+            Maps newMap = new Maps(choice); // Opens a map page for users to view.
         }
     }
 }
