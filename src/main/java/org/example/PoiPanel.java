@@ -15,6 +15,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
     JTextField poiRoomNum;
     JTextField poiDesc;
     JButton poiPos;
+    JLabel poiPosLabel;
     Boolean posMode;
     Point mousePosAbsolute;
 
@@ -24,6 +25,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
 
     PoiPanel() {
         d = Data.getInstance();
+
         this.setBounds(0,605,panelWidth,200);
         this.setLayout(null);
         this.setBackground(Color.lightGray);
@@ -52,7 +54,8 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
         String[] choices = {"Classroom", "Navigation", "Washroom", "Entry / Exit", "Restaurant", "Lab", "Collaborative Room"};
         poiType = new JComboBox<>(choices);
 
-        poiPos = new JButton("Position");
+        poiPosLabel = new JLabel("Current Pos: 0,0");
+        poiPos = new JButton("Set Position");
 
         poiNameLabel.setBounds(5,10,panelWidth-10, 20);
         poiName.setBounds(5,30, panelWidth-10, 40);
@@ -69,13 +72,14 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
         poiDescLabel.setBounds(5,290,panelWidth-10,20);
         poiDesc.setBounds(5,310, panelWidth-10, 40);
 
-        poiPos.setBounds(5,350, panelWidth - 10, 20);
+        poiPos.setBounds(5,360, panelWidth - 10, 30);
         poiPos.setFocusable(false);
         poiPos.addActionListener(this);
+        poiPosLabel.setBounds(5,390, panelWidth - 10, 20);
 
         submit = new JButton("Submit");
         submit.setFocusable(false);
-        submit.setBounds(5, 370, panelWidth - 10,40);
+        submit.setBounds(5, 420, panelWidth - 10,40);
         submit.addActionListener(this);
 
         this.add(button);
@@ -91,6 +95,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
         this.add(poiDesc);
         this.add(submit);
         this.add(poiPos);
+        this.add(poiPosLabel);
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
@@ -120,9 +125,12 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
         } else if (e.getSource() == poiPos) {
             if (!posMode) {
                 posMode = true;
+                poiPos.setText("Click on Map");
                 MapPanel.getMapScroll().addMouseListener(this);
             } else {
+                poiPos.setText("Set Position");
                 posMode = false;
+                MapPanel.getMapScroll().removeMouseListener(this);
             }
         }
     }
@@ -149,6 +157,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
             Point mousePosRelativeToViewport = MapPanel.getMapScroll().getMousePosition();
             Point viewportLocation = MapPanel.getMapScroll().getViewport().getViewPosition();
             mousePosAbsolute.setLocation(mousePosRelativeToViewport.x + viewportLocation.x, mousePosRelativeToViewport.y + viewportLocation.y);
+            poiPosLabel.setText("Current Pos: " + mousePosAbsolute.x + "," + mousePosAbsolute.y);
             System.out.println(mousePosAbsolute);
         }
     }
