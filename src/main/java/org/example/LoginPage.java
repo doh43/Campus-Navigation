@@ -71,7 +71,7 @@ public class LoginPage extends JFrame implements ActionListener {
                     if (obj.equals(jArr.get(i))) {
 
                         this.dispose();
-                        landingPage frame = new landingPage();
+                        LandingPage frame = new LandingPage();
 
                     } else if (i == jArr.size()-1) {
                         JOptionPane.showMessageDialog(null, "Your username or password is incorrect.");

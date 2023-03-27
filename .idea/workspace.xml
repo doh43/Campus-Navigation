@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="">
+
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment=""/>
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/userData.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LoginPage.java" afterDir="false" />
+
+    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +75,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoginPage">
+  <component name="RunManager" selected="Application.Maps">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="app" />
@@ -98,8 +102,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Maps" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Maps" />
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Maps" />
         <item itemvalue="Application.LoginPage" />
         <item itemvalue="Application.App" />
       </list>
@@ -108,7 +126,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="" />
+      <changelist id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="" />
       <created>1677596659007</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -123,6 +141,49 @@
       <workItem from="1679610906875" duration="2600000" />
       <workItem from="1679802117702" duration="3585000" />
     </task>
+    <task id="LOCAL-00001" summary="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them).">
+      <created>1679697931707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679697931707</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Edited image formatting and changed the NSC buildings to NCB buildings">
+      <created>1679699677314</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679699677314</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changed the toggle buttons to regular buttons - Tomas Garcia">
+      <created>1679703423235</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679703423235</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Made minor changes to many classes, deleted AddPoiPanel.java, changed the side panel to spring layout. A bug on the action listener method of the side panel has been documented and must be corrected. - Tomas Garcia">
+      <created>1679721331282</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679721331282</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia">
+      <created>1679722199730</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679722199730</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia">
+      <created>1679778458783</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679778458783</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,14 +194,35 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/maps" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
+
+  <component name="XSLT-Support.FileAssociations.UIState"/>
     <expand />
     <select />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them)." />
+    <MESSAGE value="Edited image formatting and changed the NSC buildings to NCB buildings" />
+    <MESSAGE value="Changed the toggle buttons to regular buttons - Tomas Garcia" />
+    <MESSAGE value="Made minor changes to many classes, deleted AddPoiPanel.java, changed the side panel to spring layout. A bug on the action listener method of the side panel has been documented and must be corrected. - Tomas Garcia" />
+    <MESSAGE value="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia" />
+    <MESSAGE value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
   </component>
 </project>
