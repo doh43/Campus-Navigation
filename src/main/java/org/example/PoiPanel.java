@@ -3,9 +3,10 @@ package org.example;
 import org.json.JSONObject;
 
 import javax.swing.*;
+import javax.swing.event.MouseInputListener;
 import java.awt.*;
 import java.awt.event.*;
-public class PoiPanel extends JPanel implements ActionListener, EditTool {
+public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseListener {
     JButton button;
     JButton submit;
     JTextField poiName;
@@ -13,6 +14,9 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
     JComboBox<String> poiType;
     JTextField poiRoomNum;
     JTextField poiDesc;
+    JButton poiPos;
+    Boolean posMode;
+    Point mousePosAbsolute;
 
     Data d;
 
@@ -23,6 +27,8 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
         this.setBounds(0,605,panelWidth,200);
         this.setLayout(null);
         this.setBackground(Color.lightGray);
+        mousePosAbsolute = new Point(0,0);
+        posMode = false;
 
         button = new JButton();
         button.setText("ADD");
@@ -46,6 +52,8 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
         String[] choices = {"Classroom", "Navigation", "Washroom", "Entry / Exit", "Restaurant", "Lab", "Collaborative Room"};
         poiType = new JComboBox<>(choices);
 
+        poiPos = new JButton("Position");
+
         poiNameLabel.setBounds(5,10,panelWidth-10, 20);
         poiName.setBounds(5,30, panelWidth-10, 40);
 
@@ -61,9 +69,13 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
         poiDescLabel.setBounds(5,290,panelWidth-10,20);
         poiDesc.setBounds(5,310, panelWidth-10, 40);
 
+        poiPos.setBounds(5,350, panelWidth - 10, 20);
+        poiPos.setFocusable(false);
+        poiPos.addActionListener(this);
+
         submit = new JButton("Submit");
         submit.setFocusable(false);
-        submit.setBounds(5, 360, panelWidth - 10,40);
+        submit.setBounds(5, 370, panelWidth - 10,40);
         submit.addActionListener(this);
 
         this.add(button);
@@ -78,6 +90,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
         this.add(poiDescLabel);
         this.add(poiDesc);
         this.add(submit);
+        this.add(poiPos);
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
@@ -100,10 +113,17 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
                     Integer.parseInt(poiRoomNum.getText()),
                     poiDesc.getText(),
                     "",
-                    0,
-                    0
+                    mousePosAbsolute.x,
+                    mousePosAbsolute.y
             );
             addPoi("mc",0,p.convertJSON());
+        } else if (e.getSource() == poiPos) {
+            if (!posMode) {
+                posMode = true;
+                MapPanel.getMapScroll().addMouseListener(this);
+            } else {
+                posMode = false;
+            }
         }
     }
 
@@ -111,5 +131,35 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool {
     public void addPoi(String building, int floorNum, JSONObject o) {
         d.getPois(building, floorNum).put(o);
         d.storeData(d.savedData);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        if (posMode) {
+            Point mousePosRelativeToViewport = MapPanel.getMapScroll().getMousePosition();
+            Point viewportLocation = MapPanel.getMapScroll().getViewport().getViewPosition();
+            mousePosAbsolute.setLocation(mousePosRelativeToViewport.x + viewportLocation.x, mousePosRelativeToViewport.y + viewportLocation.y);
+            System.out.println(mousePosAbsolute);
+        }
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
