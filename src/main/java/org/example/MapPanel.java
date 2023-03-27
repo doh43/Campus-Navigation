@@ -25,6 +25,9 @@ public class MapPanel extends JPanel {
     public static void setFloorNum(int i) {
         floorNum = i;
     }
+    public static int getFloorNum() {
+        return floorNum;
+    }
     public static JLabel getImageLabel() {
         return imageLabel;
     }
