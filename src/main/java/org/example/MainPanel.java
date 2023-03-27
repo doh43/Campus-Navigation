@@ -6,10 +6,10 @@ import java.awt.*;
 public class MainPanel extends JPanel {
     private static JPanel map;
 
-    MainPanel(BottomPanel botPan, String buildingCode) {
+    MainPanel(BottomPanel botPan) {
         setLayout(new BorderLayout());
 
-        map = new MapPanel(buildingCode);
+        map = new MapPanel();
 
         add(new SearchPanel(), BorderLayout.NORTH);
         add(map, BorderLayout.CENTER);

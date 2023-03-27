@@ -7,8 +7,10 @@ public class MapPanel extends JPanel {
     private static JScrollPane mapScroll;
     private static int floorNum;
     private static JLabel imageLabel;
+    String buildingCode;
 
-    MapPanel(String buildingCode) {
+    MapPanel() {
+        this.buildingCode = Maps.getBuildingCode();
         setLayout(new BorderLayout());
         floorNum = 1;
 

@@ -3,7 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Maps extends JFrame {
-    Maps(String buildingCode) {
+    private static String buildingCode;
+    Maps(String choice) {
+        this.buildingCode = choice;
         setTitle("Western Campus Navigation - Map Page");
         setSize(1400,820);
         setLayout(new BorderLayout());
@@ -21,13 +23,16 @@ public class Maps extends JFrame {
             }
         });
 
-        BottomPanel botPan = new BottomPanel(back, buildingCode);
+        BottomPanel botPan = new BottomPanel(back);
 
         add(new SidePanel(), BorderLayout.WEST);
-        add(new MainPanel(botPan, buildingCode), BorderLayout.CENTER);
+        add(new MainPanel(botPan), BorderLayout.CENTER);
 //        pack();
         setVisible(true);
 
+    }
+    public static String getBuildingCode() {
+        return buildingCode;
     }
 
     public static void main(String[] args) {

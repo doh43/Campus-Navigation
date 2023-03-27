@@ -12,8 +12,8 @@ public class BottomPanel extends JPanel implements ActionListener {
     JButton floor4;
     int floor;
     String buildingCode;
-    BottomPanel(JButton btn, String buildingCode) {
-        this.buildingCode = buildingCode;
+    BottomPanel(JButton btn) {
+        this.buildingCode = Maps.getBuildingCode();
         setLayout(new BorderLayout());
         floor = 1;
         // FloorPanel
@@ -40,6 +40,7 @@ public class BottomPanel extends JPanel implements ActionListener {
         add(btn, BorderLayout.EAST);
     }
     public void changeFloor(int i) {
+        MapPanel.setFloorNum(i);
         MapPanel.getImageLabel().setIcon(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+i+".png"));
     }
 
