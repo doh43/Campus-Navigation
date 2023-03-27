@@ -4,12 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MapPanel extends JPanel {
+    private static JScrollPane mapScroll;
+
     MapPanel() {
         setLayout(new BorderLayout());
 
         JLabel imageLabel = new JLabel(new ImageIcon("./data/maps/ah/ah1.png"));
-        JScrollPane mapScroll = new JScrollPane(imageLabel);
+        mapScroll = new JScrollPane(imageLabel);
 
         add(mapScroll);
+    }
+    public static JScrollPane getMapScroll() {
+        return mapScroll;
     }
 }
