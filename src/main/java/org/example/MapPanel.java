@@ -13,9 +13,20 @@ public class MapPanel extends JPanel {
         this.buildingCode = Maps.getBuildingCode();
         setLayout(new BorderLayout());
         floorNum = 1;
-
+        JLayeredPane l = new JLayeredPane();
         imageLabel = new JLabel(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+floorNum+".png"));
-        mapScroll = new JScrollPane(imageLabel);
+        imageLabel.setBounds(0,0,4000,2000);
+        l.add(imageLabel);
+//        l.setComponentZOrder(imageLabel, 0);
+        l.setPreferredSize(new Dimension(4000, 2000));
+
+        JButton b = new JButton("poi");
+        b.setBounds(600,1200,30,30);
+        l.add(b);
+        l.setComponentZOrder(b,0);
+
+        mapScroll = new JScrollPane();
+        mapScroll.setViewportView(l);
 
         add(mapScroll);
     }
