@@ -26,25 +26,28 @@ public class User {
         this.isDeveloper = isDeveloper;
         this.favourites = new ArrayList<>();
     }
-
-    /* JSON representation of a user
-    public User(JSONObject jsonUser) {
-        this(jsonUser.getString("username"), jsonUser.getString("password"),
-                UserType.valueOf(jsonUser.getString("isDeveloper")));
+    // JSON representation of a user
+    protected User(JSONObject jsonObject) {
+        this.username = jsonObject.getString("username");
+        this.password = jsonObject.getString("password");
+        this.isDeveloper = jsonObject.getBoolean("isDeveloper");
     }
 
+    // Method that returns a JSONObject representing the User object
+    protected JSONObject toJSONObject() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("username", this.username);
+        jsonObject.put("password", this.password);
+        jsonObject.put("isDeveloper", this.isDeveloper);
 
-    protected JSONObject jsonUser(List<Poi> customPOIs) {
-        JSONObject user = new JSONObject();
-        user.put("Username", this.username);
-        user.put("Password", this.password);
-        user.put("isDeveloper", this.isDeveloper);
-
-        JSONArray favouritesArray = new JSONArray();
-
-
+        return jsonObject;
     }
-    */
+
+    public void saveUser() {
+        JSONObject jsonUser = toJSONObject();
+        Utility.writeToFile(jsonUser, "./data/userData/" + this.username + ".json");
+    }
+
     public String getUsername() {
         return username;
     }
