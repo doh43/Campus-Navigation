@@ -64,6 +64,6 @@ public class Maps extends JFrame {
      * @ //TODO: delete after testing */
     public static void main(String[] args) {
 
-        Maps frame = new Maps("mc");
+        new Maps("mc");
     }
 }

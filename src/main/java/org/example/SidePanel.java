@@ -5,6 +5,9 @@
  * @see org.example.PoiPanel */
 package org.example;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
@@ -28,6 +31,8 @@ public class SidePanel extends JLayeredPane {
     /* Represent types of POIs */
     private JCheckBox cRoom, nav, wash, entry, genL, res, collab;
 
+    private int[] floorPoiIDs;
+
     /** Creates a new side panel
      * Contains a PoiPanel that will hide the side panel components and expand when pressed
      * @ //TODO: 2023-03-29 Change the dropdowns for poiSelect and favourites to access POI data */
@@ -47,8 +52,10 @@ public class SidePanel extends JLayeredPane {
         /* Title for the poi list panel */
         JLabel poiSelect = new JLabel("Select POI:");
 
-        String[] pois = {"Classroom1","Rest2","Lab3","Stair"};
+        String[] pois = addPoiArray();
+
         JComboBox<String> cb = new JComboBox<>(pois);
+        cb.addActionListener(e -> MapPanel.jumpToPoi(floorPoiIDs[cb.getSelectedIndex()]));
 
         poiList.add(poiSelect, BorderLayout.NORTH);
         poiList.add(cb, BorderLayout.CENTER);
@@ -73,7 +80,7 @@ public class SidePanel extends JLayeredPane {
         wash = new JCheckBox("Washrooms",true);
         addChangeListener(wash);
 
-        entry = new JCheckBox("Entry/Exit",true);
+        entry = new JCheckBox("Entries / Exits",true);
         addChangeListener(entry);
 
         genL = new JCheckBox("Labs",true);
@@ -122,6 +129,23 @@ public class SidePanel extends JLayeredPane {
 
         add(selection, Integer.valueOf(0));
         add(new PoiPanel(), Integer.valueOf(1));
+    }
+
+    private String[] addPoiArray() {
+        int floorNum = MapPanel.getFloorNum();
+        JSONArray jsonPois = Maps.getMapBuilding().getFloors()[floorNum].getPois();
+        int numPois = jsonPois.length();
+
+
+        String[] poiNames = new String[numPois];
+        floorPoiIDs = new int[numPois];
+
+        for (int i = 0; i < numPois; i++) {
+            JSONObject poi = (JSONObject) jsonPois.get(i);
+            poiNames[i] = poi.getString("name");
+            floorPoiIDs[i] = poi.getInt("id");
+        }
+        return poiNames;
     }
 
     /** Enables or disables a POI type layer from the map
