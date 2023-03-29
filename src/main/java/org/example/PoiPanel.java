@@ -17,36 +17,36 @@ import java.awt.event.*;
  */
 public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseListener {
     /** JButton for opening/closing the POI panel */
-    JButton button;
+    private static JButton button;
     /** JButton for submitting POI information */
     JButton submit;
     /** JTextField for POI name */
-    JTextField poiName;
+    private static JTextField poiName;
     /** JComboBox for POI type */
-    JComboBox<String> poiType;
+    private static JComboBox<String> poiType;
     /** JTextField for POI room number */
-    JTextField poiRoomNum;
+    private static JTextField poiRoomNum;
     /** JTextField for POI description */
-    JTextField poiDesc;
+    private static JTextField poiDesc;
     /** JButton for setting POI position */
     JButton poiPos;
     /** JLabel for displaying current POI position */
-    JLabel poiPosLabel;
+    private static JLabel poiPosLabel;
     /** Boolean to indicate whether in position setting mode */
     Boolean posMode;
     /** Point object to store current mouse position */
-    Point mousePosAbsolute;
+    private static Point mousePosAbsolute;
     /** Data object to interact with application data */
     Data d;
     /** Width of the POI panel */
     int panelWidth = 200;
+
+    private static boolean editMode;
     /**
      Constructor for PoiPanel. Initializes variables and creates UI elements.
      */
     PoiPanel() {
         d = Data.getInstance();
-
-        getAvailableId("mc", 1);
 
         this.setBounds(0,605,panelWidth,200);
         this.setLayout(null);
@@ -111,6 +111,30 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
         this.add(poiPos);
         this.add(poiPosLabel);
     }
+    public static JButton getButton() {
+        return button;
+    }
+    public static JTextField getPoiName() {
+        return poiName;
+    }
+    public static JComboBox<String> getPoiType() {
+        return poiType;
+    }
+    public static JTextField getPoiRoomNum() {
+        return poiRoomNum;
+    }
+    public static JTextField getPoiDesc() {
+        return poiDesc;
+    }
+    public static JLabel getPoiPosLabel() {
+        return poiPosLabel;
+    }
+    public static Point getMousePosAbsolute() {
+        return mousePosAbsolute;
+    }
+    public static boolean getEditMode() {
+        return editMode;
+    }
     /**
 
      This method is called when the user performs an action on a component that
@@ -147,11 +171,23 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
         } else if (e.getSource() == poiPos) {
             if (!posMode) {
                 posMode = true;
+                poiName.setEnabled(false);
+                poiType.setEnabled(false);
+                poiRoomNum.setEnabled(false);
+                poiDesc.setEnabled(false);
+                submit.setEnabled(false);
+                button.setEnabled(false);
                 poiPos.setText("Click on Map");
                 MapPanel.getMapScroll().addMouseListener(this);
             } else {
                 poiPos.setText("Set Position");
                 posMode = false;
+                poiName.setEnabled(true);
+                poiType.setEnabled(true);
+                poiRoomNum.setEnabled(true);
+                poiDesc.setEnabled(true);
+                submit.setEnabled(true);
+                button.setEnabled(true);
                 MapPanel.getMapScroll().removeMouseListener(this);
             }
         }

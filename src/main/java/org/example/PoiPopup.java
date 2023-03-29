@@ -43,9 +43,9 @@ public class PoiPopup extends JDialog  {
          */
         if(false)
             if(false) favoriteOnlyDialog();
-            else editDialog();
+            else editDialog(selectedPoi);
         else
-            editDialog();
+            editDialog(selectedPoi);
 
 
 
@@ -57,6 +57,7 @@ public class PoiPopup extends JDialog  {
 
         pack();
         this.setSize(300,200);
+        this.setResizable(false);
         this.setLocationRelativeTo(Maps.getMapFrame());
     }
 
@@ -105,11 +106,28 @@ public class PoiPopup extends JDialog  {
      *          - ALL BUILT-IN poi's for DEVELOPER
      *          - USER-CREATED poi's for USER
      */
-    private void editDialog(){
+    private void editDialog(Poi selectedPoi){
         favoriteButton = new JButton("Favorite");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
+        editButton.addActionListener(e -> {
+            if (PoiPanel.getButton().getText().equals("ADD")) {
+                PoiPanel.getButton().doClick();
+            }
+            PoiPanel.getPoiName().setText(selectedPoi.getName());
+            PoiPanel.getPoiType().setSelectedItem(selectedPoi.getType());
+            PoiPanel.getPoiRoomNum().setText(String.valueOf(selectedPoi.getRoomNum()));
+            PoiPanel.getPoiDesc().setText(selectedPoi.getDesc());
+            PoiPanel.getMousePosAbsolute().x = selectedPoi.getPosX();
+            PoiPanel.getMousePosAbsolute().y = selectedPoi.getPosY();
+            PoiPanel.getPoiPosLabel().setText("Current Pos: " + selectedPoi.getPosX() + "," + selectedPoi.getPosY());
+            this.dispose();
 
+
+//            this.dispose();
+//            JDialog d = new EditPopupPanel();
+//            d.setVisible(true);
+        });
 
         buttonPanel.add(favoriteButton);
         buttonPanel.add(editButton);
