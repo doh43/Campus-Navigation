@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +151,8 @@
       <workItem from="1679610906875" duration="2600000" />
       <workItem from="1679802117702" duration="3585000" />
       <workItem from="1680056431352" duration="5864000" />
-      <workItem from="1680066773574" duration="17406000" />
+      <workItem from="1680066773574" duration="22576000" />
+      <workItem from="1680113407382" duration="1051000" />
     </task>
     <task id="LOCAL-00001" summary="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them).">
       <created>1679697931707</created>

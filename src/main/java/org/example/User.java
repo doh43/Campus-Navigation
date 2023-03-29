@@ -42,6 +42,27 @@ public class User {
 
         return jsonObject;
     }
+    /*
+        JSONArray favouritesJsonArray = new JSONArray();
+        for (POILocation poiLocation : this.favourites) {
+            JSONObject jsonPOILocation = new JSONObject();
+            jsonPOILocation.put("building", poiLocation.getBuilding().getName());
+            jsonPOILocation.put("floor", poiLocation.getFloor().getName());
+            jsonPOILocation.put("poi", poiLocation.getPOI().getRoomNumber());
+            favouritesJsonArray.put(jsonPOILocation);
+        }
+        jsonUser.put("favourites", favouritesJsonArray);
+        // custom to json
+        JSONArray customJsonArray = new JSONArray();
+        if (customPOIs != null) {
+            for (POILocation poiLocation : customPOIs) {
+                customJsonArray.put(
+                        poiLocation.poi.createJSONObjectOfCustomPOI(poiLocation.building, poiLocation.floor));
+            }
+        }
+        jsonUser.put("customPOIs", customJsonArray);
+
+         */
 
     public void saveUser() {
         JSONObject jsonUser = toJSONObject();

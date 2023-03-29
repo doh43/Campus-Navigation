@@ -4,7 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
+import java.nio.file.Files;
+
 import com.fasterxml.jackson.databind.*;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginFrame extends JFrame {
     private JPasswordField passwordField;
@@ -34,6 +38,7 @@ public class LoginFrame extends JFrame {
         passwordField = new JPasswordField();
         passwordField.setBounds(300,250,300,40);
 
+        /*
         // Add a button to create a new user account
         JButton registerButton = new JButton("Register");
         registerButton.setBounds(420,300,100,40);
@@ -43,9 +48,11 @@ public class LoginFrame extends JFrame {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
                 boolean isDeveloper = false;
+                User user;
 
                 // Create a new user object and write it to a JSON file
-                User user = new User(username, password, isDeveloper);
+                //User user = new User(username, password, isDeveloper);
+                User.saveUser();
                 ObjectMapper mapper = new ObjectMapper();
                 try {
                     mapper.writeValue(new File("./data/userData/" + username + ".json"), user);
@@ -56,34 +63,70 @@ public class LoginFrame extends JFrame {
                 }
             }
         });
+
+    */
+        JButton registerButton = new JButton("Register");
+        registerButton.setBounds(420,300,100,40);
+        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        registerButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+
+                // Create a new user object and write it to a JSON file
+                JSONObject user = new JSONObject();
+                user.put("username", username);
+                user.put("password", password);
+                user.put("isDeveloper", false);
+                try {
+                    FileWriter file = new FileWriter("./data/userData/" + username + ".json");
+                    file.write(user.toString());
+                    file.flush();
+                    file.close();
+                    JOptionPane.showMessageDialog(LoginFrame.this, "Account created successfully!");
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(LoginFrame.this, "Error creating account!");
+                    ex.printStackTrace();
+                }
+            }
+        });
+
         JButton signInButton = new JButton("Sign In");
         signInButton.setBounds(300,300,100,40);
         signInButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
         signInButton.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent e) {
-                String username = usernameField.getText();
-                char[] passwordChars = passwordField.getPassword();
-                String password = new String(passwordChars);
+                public void actionPerformed(ActionEvent e) {
+                    String username = usernameField.getText();
+                    char[] passwordChars = passwordField.getPassword();
+                    String password = new String(passwordChars);
 
-
-                // Check if the user exists and if their password is correct
-                ObjectMapper mapper = new ObjectMapper();
-                try {
-                    User user = mapper.readValue(new File("./data/userData/" + username + ".json"), User.class);
-                    if (user.getPassword().equals(password)) {
-                        JOptionPane.showMessageDialog(LoginFrame.this, "Login successful!");
-                        dispose();
-                        LandingPage frame = new LandingPage();
-                    } else {
-                        JOptionPane.showMessageDialog(LoginFrame.this, "Incorrect password!");
+                    // Check if the user exists and if their password is correct
+                    try {
+                        File file = new File("./data/userData/" + username + ".json");
+                        if (file.exists()) {
+                            String userStr = new String(Files.readAllBytes(file.toPath()));
+                            JSONObject user = new JSONObject(userStr);
+                            if (user.getString("password").equals(password)) {
+                                JOptionPane.showMessageDialog(LoginFrame.this, "Login successful!");
+                                dispose();
+                                LandingPage frame = new LandingPage();
+                            } else {
+                                JOptionPane.showMessageDialog(LoginFrame.this, "Incorrect password!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(LoginFrame.this, "User does not exist!");
+                        }
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(LoginFrame.this, "Error reading user data!");
+                        ex.printStackTrace();
+                    } catch (JSONException ex) {
+                        JOptionPane.showMessageDialog(LoginFrame.this, "Error parsing user data!");
+                        ex.printStackTrace();
                     }
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(LoginFrame.this, "User does not exist!");
                 }
-            }
-        });
+            });
         message = new JLabel();
         message.setBounds(300,350,300,40);
         this.add(usernameLabel);
