@@ -1,5 +1,6 @@
 package org.example;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -21,8 +22,6 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
     JButton submit;
     /** JTextField for POI name */
     JTextField poiName;
-    /** JTextField for POI ID */
-    JTextField poiId;
     /** JComboBox for POI type */
     JComboBox<String> poiType;
     /** JTextField for POI room number */
@@ -47,6 +46,8 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
     PoiPanel() {
         d = Data.getInstance();
 
+        getAvailableId("mc", 1);
+
         this.setBounds(0,605,panelWidth,200);
         this.setLayout(null);
         this.setBackground(Color.lightGray);
@@ -61,9 +62,6 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
 
         JLabel poiNameLabel = new JLabel("Name");
         poiName = new JTextField();
-
-        JLabel poiIdLabel = new JLabel("Id");
-        poiId = new JTextField();
 
         JLabel poiRoomNumLabel = new JLabel("Room Number");
         poiRoomNum = new JTextField();
@@ -81,22 +79,19 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
         poiNameLabel.setBounds(5,10,panelWidth-10, 20);
         poiName.setBounds(5,30, panelWidth-10, 40);
 
-        poiIdLabel.setBounds(5,80,panelWidth-10,20);
-        poiId.setBounds(5,100, panelWidth-10, 40);
+        poiTypeLabel.setBounds(5,80,panelWidth-10,20);
+        poiType.setBounds(5,100, panelWidth-10, 40);
 
-        poiTypeLabel.setBounds(5,150,panelWidth-10,20);
-        poiType.setBounds(5,170, panelWidth-10, 40);
+        poiRoomNumLabel.setBounds(5,150,panelWidth-10,20);
+        poiRoomNum.setBounds(5,170, panelWidth-10, 40);
 
-        poiRoomNumLabel.setBounds(5,220,panelWidth-10,20);
-        poiRoomNum.setBounds(5,240, panelWidth-10, 40);
+        poiDescLabel.setBounds(5,220,panelWidth-10,20);
+        poiDesc.setBounds(5,240, panelWidth-10, 40);
 
-        poiDescLabel.setBounds(5,290,panelWidth-10,20);
-        poiDesc.setBounds(5,310, panelWidth-10, 40);
-
-        poiPos.setBounds(5,360, panelWidth - 10, 30);
+        poiPos.setBounds(5,290, panelWidth - 10, 40);
         poiPos.setFocusable(false);
         poiPos.addActionListener(this);
-        poiPosLabel.setBounds(5,390, panelWidth - 10, 20);
+        poiPosLabel.setBounds(5,330, panelWidth - 10, 20);
 
         submit = new JButton("Submit");
         submit.setFocusable(false);
@@ -106,8 +101,6 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
         this.add(button);
         this.add(poiNameLabel);
         this.add(poiName);
-        this.add(poiIdLabel);
-        this.add(poiId);
         this.add(poiTypeLabel);
         this.add(poiType);
         this.add(poiRoomNumLabel);
@@ -142,7 +135,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
             Poi p = new Poi(
                     poiName.getText(),
                     poiType.getSelectedItem().toString(),
-                    Integer.parseInt(poiId.getText()),
+                    getAvailableId(Maps.getBuildingCode(), MapPanel.getFloorNum()),
                     Integer.parseInt(poiRoomNum.getText()),
                     poiDesc.getText(),
                     "",
@@ -161,6 +154,11 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
                 MapPanel.getMapScroll().removeMouseListener(this);
             }
         }
+    }
+    public int getAvailableId(String building, int floorNum) {
+        JSONArray a = d.getPois(building, floorNum);
+        if (a.length() == 0) return 0;
+        return (Integer) a.getJSONObject(a.length() - 1).get("id") + 1;
     }
     /**
 
