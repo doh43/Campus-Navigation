@@ -1,9 +1,21 @@
+/** Displays a map page for a specific building, including all floors and associated POIs. A side panel and search panel
+ * are used to access/modify map data.
+ * @author Tomas Garcia, Ethan Tiger Wakefield, Taejun Ha
+ * @version 1.0
+ * @see org.example.Building
+ * @see org.example.PoiPanel
+ * @see org.example.SidePanel
+ * @see org.example.BottomPanel
+ * @see org.example.SearchPanel */
 package org.example;
 import javax.swing.*;
 import java.awt.*;
 
 public class Maps extends JFrame {
+    /* Used to access the specific building in the buildings JSON file */
     private static String buildingCode;
+
+    /* The building being displayed */
     private static Building mapBuilding;
     Maps(String choice) {
         buildingCode = choice;
@@ -11,7 +23,6 @@ public class Maps extends JFrame {
         setTitle("Western Campus Navigation - Map Page");
         setSize(1400,820);
         setLayout(new BorderLayout());
-
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -29,10 +40,10 @@ public class Maps extends JFrame {
 
         add(new SidePanel(), BorderLayout.WEST);
         add(new MainPanel(botPan), BorderLayout.CENTER);
-//        pack();
         setVisible(true);
 
     }
+
     public static String getBuildingCode() {
         return buildingCode;
     }
@@ -40,6 +51,9 @@ public class Maps extends JFrame {
     public static Building getMapBuilding() {
         return mapBuilding;
     }
+
+    /** Used to test the Maps class
+     * @ //TODO: delete after testing */
     public static void main(String[] args) {
 
         Maps frame = new Maps("mc");

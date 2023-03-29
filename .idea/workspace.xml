@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Building.java and SidePanel.java. Added TODO statements where backend functionality must be added. - Tomas Garcia">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Floor.java - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Floor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680111791194</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added documentation for Floor.java - Tomas Garcia">
+      <created>1680112719500</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680112719500</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +254,7 @@
     <MESSAGE value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
     <MESSAGE value="Corrected some warnings from SidePanel.java and PoiPanel.java - Tomas Garcia" />
     <MESSAGE value="Added documentation for Building.java and SidePanel.java. Added TODO statements where backend functionality must be added. - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added documentation for Building.java and SidePanel.java. Added TODO statements where backend functionality must be added. - Tomas Garcia" />
+    <MESSAGE value="Added documentation for Floor.java - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added documentation for Floor.java - Tomas Garcia" />
   </component>
 </project>
