@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="MapPanel working yay">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="PoiPopup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" afterDir="false" />
     </list>
@@ -215,7 +215,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680107027599</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="toggleLayers() ready">
+      <created>1680113581153</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680113581153</updated>
+    </task>
+    <task id="LOCAL-00013" summary="PoiPopup">
+      <created>1680113721117</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680113721117</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +270,8 @@
     <MESSAGE value="added PoiPopup class rough draft" />
     <MESSAGE value="PoiPopup rough draft" />
     <MESSAGE value="MapPanel working yay" />
-    <option name="LAST_COMMIT_MESSAGE" value="MapPanel working yay" />
+    <MESSAGE value="toggleLayers() ready" />
+    <MESSAGE value="PoiPopup" />
+    <option name="LAST_COMMIT_MESSAGE" value="PoiPopup" />
   </component>
 </project>

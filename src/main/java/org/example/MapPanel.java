@@ -55,21 +55,19 @@ public class MapPanel extends JPanel {
         return imageLabel;
     }
 
-    /** METHOD 1:
+    /** METHOD 1: jumpToPoi(id)
      *
-     * @param id
+     * @param id - unique id of poi
      */
     public static void jumpToPoi(String id){
 
-
-/*
         if (allButtons.containsKey(id)) {
+
             JButton targetButton = allButtons.get(id);
-
+            Rectangle buttonBounds = targetButton.getBounds();
+            JViewport targetViewport = mapScroll.getViewport();
+            targetViewport.scrollRectToVisible(buttonBounds);
         }
-
- */
-
     }
 
     /** METHOD 2: toggleLayerOff(type)
@@ -162,7 +160,8 @@ public class MapPanel extends JPanel {
 
             JButton button = new JButton();
             button.setBounds(posX-20,posY-20,40,40);
-            button.setBackground(Color.BLUE);                           //TODO add action listener for PoiPopup
+            button.setBackground(Color.BLUE);
+            //TODO add action listener for PoiPopup
 
             // button: add, register
             int accessLayerValue = typePanels.get(type);
