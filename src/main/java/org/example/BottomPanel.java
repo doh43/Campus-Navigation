@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * This class is responsible for creating the buttons for the bottom panel of the map viewer GUI.  
+ * This class is responsible for creating the buttons for the bottom panel of the map viewer GUI.
  *
  * @author ewakefi, tha7, tgarci3
  */
@@ -39,6 +39,7 @@ public class BottomPanel extends JPanel implements ActionListener {
         add(btn, BorderLayout.EAST);
     }
 
+
     /**
      * When the method is called, it retrieves the image from the maps folder and changes the current map to the new map
      *
@@ -46,7 +47,9 @@ public class BottomPanel extends JPanel implements ActionListener {
      */
     public void changeFloor(int i) {
         MapPanel.setFloorNum(i);
-        MapPanel.getImageLabel().setIcon(new ImageIcon("./data/maps/"+building+"/"+building+i+".png"));
+//        MapPanel.getImageLabel().setIcon(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+i+".png"));
+        MapPanel.setUpTypePanels();
+
     }
 
     /**

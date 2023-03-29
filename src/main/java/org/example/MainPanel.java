@@ -9,7 +9,9 @@ public class MainPanel extends JPanel {
     MainPanel(BottomPanel botPan) {
         setLayout(new BorderLayout());
 
+
         map = new MapPanel();
+
 
         add(new SearchPanel(), BorderLayout.NORTH);
         add(map, BorderLayout.CENTER);
