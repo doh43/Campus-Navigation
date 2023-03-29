@@ -12,17 +12,21 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Maps extends JFrame {
+    private static JFrame frame;
     /* Used to access the specific building in the buildings JSON file */
     private static String buildingCode;
 
     /* The building being displayed */
     private static Building mapBuilding;
     Maps(String choice) {
+        frame = this;
+        this.buildingCode = choice;
         buildingCode = choice;
         mapBuilding = new Building(buildingCode);
         setTitle("Western Campus Navigation - Map Page");
         setSize(1400,820);
         setLayout(new BorderLayout());
+
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -40,12 +44,16 @@ public class Maps extends JFrame {
 
         add(new SidePanel(), BorderLayout.WEST);
         add(new MainPanel(botPan), BorderLayout.CENTER);
+//        pack();
         setVisible(true);
 
     }
 
     public static String getBuildingCode() {
         return buildingCode;
+    }
+    public static JFrame getMapFrame() {
+        return frame;
     }
 
     public static Building getMapBuilding() {

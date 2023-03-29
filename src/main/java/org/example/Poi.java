@@ -74,6 +74,30 @@ public class Poi {
         this.favourited = false;
     }
 
+    Poi(JSONObject poi) {
+        this.name = poi.getString("name");
+        this.type = poi.getString("type");
+        this.id = poi.getInt("id");
+        this.roomNum = poi.getInt("roomNum");
+        this.desc = poi.getString("desc");
+        this.icon = poi.getString("icon");
+        this.posX = poi.getInt("posX");
+        this.posY = poi.getInt("posY");
+        this.builtIn = false;
+        this.favourited = false;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public String getType() {
+        return this.type;
+    }
+    public int getRoomNum() { return this.roomNum; }
+//    public int get
+    public String getDesc() {
+        return this.desc;
+    }
+
     /**
      Converts the Poi object to a JSONObject.
      @return a JSONObject representing the Poi object
