@@ -126,64 +126,63 @@ public class SidePanel extends JLayeredPane {
 
     /** Enables or disables a POI type layer from the map
      * Current state: Tracks whether any of the layer checkboxes are selected/deselected
-     * @param check1 checkbox whose state is being tracked
-     * @ //TODO: 2023-03-29 delete the print lines, hide/display layers based on state change */
+     * @param check1 checkbox whose state is being tracked */
     private void addChangeListener(JCheckBox check1) {
         check1.addItemListener(e -> {
             if (e.getSource() == cRoom) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    System.out.println("selected");
+                    MapPanel.toggleLayerOn("Classroom");
                 }
                 else {
-                    System.out.println("deselected");
+                    MapPanel.toggleLayerOff("Classroom");
                 }
             }
             else if (e.getSource() == nav) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    System.out.println("selected1");
+                    MapPanel.toggleLayerOn("Navigation");
                 }
                 else {
-                    System.out.println("deselected1");
+                    MapPanel.toggleLayerOff("Navigation");
                 }
             }
             else if (e.getSource() == wash) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    System.out.println("selected2");
+                    MapPanel.toggleLayerOn("Washroom");
                 }
                 else {
-                    System.out.println("deselected2");
+                    MapPanel.toggleLayerOff("Washroom");
                 }
             }
             else if (e.getSource() == entry) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    System.out.println("selected3");
+                    MapPanel.toggleLayerOn("Entry / Exit");
                 }
                 else {
-                    System.out.println("deselected3");
+                    MapPanel.toggleLayerOff("Entry / Exit");
                 }
             }
             else if (e.getSource() == genL) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    System.out.println("selected4");
+                    MapPanel.toggleLayerOn("Lab");
                 }
                 else {
-                    System.out.println("deselected4");
+                    MapPanel.toggleLayerOff("Lab");
                 }
             }
             else if (e.getSource() == res) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    System.out.println("selected5");
+                    MapPanel.toggleLayerOn("Restaurant");
                 }
                 else {
-                    System.out.println("deselected5");
+                    MapPanel.toggleLayerOff("Restaurant");
                 }
             }
             else if (e.getSource() == collab) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    System.out.println("selected6");
+                    MapPanel.toggleLayerOn("Collaborative Room");
                 }
                 else {
-                    System.out.println("deselected6");
+                    MapPanel.toggleLayerOff("Collaborative Room");
                 }
             }
         });
