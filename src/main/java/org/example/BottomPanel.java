@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static org.example.Maps.buildingCode;
 
 /**
  * This class is responsible for creating the buttons for the bottom panel of the map viewer GUI.  
@@ -13,8 +12,8 @@ import static org.example.Maps.buildingCode;
  */
 
 public class BottomPanel extends JPanel implements ActionListener {
+    String building;
     JButton[] floor = new JButton[10];
-   // public JSONArray jsonFloors;
 
     /**
      * This takes in the parameter btn to create the different buttons.
@@ -25,13 +24,13 @@ public class BottomPanel extends JPanel implements ActionListener {
         setLayout(new BorderLayout());
         JPanel floorPanel = new JPanel();
         floorPanel.setLayout(new GridLayout());
-
+        building = Maps.getBuildingCode();
         // Retrieves the floor attributes from the json file
         Data d = Data.getInstance();
-        JSONArray jsonFloors = d.savedData.getJSONObject(buildingCode).getJSONArray("floors");
+        JSONArray jsonFloors = d.savedData.getJSONObject(building).getJSONArray("floors");
         // Creates a floor button for each floor array in the json
         for (int i = 0; i < jsonFloors.length(); i++) {
-            Object floorName = d.savedData.getJSONObject(buildingCode).getJSONArray("floors").getJSONObject(i).get("name");
+            Object floorName = d.savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(i).get("name");
             floor[i] = new JButton(floorName.toString());
             floor[i].addActionListener(this);
             floorPanel.add(floor[i]);
@@ -47,7 +46,7 @@ public class BottomPanel extends JPanel implements ActionListener {
      */
     public void changeFloor(int i) {
         MapPanel.setFloorNum(i);
-        MapPanel.getImageLabel().setIcon(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+i+".png"));
+        MapPanel.getImageLabel().setIcon(new ImageIcon("./data/maps/"+building+"/"+building+i+".png"));
     }
 
     /**
@@ -59,7 +58,7 @@ public class BottomPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Data d = Data.getInstance();
-        JSONArray jsonFloors = d.savedData.getJSONObject(buildingCode).getJSONArray("floors");
+        JSONArray jsonFloors = d.savedData.getJSONObject(building).getJSONArray("floors");
         // Checks which button got clicked, depending on the button clicked, it will open a new map image.
         JButton src = (JButton) e.getSource();
             for (int i = 0; i < jsonFloors.length(); i++) {

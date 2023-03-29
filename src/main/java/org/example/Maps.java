@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Maps extends JFrame {
-    public static String buildingCode;
+    private static String buildingCode;
     Maps(String choice) {
         this.buildingCode = choice;
         setTitle("Western Campus Navigation - Map Page");
