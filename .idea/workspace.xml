@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="type-panels in layeredPanels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679778458783</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="type-panels in layeredPanels">
+      <created>1680048073473</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680048073473</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +224,7 @@
     <MESSAGE value="Made minor changes to many classes, deleted AddPoiPanel.java, changed the side panel to spring layout. A bug on the action listener method of the side panel has been documented and must be corrected. - Tomas Garcia" />
     <MESSAGE value="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia" />
     <MESSAGE value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
+    <MESSAGE value="type-panels in layeredPanels" />
+    <option name="LAST_COMMIT_MESSAGE" value="type-panels in layeredPanels" />
   </component>
 </project>

@@ -5,59 +5,32 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
 public class MapPanel extends JPanel {
     private static JScrollPane mapScroll;
-    private static int floorNum;
+    private static int floorNum = 1;
     private static JLabel imageLabel;
-    String buildingCode;
+    static String buildingCode;
 
-    private JLayeredPane layeredPane;
+    private static JLayeredPane layeredPane;
+
+
+    // maybe make static variables that holds type-panels depth integers
+    private static HashMap<String, Integer> typePanels;
+    private static HashMap<String, JButton> allButtons;
 
     MapPanel() {
         this.buildingCode = Maps.getBuildingCode();
         setLayout(new BorderLayout());
         floorNum = 1;
 
-
-        // grab map image
-        imageLabel = new JLabel(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+floorNum+".png"));
-        imageLabel.setBounds(0,0,imageLabel.getPreferredSize().width,imageLabel.getPreferredSize().height);
-
-
-        // set up layeredPane
-        layeredPane = new JLayeredPane();
-        layeredPane.add(imageLabel, JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setPreferredSize(imageLabel.getPreferredSize());
-
-
-        /* FUNCTION FOR SETTING UP THE TYPE-PANELS */
-        setUpPanels();
-
-
-        // test button
-//        JButton b = new JButton("B");
-//        b.setBounds(80,80,40,40);
-//        b.setBackground(Color.BLUE);
-
-
-        // test panel for poi-type setup
-//        JPanel washroomPanel = new JPanel(null);
-//        washroomPanel.setBounds(0,0,imageLabel.getPreferredSize().width,imageLabel.getPreferredSize().height);
-//        //washroomPanel.setPreferredSize(imageLabel.getPreferredSize());
-//        washroomPanel.setOpaque(false);
-//        washroomPanel.add(b);
-
-
-        // add type-panel components to layered pane
-//        layeredPane.add(washroomPanel, JLayeredPane.DRAG_LAYER);
-        //layeredPane.setComponentZOrder(b,0);
+        setUpTypePanels();  //statically builds layeredPane
 
 
         // set up map scroll pane
-        mapScroll = new JScrollPane();
-        mapScroll.setViewportView(layeredPane);
-
+//        mapScroll = new JScrollPane();
+//        mapScroll.setViewportView(layeredPane);
         add(mapScroll);
     }
 
@@ -66,7 +39,10 @@ public class MapPanel extends JPanel {
         return mapScroll;
     }
     public static void setFloorNum(int i) {
+
         floorNum = i;
+        layeredPane=null;
+        setUpTypePanels();      //set up new LayeredPanel everytime new floor is selected
     }
     public static int getFloorNum() {
         return floorNum;
@@ -75,31 +51,83 @@ public class MapPanel extends JPanel {
         return imageLabel;
     }
 
-    private void setUpPanels() {
+    private static void setUpTypePanels() {
 
+        // new floor image setup
+        imageLabel = new JLabel(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+floorNum+".png"));
+        imageLabel.setBounds(0,0,imageLabel.getPreferredSize().width,imageLabel.getPreferredSize().height);
+
+
+        // new LayeredPanel setup
+        JLayeredPane newLayeredPane = new JLayeredPane();
+        newLayeredPane.add(imageLabel, JLayeredPane.DEFAULT_LAYER);
+        newLayeredPane.setPreferredSize(imageLabel.getPreferredSize());
+
+
+        // grab all the POIS for selected floor
         Data d = Data.getInstance();
         JSONArray floorPois = d.getPois(buildingCode, floorNum);
 
-        JPanel washroomPanel = new JPanel(null);
-        washroomPanel.setBounds(0,0,imageLabel.getPreferredSize().width,imageLabel.getPreferredSize().height);
-        washroomPanel.setOpaque(false);
 
+        // for type-panel toggle and button scrollTo action
+        HashMap<String, Integer> tempTypePanels = new HashMap<>();
+        HashMap<String, JButton> tempAllButtons = new HashMap<>();
+
+        int layerDepth = 1;    // starting layer depth for type-panels
 
         for (Object obj : floorPois) {
 
             JSONObject poi = (JSONObject) obj;
-            int posX = poi.getInt("posX");
+
+            String type = poi.getString("type");            // grab the type
+
+            // CREATE TYPE-PANEL IF NEED BE
+            if (!tempTypePanels.containsKey(type)) {
+
+                JPanel createPanel = new JPanel(null);
+                createPanel.setBounds(0,0,imageLabel.getPreferredSize().width,imageLabel.getPreferredSize().height);
+                createPanel.setOpaque(false);
+
+                //register, add, increment
+                newLayeredPane.add(createPanel, JLayeredPane.DRAG_LAYER);                    //add to layeredPanel
+                newLayeredPane.setLayer(createPanel, layerDepth);   //set layerDepth
+                tempTypePanels.put(type, layerDepth);               //register (type,depth) into hashMap
+                layerDepth += 1;                                    //increment/keep track for next createPanel to be added
+            }
+
+
+            // SETUP BUTTON
+            int posX = poi.getInt("posX");                  // grab coordinates
             int posY = poi.getInt("posY");
 
+            JButton button = new JButton("B");              // create button
+            button.setBounds(posX,posY,40,40);          // should be [x=974,y=346]
+            button.setBackground(Color.BLUE);
+            /* b.addActionListener ( PopUp class ) */
 
-            JButton b = new JButton("B");
-            b.setBounds(posX,posY,40,40);   //[x=974,y=346]
-            b.setBackground(Color.BLUE);
+            int accessLayerValue = tempTypePanels.get(type);
 
-            washroomPanel.add(b);
+            JPanel targetPanel = (JPanel) (newLayeredPane.getComponentsInLayer(accessLayerValue))[0];
+            targetPanel.add(button);
+            tempAllButtons.put(poi.getString("name"), button);  //register poi (name,button) into hashMap
+
+//            System.out.println("DEBUGGING ---- ");
+//            int i=0;
+//            Component[] checkComps = newLayeredPane.getComponents();
+//            for (Component component : checkComps) {
+//                System.out.println("Object: " + i + ", Layer: " + newLayeredPane.getLayer(component) + ", Index: " + newLayeredPane.getIndexOf(component));
+//                i += 1;
+//            }
 
         }
 
-        layeredPane.add(washroomPanel, JLayeredPane.DRAG_LAYER);
+        layeredPane = newLayeredPane;
+        typePanels = tempTypePanels;        // statically access and use setVisibility for type-toggling
+        allButtons = tempAllButtons;        // statically access and use the scrollTo method to jump to coordinates
+                                                // maybe even call pop up
+
+        mapScroll = new JScrollPane();
+        mapScroll.setViewportView(layeredPane);
+
     }
 }
