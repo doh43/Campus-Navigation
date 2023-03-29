@@ -47,6 +47,8 @@ public class LoginPage extends JFrame implements ActionListener {
          * @throws exception
          * */
         button = new JButton(new AbstractAction("Sign in") {
+            private static void dispose() {
+            }
             public void actionPerformed(ActionEvent e) {
                 JSONArray jArr = new JSONArray();
                 Object object = null;
@@ -77,8 +79,6 @@ public class LoginPage extends JFrame implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Your username or password is incorrect.");
                     }
                 }
-            }
-            private static void dispose() {
             }
         });
         button.setBounds(300,300,100,40);

@@ -1,1 +1,9 @@
-[{"Username":"doh43","Password":"cs2212"}]
+[
+  {
+  "Username":"doh43",
+  "Password":"cs2212",
+  "Role":"admin",
+  "Favourites": [],
+  "CustomPOIs": []
+  }
+]
