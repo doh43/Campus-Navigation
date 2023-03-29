@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="PoiPopup rough draft">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="MapPanel working yay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680075376738</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="MapPanel working yay">
+      <created>1680107027599</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680107027599</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +255,7 @@
     <MESSAGE value="setUpTypePanels() done - fix floor changing" />
     <MESSAGE value="added PoiPopup class rough draft" />
     <MESSAGE value="PoiPopup rough draft" />
-    <option name="LAST_COMMIT_MESSAGE" value="PoiPopup rough draft" />
+    <MESSAGE value="MapPanel working yay" />
+    <option name="LAST_COMMIT_MESSAGE" value="MapPanel working yay" />
   </component>
 </project>
