@@ -1,4 +1,4 @@
-/** Provides an interface to work with JSON building data
+/** Provides a way to work with JSON building data abstractly
  * @author Tomas Garcia
  * @version 1.0
  * @see org.example.Floor */
