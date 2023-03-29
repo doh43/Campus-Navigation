@@ -1,63 +1,71 @@
 package org.example;
-
+import org.json.JSONArray;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static org.example.Maps.buildingCode;
+
+/**
+ * This class is responsible for creating the buttons for the bottom panel of the map viewer GUI.  
+ *
+ * @author ewakefi, tha7, tgarci3
+ */
 
 public class BottomPanel extends JPanel implements ActionListener {
-    JButton floor1;
-    JButton floor2;
-    JButton floor3;
-    JButton floor4;
-    int floor;
-    String buildingCode;
+    JButton[] floor = new JButton[10];
+   // public JSONArray jsonFloors;
+
+    /**
+     * This takes in the parameter btn to create the different buttons.
+     *
+     * @param btn
+     */
     BottomPanel(JButton btn) {
-        this.buildingCode = Maps.getBuildingCode();
         setLayout(new BorderLayout());
-        floor = 1;
-        // FloorPanel
         JPanel floorPanel = new JPanel();
         floorPanel.setLayout(new GridLayout());
 
-        floor1 = new JButton("1");
-        floor2 = new JButton("2");
-        floor3 = new JButton("3");
-        floor4 = new JButton("4");
-
-        floor1.addActionListener(this);
-        floor2.addActionListener(this);
-        floor3.addActionListener(this);
-        floor4.addActionListener(this);
-
-        floorPanel.add(floor1);
-        floorPanel.add(floor2);
-        floorPanel.add(floor3);
-        floorPanel.add(floor4);
-
-
+        // Retrieves the floor attributes from the json file
+        Data d = Data.getInstance();
+        JSONArray jsonFloors = d.savedData.getJSONObject(buildingCode).getJSONArray("floors");
+        // Creates a floor button for each floor array in the json
+        for (int i = 0; i < jsonFloors.length(); i++) {
+            Object floorName = d.savedData.getJSONObject(buildingCode).getJSONArray("floors").getJSONObject(i).get("name");
+            floor[i] = new JButton(floorName.toString());
+            floor[i].addActionListener(this);
+            floorPanel.add(floor[i]);
+        }
         add(floorPanel, BorderLayout.WEST);
         add(btn, BorderLayout.EAST);
     }
+
+    /**
+     * When the method is called, it retrieves the image from the maps folder and changes the current map to the new map
+     *
+     * @param i
+     */
     public void changeFloor(int i) {
         MapPanel.setFloorNum(i);
         MapPanel.getImageLabel().setIcon(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+i+".png"));
     }
 
+    /**
+     * This method is responsible for making the buttons functional, whenever users click the button it will load the
+     * corresponding floor map.
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == floor1) {
-            floor = 1;
-            changeFloor(floor);
-        } else if (e.getSource() == floor2) {
-            floor = 2;
-            changeFloor(floor);
-        } else if (e.getSource() == floor3) {
-            floor = 3;
-            changeFloor(floor);
-        } else if (e.getSource() == floor4) {
-            floor = 4;
-            changeFloor(floor);
-        }
+        Data d = Data.getInstance();
+        JSONArray jsonFloors = d.savedData.getJSONObject(buildingCode).getJSONArray("floors");
+        // Checks which button got clicked, depending on the button clicked, it will open a new map image.
+        JButton src = (JButton) e.getSource();
+            for (int i = 0; i < jsonFloors.length(); i++) {
+                if (src == floor[i]) {
+                    changeFloor(i+1);
+            }
+            }
     }
 }
