@@ -162,8 +162,16 @@ public class MapPanel extends JPanel {
 
             JButton button = new JButton();
             button.setBounds(posX-20,posY-20,40,40);
-            button.setBackground(Color.BLUE);                           //TODO add action listener for PoiPopup
-
+            button.setBackground(Color.BLUE);
+            button.setOpaque(true);
+            button.setBorderPainted(false);
+            button.addActionListener(e -> {
+                if (e.getSource() == button) {
+//                    Poi p = new Poi(poi);
+                    PoiPopup p = new PoiPopup(new Poi(poi));
+                    p.setVisible(true);
+                }
+            });
             // button: add, register
             int accessLayerValue = typePanels.get(type);
             JPanel targetPanel = (JPanel) (layeredPane.getComponentsInLayer(accessLayerValue))[0];
