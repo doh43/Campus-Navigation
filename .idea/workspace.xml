@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="PoiPopup rough draft">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Floor.java - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,24 +50,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/JavaSwing Test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/JavaSwing Test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example" />
@@ -75,6 +76,19 @@
   <component name="RunManager" selected="Application.Maps">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Building" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Building" />
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -115,10 +129,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Maps" />
+        <item itemvalue="Application.Building" />
         <item itemvalue="Application.LoginPage" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.Maps" />
-        <item itemvalue="Application.LoginPage" />
       </list>
     </recent_temporary>
   </component>
@@ -182,35 +195,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679778458783</updated>
     </task>
-    <task id="LOCAL-00007" summary="type-panels in layeredPanels">
-      <created>1680048073473</created>
+    <task id="LOCAL-00007" summary="Corrected some warnings from SidePanel.java and PoiPanel.java - Tomas Garcia">
+      <created>1679778775904</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1680048073473</updated>
+      <updated>1679778775904</updated>
     </task>
-    <task id="LOCAL-00008" summary="setUpTypePanels() done - fix floor changing">
-      <created>1680074994180</created>
+    <task id="LOCAL-00008" summary="Added documentation for Building.java and SidePanel.java. Added TODO statements where backend functionality must be added. - Tomas Garcia">
+      <created>1680111791194</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1680074994180</updated>
+      <updated>1680111791194</updated>
     </task>
-    <task id="LOCAL-00009" summary="added PoiPopup class rough draft">
-      <created>1680075258343</created>
+    <task id="LOCAL-00009" summary="Added documentation for Floor.java - Tomas Garcia">
+      <created>1680112719500</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1680075258343</updated>
+      <updated>1680112719500</updated>
     </task>
-    <task id="LOCAL-00010" summary="PoiPopup rough draft">
-      <created>1680075376738</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1680075376738</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +233,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="showPois" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -246,10 +252,9 @@
     <MESSAGE value="Made minor changes to many classes, deleted AddPoiPanel.java, changed the side panel to spring layout. A bug on the action listener method of the side panel has been documented and must be corrected. - Tomas Garcia" />
     <MESSAGE value="Fixed a minor issue with the setUpdateLayout method - Tomas Garcia" />
     <MESSAGE value="Improved the side panel UI, changed the window size to improve visual design - Tomas Garcia" />
-    <MESSAGE value="type-panels in layeredPanels" />
-    <MESSAGE value="setUpTypePanels() done - fix floor changing" />
-    <MESSAGE value="added PoiPopup class rough draft" />
-    <MESSAGE value="PoiPopup rough draft" />
-    <option name="LAST_COMMIT_MESSAGE" value="PoiPopup rough draft" />
+    <MESSAGE value="Corrected some warnings from SidePanel.java and PoiPanel.java - Tomas Garcia" />
+    <MESSAGE value="Added documentation for Building.java and SidePanel.java. Added TODO statements where backend functionality must be added. - Tomas Garcia" />
+    <MESSAGE value="Added documentation for Floor.java - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added documentation for Floor.java - Tomas Garcia" />
   </component>
 </project>
