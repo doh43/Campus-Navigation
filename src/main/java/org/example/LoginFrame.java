@@ -1,12 +1,9 @@
 package org.example;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
-
-import com.fasterxml.jackson.databind.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -14,7 +11,7 @@ public class LoginFrame extends JFrame {
     private JPasswordField passwordField;
     private JTextField usernameField;
     private JLabel passwordLabel, usernameLabel, message;
-    private JButton button, registerButton;
+    private JButton signInButton, registerButton;
 
     public LoginFrame() {
         super("Login");
@@ -38,34 +35,8 @@ public class LoginFrame extends JFrame {
         passwordField = new JPasswordField();
         passwordField.setBounds(300,250,300,40);
 
-        /*
-        // Add a button to create a new user account
-        JButton registerButton = new JButton("Register");
-        registerButton.setBounds(420,300,100,40);
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
-        registerButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String username = usernameField.getText();
-                String password = new String(passwordField.getPassword());
-                boolean isDeveloper = false;
-                User user;
-
-                // Create a new user object and write it to a JSON file
-                //User user = new User(username, password, isDeveloper);
-                User.saveUser();
-                ObjectMapper mapper = new ObjectMapper();
-                try {
-                    mapper.writeValue(new File("./data/userData/" + username + ".json"), user);
-                    JOptionPane.showMessageDialog(LoginFrame.this, "Account created successfully!");
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(LoginFrame.this, "Error creating account!");
-                    ex.printStackTrace();
-                }
-            }
-        });
-
-    */
-        JButton registerButton = new JButton("Register");
+        /** Register new users */
+        registerButton = new JButton("Register");
         registerButton.setBounds(420,300,100,40);
         registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
         registerButton.addActionListener(new ActionListener() {
@@ -78,6 +49,8 @@ public class LoginFrame extends JFrame {
                 user.put("username", username);
                 user.put("password", password);
                 user.put("isDeveloper", false);
+                // TODO: Add favourites array to JSON
+                // TODO: Add custom POI array to JSON
                 try {
                     FileWriter file = new FileWriter("./data/userData/" + username + ".json");
                     file.write(user.toString());
@@ -91,10 +64,10 @@ public class LoginFrame extends JFrame {
             }
         });
 
-        JButton signInButton = new JButton("Sign In");
+        /** Login verification */
+        signInButton = new JButton("Sign In");
         signInButton.setBounds(300,300,100,40);
         signInButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
-
         signInButton.addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
@@ -136,8 +109,6 @@ public class LoginFrame extends JFrame {
         this.add(signInButton);
         this.add(registerButton);
         this.add(message);
-
-        // Add the components to the login frame-
     }
 
     public static void main(String[] args) {
