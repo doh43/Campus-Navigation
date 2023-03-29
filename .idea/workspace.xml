@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="Corrected some warnings from SidePanel.java and PoiPanel.java - Tomas Garcia">
-      <change afterPath="$PROJECT_DIR$/data/buildings2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Building.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Floor.java" afterDir="false" />
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Corrected some warnings from SidePanel.java and PoiPanel.java - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -73,7 +73,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Building">
+  <component name="RunManager" selected="Application.Maps">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="app" />
@@ -128,9 +128,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Maps" />
         <item itemvalue="Application.Building" />
         <item itemvalue="Application.LoginPage" />
-        <item itemvalue="Application.Maps" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
@@ -219,7 +219,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/user-backend" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>

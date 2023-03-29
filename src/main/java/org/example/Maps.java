@@ -4,8 +4,10 @@ import java.awt.*;
 
 public class Maps extends JFrame {
     private static String buildingCode;
+    private static Building mapBuilding;
     Maps(String choice) {
-        this.buildingCode = choice;
+        buildingCode = choice;
+        mapBuilding = new Building(buildingCode);
         setTitle("Western Campus Navigation - Map Page");
         setSize(1400,820);
         setLayout(new BorderLayout());
@@ -35,6 +37,9 @@ public class Maps extends JFrame {
         return buildingCode;
     }
 
+    public static Building getMapBuilding() {
+        return mapBuilding;
+    }
     public static void main(String[] args) {
 
         Maps frame = new Maps("mc");
