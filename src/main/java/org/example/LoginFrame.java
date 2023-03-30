@@ -4,6 +4,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,6 +51,8 @@ public class LoginFrame extends JFrame {
                 user.put("username", username);
                 user.put("password", password);
                 user.put("isDeveloper", false);
+                // TODO: perhaps make this a method in user and call it here
+
                 // TODO: Add favourites array to JSON
                 // TODO: Add custom POI array to JSON
                 try {

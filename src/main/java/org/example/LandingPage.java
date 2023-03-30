@@ -25,7 +25,7 @@ public class LandingPage extends JFrame implements ActionListener {
         choice = "ncb";
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(700, 500);
-        this.setTitle("Western Campus Navigation");
+        this.setTitle("Western Campus Navigation - Landing Page");
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         this.setResizable(false);

@@ -11,7 +11,7 @@ public class User {
     private String username;
     private String password;
     private Boolean isDeveloper;
-    private List<Poi> favourites; // Store favourite POIs in a list
+    private List<PoiLocation> favourites; // Store favourite POIs in a list
 
     /**
      * Class constructor
@@ -26,47 +26,37 @@ public class User {
         this.isDeveloper = isDeveloper;
         this.favourites = new ArrayList<>();
     }
-    // JSON representation of a user
+
+    /**
+     * JSON representation of a user
+     * @param jsonObject
+     */
     protected User(JSONObject jsonObject) {
         this.username = jsonObject.getString("username");
         this.password = jsonObject.getString("password");
         this.isDeveloper = jsonObject.getBoolean("isDeveloper");
     }
 
-    // Method that returns a JSONObject representing the User object
-    protected JSONObject toJSONObject() {
+    /**
+     *
+     * @return JSONObject representing the User object
+     */
+    public JSONObject toJSONObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("username", this.username);
         jsonObject.put("password", this.password);
         jsonObject.put("isDeveloper", this.isDeveloper);
-
-        return jsonObject;
-    }
-    /*
         JSONArray favouritesJsonArray = new JSONArray();
-        for (POILocation poiLocation : this.favourites) {
+        for (PoiLocation poiLocation : this.favourites) {
             JSONObject jsonPOILocation = new JSONObject();
             jsonPOILocation.put("building", poiLocation.getBuilding().getName());
-            jsonPOILocation.put("floor", poiLocation.getFloor().getName());
-            jsonPOILocation.put("poi", poiLocation.getPOI().getRoomNumber());
+            jsonPOILocation.put("floor", poiLocation.getFloor().getId());
+            jsonPOILocation.put("poi", poiLocation.getRoomName().getName());
             favouritesJsonArray.put(jsonPOILocation);
         }
-        jsonUser.put("favourites", favouritesJsonArray);
-        // custom to json
-        JSONArray customJsonArray = new JSONArray();
-        if (customPOIs != null) {
-            for (POILocation poiLocation : customPOIs) {
-                customJsonArray.put(
-                        poiLocation.poi.createJSONObjectOfCustomPOI(poiLocation.building, poiLocation.floor));
-            }
-        }
-        jsonUser.put("customPOIs", customJsonArray);
+        jsonObject.put("favourites", favouritesJsonArray);
 
-         */
-
-    public void saveUser() {
-        JSONObject jsonUser = toJSONObject();
-        Utility.writeToFile(jsonUser, "./data/userData/" + this.username + ".json");
+        return jsonObject;
     }
 
     public String getUsername() {
@@ -83,11 +73,11 @@ public class User {
 
 
     public void addFavourite() {
-        // favourites.add(poiLocation);
+        //favourites.add();
     }
 
     public void removeFavourite() {
-        // favourites.remove(poiLocation);
+       // favourites.remove(PoiLocation);
     }
 
 
