@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.swing.*;
-import javax.swing.event.MouseInputListener;
 import java.awt.*;
 import java.awt.event.*;
 /**
@@ -15,7 +14,7 @@ import java.awt.event.*;
  @version 1.0
  @author Ethan Wakefield
  */
-public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseListener {
+public class PoiPanel extends JPanel implements ActionListener, MouseListener {
     /** JButton for opening/closing the POI panel */
     private static JButton button;
     /** JButton for submitting POI information */
@@ -40,13 +39,18 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
     Data d;
     /** Width of the POI panel */
     int panelWidth = 200;
-
+    /** Boolean to indicate whether the user is in editMode */
     private static boolean editMode;
+    /** Integer to representing the id of the current Poi*/
+    private static int poiId;
     /**
      Constructor for PoiPanel. Initializes variables and creates UI elements.
      */
     PoiPanel() {
+        // Grabs building data
         d = Data.getInstance();
+        // Sets editMode to false
+        editMode = false;
 
         this.setBounds(0,605,panelWidth,200);
         this.setLayout(null);
@@ -132,8 +136,20 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
     public static Point getMousePosAbsolute() {
         return mousePosAbsolute;
     }
-    public static boolean getEditMode() {
-        return editMode;
+    public static void enterEditMode() {
+        editMode = true;
+    }
+    public static void setPoiId(int i) {
+        poiId = i;
+    }
+    public void resetForm() {
+        poiName.setText("");
+        poiType.setSelectedItem(0);
+        poiRoomNum.setText("");
+        poiDesc.setText("");
+        mousePosAbsolute.x = 0;
+        mousePosAbsolute.y = 0;
+        poiPosLabel.setText("Current Pos: 0,0");
     }
     /**
 
@@ -153,22 +169,32 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
                 this.setBounds(0,605,panelWidth,200);
                 button.setBounds(0,0, panelWidth,200);
                 button.setText("ADD");
+                // Reset editMode when closing the panel
+                editMode = false;
+                resetForm();
                 SidePanel.enableSelection();
             }
         } else if (e.getSource() == submit) {
+            // If not editing, generate a new id
+            if (!editMode)  poiId = getAvailableId(Maps.getBuildingCode(), MapPanel.getFloorNum());
             Poi p = new Poi(
                     poiName.getText(),
                     poiType.getSelectedItem().toString(),
-                    getAvailableId(Maps.getBuildingCode(), MapPanel.getFloorNum()),
+                    poiId,
                     Integer.parseInt(poiRoomNum.getText()),
                     poiDesc.getText(),
                     "",
                     mousePosAbsolute.x,
                     mousePosAbsolute.y
             );
-            addPoi(Maps.getBuildingCode(),MapPanel.getFloorNum(),p.convertJSON());
+            // If not editing, addPoi
+            if (!editMode) addPoi(Maps.getBuildingCode(),MapPanel.getFloorNum(),p.convertJSON());
+            // If editing, editPoi
+            if (editMode) editPoi(Maps.getBuildingCode(), MapPanel.getFloorNum(), p);
             MapPanel.setUpTypePanels();
+            resetForm();
         } else if (e.getSource() == poiPos) {
+            // Toggle on posMode (disable all other inputs)
             if (!posMode) {
                 posMode = true;
                 poiName.setEnabled(false);
@@ -179,6 +205,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
                 button.setEnabled(false);
                 poiPos.setText("Click on Map");
                 MapPanel.getMapScroll().addMouseListener(this);
+            // Toggle off posMode (enable al other inputs)
             } else {
                 poiPos.setText("Set Position");
                 posMode = false;
@@ -204,9 +231,24 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
      @param floorNum the number of the floor where the POI is located
      @param o the JSON object representing the POI to add
      */
-    @Override
     public void addPoi(String building, int floorNum, JSONObject o) {
         d.getPois(building, floorNum).put(o);
+        d.storeData(d.savedData);
+    }
+    public void editPoi(String building, int floorNum, Poi p) {
+        JSONArray a = d.getPois(building, floorNum);
+        for (int i = 0; i < a.length(); i++) {
+            // Find poi matching the id and edit fields
+            if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                a.getJSONObject(i).put("name", p.getName());
+                a.getJSONObject(i).put("type", p.getType());
+                a.getJSONObject(i).put("roomNum", p.getRoomNum());
+                a.getJSONObject(i).put("desc", p.getDesc());
+                a.getJSONObject(i).put("posX", p.getPosX());
+                a.getJSONObject(i).put("posY", p.getPosY());
+            }
+        }
+        // Save the data to the json file
         d.storeData(d.savedData);
     }
 

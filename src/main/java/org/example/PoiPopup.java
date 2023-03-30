@@ -111,9 +111,11 @@ public class PoiPopup extends JDialog  {
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
         editButton.addActionListener(e -> {
+            // Open Add Panel
             if (PoiPanel.getButton().getText().equals("ADD")) {
                 PoiPanel.getButton().doClick();
             }
+            // Pass values of selected Poi to input fields
             PoiPanel.getPoiName().setText(selectedPoi.getName());
             PoiPanel.getPoiType().setSelectedItem(selectedPoi.getType());
             PoiPanel.getPoiRoomNum().setText(String.valueOf(selectedPoi.getRoomNum()));
@@ -121,12 +123,12 @@ public class PoiPopup extends JDialog  {
             PoiPanel.getMousePosAbsolute().x = selectedPoi.getPosX();
             PoiPanel.getMousePosAbsolute().y = selectedPoi.getPosY();
             PoiPanel.getPoiPosLabel().setText("Current Pos: " + selectedPoi.getPosX() + "," + selectedPoi.getPosY());
+            PoiPanel.setPoiId(selectedPoi.getId());
+            // Set enter mode to true
+            PoiPanel.enterEditMode();
+            // Remove PoiPopup
             this.dispose();
 
-
-//            this.dispose();
-//            JDialog d = new EditPopupPanel();
-//            d.setVisible(true);
         });
 
         buttonPanel.add(favoriteButton);
