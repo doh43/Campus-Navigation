@@ -43,9 +43,14 @@ public class LoginFrame extends JFrame {
         registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
+                Boolean isDeveloper = false;
 
+                User user = new User(username, password, isDeveloper);
+                JSONObject userJSONObject = user.toJSONObject();
+                /*
                 // Create a new user object and write it to a JSON file
                 JSONObject user = new JSONObject();
                 user.put("username", username);
@@ -55,9 +60,11 @@ public class LoginFrame extends JFrame {
 
                 // TODO: Add favourites array to JSON
                 // TODO: Add custom POI array to JSON
+                */
+
                 try {
                     FileWriter file = new FileWriter("./data/userData/" + username + ".json");
-                    file.write(user.toString());
+                    file.write(userJSONObject.toString());
                     file.flush();
                     file.close();
                     JOptionPane.showMessageDialog(LoginFrame.this, "Account created successfully!");
@@ -65,6 +72,7 @@ public class LoginFrame extends JFrame {
                     JOptionPane.showMessageDialog(LoginFrame.this, "Error creating account!");
                     ex.printStackTrace();
                 }
+
             }
         });
 

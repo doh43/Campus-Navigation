@@ -80,7 +80,4 @@ public class User {
        // favourites.remove(PoiLocation);
     }
 
-
-
-
 }

@@ -5,39 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Floor.java - Tomas Garcia">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Building.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Floor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ah/ah1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ah/ah2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ah/ah3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc5.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb5.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/anotherTest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/doh40.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/doh43.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Poi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Poi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UserEdits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UserEdits.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +72,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.org.example.LoginFrame">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="app" />
@@ -134,19 +104,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.LoginPage" />
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Maps" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Maps" />
       <module name="app" />
@@ -160,14 +117,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="org.example.LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.LoginFrame" />
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.org.example.LoginFrame" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.LoginFrame" />
         <item itemvalue="Application.Maps" />
         <item itemvalue="Application.Building" />
-        <item itemvalue="Application.LoginPage" />
-        <item itemvalue="Application.Maps" />
-        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +160,7 @@
       <workItem from="1680056431352" duration="5864000" />
       <workItem from="1680066773574" duration="22576000" />
       <workItem from="1680113407382" duration="1051000" />
-      <workItem from="1680142298972" duration="2895000" />
+      <workItem from="1680142298972" duration="4359000" />
     </task>
     <task id="LOCAL-00001" summary="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them).">
       <created>1679697931707</created>
