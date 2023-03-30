@@ -144,7 +144,7 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
     }
     public void resetForm() {
         poiName.setText("");
-        poiType.setSelectedItem(0);
+        poiType.setSelectedIndex(0);
         poiRoomNum.setText("");
         poiDesc.setText("");
         mousePosAbsolute.x = 0;
