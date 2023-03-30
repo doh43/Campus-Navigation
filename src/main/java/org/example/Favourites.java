@@ -1,36 +1,38 @@
 package org.example;
 
-public class PoiLocation {
-
+public class Favourites {
     private Building building;
     private Floor floor;
     private Poi roomName;
 
-    public PoiLocation(Building building, Floor floor, Poi roomName) {
+    public Favourites(Building building, Floor floor, Poi roomName) {
         this.building = building;
         this.floor = floor;
         this.roomName = roomName;
     }
 
-    public void removePoi() {
-        // TODO: remove POI from floor
-    }
-
+    /**
+     *
+     * @return the building name (MC, NCB, AH)
+     */
     public Building getBuilding() {
         return building;
     }
 
     /**
      *
-     * @return the floor
+     * @return the floor number
      */
     public Floor getFloor() {
         return floor;
     }
-    
+
+    /**
+     *
+     * @return the room name (e.g., MC 17)
+     */
     public Poi getRoomName() {
         return roomName;
     }
-
 }
 

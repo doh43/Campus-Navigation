@@ -48,19 +48,9 @@ public class LoginFrame extends JFrame {
                 String password = new String(passwordField.getPassword());
                 Boolean isDeveloper = false;
 
+                // TODO: Add customPOI field
                 User user = new User(username, password, isDeveloper);
                 JSONObject userJSONObject = user.toJSONObject();
-                /*
-                // Create a new user object and write it to a JSON file
-                JSONObject user = new JSONObject();
-                user.put("username", username);
-                user.put("password", password);
-                user.put("isDeveloper", false);
-                // TODO: perhaps make this a method in user and call it here
-
-                // TODO: Add favourites array to JSON
-                // TODO: Add custom POI array to JSON
-                */
 
                 try {
                     FileWriter file = new FileWriter("./data/userData/" + username + ".json");
@@ -72,7 +62,6 @@ public class LoginFrame extends JFrame {
                     JOptionPane.showMessageDialog(LoginFrame.this, "Error creating account!");
                     ex.printStackTrace();
                 }
-
             }
         });
 
@@ -112,6 +101,7 @@ public class LoginFrame extends JFrame {
                     }
                 }
             });
+
         message = new JLabel();
         message.setBounds(300,350,300,40);
         this.add(usernameLabel);

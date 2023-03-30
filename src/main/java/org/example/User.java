@@ -11,7 +11,7 @@ public class User {
     private String username;
     private String password;
     private Boolean isDeveloper;
-    private List<PoiLocation> favourites; // Store favourite POIs in a list
+    private List<Favourites> favourites;
 
     /**
      * Class constructor
@@ -47,11 +47,11 @@ public class User {
         jsonObject.put("password", this.password);
         jsonObject.put("isDeveloper", this.isDeveloper);
         JSONArray favouritesJsonArray = new JSONArray();
-        for (PoiLocation poiLocation : this.favourites) {
+        for (Favourites favourites : this.favourites) {
             JSONObject jsonPOILocation = new JSONObject();
-            jsonPOILocation.put("building", poiLocation.getBuilding().getName());
-            jsonPOILocation.put("floor", poiLocation.getFloor().getId());
-            jsonPOILocation.put("poi", poiLocation.getRoomName().getName());
+            jsonPOILocation.put("building", favourites.getBuilding().getName());
+            jsonPOILocation.put("floor", favourites.getFloor().getId());
+            jsonPOILocation.put("poi", favourites.getRoomName().getName());
             favouritesJsonArray.put(jsonPOILocation);
         }
         jsonObject.put("favourites", favouritesJsonArray);
@@ -71,13 +71,16 @@ public class User {
         return isDeveloper;
     }
 
-
-    public void addFavourite() {
-        //favourites.add();
+    public List<Favourites> getFavourites() {
+        return this.favourites;
     }
 
-    public void removeFavourite() {
-       // favourites.remove(PoiLocation);
+    public void addFavourite(Favourites fav) {
+        favourites.add(fav);
+    }
+
+    public void removeFavourite(Favourites fav) {
+       favourites.remove(fav);
     }
 
 }
