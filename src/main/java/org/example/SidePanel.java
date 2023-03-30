@@ -31,11 +31,15 @@ public class SidePanel extends JLayeredPane {
     /* Represent types of POIs */
     private JCheckBox cRoom, nav, wash, entry, genL, res, collab;
 
-    private int[] floorPoiIDs;
+    /* Stores the POI names for each floor */
+    private static JComboBox<String> poiDrop;
+
+    /* Stores the ids of the POIs stored in poiDrop */
+    private static int[] floorPoiIDs;
 
     /** Creates a new side panel
      * Contains a PoiPanel that will hide the side panel components and expand when pressed
-     * @ //TODO: 2023-03-29 Change the dropdowns for poiSelect and favourites to access POI data */
+     * @ //TODO: 2023-03-29 Change the dropdown for favourites to access POI data */
     SidePanel() {
         setLayout(null);
         setPreferredSize(new Dimension(200,1000));
@@ -52,13 +56,11 @@ public class SidePanel extends JLayeredPane {
         /* Title for the poi list panel */
         JLabel poiSelect = new JLabel("Select POI:");
 
-        String[] pois = addPoiArray();
-
-        JComboBox<String> cb = new JComboBox<>(pois);
-        cb.addActionListener(e -> MapPanel.jumpToPoi(floorPoiIDs[cb.getSelectedIndex()]));
+        /* Creates a JComboBox with an action listener */
+        poiDrop = addPoiDropdown();
 
         poiList.add(poiSelect, BorderLayout.NORTH);
-        poiList.add(cb, BorderLayout.CENTER);
+        poiList.add(poiDrop, BorderLayout.CENTER);
 
         // LayerPanel
         layer = new JPanel();
@@ -72,25 +74,25 @@ public class SidePanel extends JLayeredPane {
         checkPan = new JPanel(new GridLayout(7,1));
 
         cRoom = new JCheckBox("Classrooms",true);
-        addChangeListener(cRoom);
+        addLayerListener(cRoom);
 
         nav = new JCheckBox("Navigation",true);
-        addChangeListener(nav);
+        addLayerListener(nav);
 
         wash = new JCheckBox("Washrooms",true);
-        addChangeListener(wash);
+        addLayerListener(wash);
 
         entry = new JCheckBox("Entries / Exits",true);
-        addChangeListener(entry);
+        addLayerListener(entry);
 
         genL = new JCheckBox("Labs",true);
-        addChangeListener(genL);
+        addLayerListener(genL);
 
         res = new JCheckBox("Restaurants",true);
-        addChangeListener(res);
+        addLayerListener(res);
 
         collab = new JCheckBox("Collaborative Rooms",true);
-        addChangeListener(collab);
+        addLayerListener(collab);
 
         checkPan.add(cRoom);
         checkPan.add(nav);
@@ -131,8 +133,9 @@ public class SidePanel extends JLayeredPane {
         add(new PoiPanel(), Integer.valueOf(1));
     }
 
-    private String[] addPoiArray() {
-        int floorNum = MapPanel.getFloorNum();
+    private static String[] makePoiNameList() {
+        System.out.println(MapPanel.getFloorNum());
+        int floorNum = MapPanel.getFloorNum() - 1;
         JSONArray jsonPois = Maps.getMapBuilding().getFloors()[floorNum].getPois();
         int numPois = jsonPois.length();
 
@@ -148,10 +151,22 @@ public class SidePanel extends JLayeredPane {
         return poiNames;
     }
 
+    private static JComboBox<String> addPoiDropdown() {
+        String[] poiNames = makePoiNameList();
+        JComboBox<String> cb = new JComboBox<>(poiNames);
+        cb.addActionListener(e -> MapPanel.jumpToPoi(floorPoiIDs[cb.getSelectedIndex()]));
+        return cb;
+    }
+
+    public static void updateDropDown() {
+        poiList.remove(poiDrop);
+        poiList.add(addPoiDropdown());
+    }
+
     /** Enables or disables a POI type layer from the map
      * Current state: Tracks whether any of the layer checkboxes are selected/deselected
      * @param check1 checkbox whose state is being tracked */
-    private void addChangeListener(JCheckBox check1) {
+    private void addLayerListener(JCheckBox check1) {
         check1.addItemListener(e -> {
             if (e.getSource() == cRoom) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Implemented the toggleLayer methods for the side panel checkboxes - Tomas Garcia">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added the pois to the map dropdown. Must implement for all floors of a building and make sure it resets when changing buildings. Check the array exception as well - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +139,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="" />
+      <changelist id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added the pois to the map dropdown. Must implement for all floors of a building and make sure it resets when changing buildings. Check the array exception as well - Tomas Garcia" />
       <created>1677596659007</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -232,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680119578294</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added the pois to the map dropdown. Must implement for all floors of a building and make sure it resets when changing buildings. Check the array exception as well - Tomas Garcia">
+      <created>1680128635903</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680128635903</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +279,8 @@
     <MESSAGE value="Added documentation for Floor.java - Tomas Garcia" />
     <MESSAGE value="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia" />
     <MESSAGE value="Implemented the toggleLayer methods for the side panel checkboxes - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented the toggleLayer methods for the side panel checkboxes - Tomas Garcia" />
+    <MESSAGE value="Added the pois to the map dropdown. Must implement for all floors of a building and make sure it resets when changing buildings. Check the array exception as well - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the pois to the map dropdown. Must implement for all floors of a building and make sure it resets when changing buildings. Check the array exception as well - Tomas Garcia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

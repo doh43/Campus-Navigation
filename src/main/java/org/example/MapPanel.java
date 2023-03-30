@@ -24,7 +24,7 @@ public class MapPanel extends JPanel {
      */
     MapPanel() {
         staticMapPanel = this;
-        this.buildingCode = Maps.getBuildingCode();
+        buildingCode = Maps.getBuildingCode();
         setLayout(new BorderLayout());
 
         floorNum = 1;
@@ -43,7 +43,8 @@ public class MapPanel extends JPanel {
     public static void setFloorNum(int i) {
 
         floorNum = i;
-
+        System.out.println(MapPanel.getFloorNum());
+        SidePanel.updateDropDown();
     }
 
     public static int getFloorNum() {
