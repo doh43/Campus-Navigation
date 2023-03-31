@@ -20,7 +20,6 @@ public class Maps extends JFrame {
     private static Building mapBuilding;
     Maps(String choice) {
         frame = this;
-        this.buildingCode = choice;
         buildingCode = choice;
         mapBuilding = new Building(buildingCode);
         setTitle("Western Campus Navigation - Map Page");
@@ -42,8 +41,9 @@ public class Maps extends JFrame {
 
         BottomPanel botPan = new BottomPanel(back);
 
-        add(new SidePanel(), BorderLayout.WEST);
         add(new MainPanel(botPan), BorderLayout.CENTER);
+        add(new SidePanel(), BorderLayout.WEST);
+
 //        pack();
         setVisible(true);
 

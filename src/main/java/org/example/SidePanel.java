@@ -134,8 +134,7 @@ public class SidePanel extends JLayeredPane {
     }
 
     private static String[] makePoiNameList() {
-        System.out.println(MapPanel.getFloorNum());
-        int floorNum = MapPanel.getFloorNum() - 1;
+        int floorNum = MapPanel.getFloorNum();
         JSONArray jsonPois = Maps.getMapBuilding().getFloors()[floorNum].getPois();
         int numPois = jsonPois.length();
 
@@ -159,8 +158,9 @@ public class SidePanel extends JLayeredPane {
     }
 
     public static void updateDropDown() {
-        poiList.remove(poiDrop);
-        poiList.add(addPoiDropdown());
+        String[] poiNames = makePoiNameList();
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>( poiNames );
+        poiDrop.setModel(model);
     }
 
     /** Enables or disables a POI type layer from the map

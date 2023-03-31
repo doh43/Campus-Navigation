@@ -27,7 +27,7 @@ public class MapPanel extends JPanel {
         buildingCode = Maps.getBuildingCode();
         setLayout(new BorderLayout());
 
-        floorNum = 1;
+        floorNum = 0;
 
         imageLabel = new JLabel();
         mapScroll = new JScrollPane();

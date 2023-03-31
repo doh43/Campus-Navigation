@@ -68,7 +68,7 @@ public class BottomPanel extends JPanel implements ActionListener {
                 if (src == floor[i]) {
                      // Calls the changeLabel to essentially refresh the top panel
                     SearchPanel.changeLabel(i);
-                    changeFloor(i+1);
+                    changeFloor(i);
             }
             }
     }
