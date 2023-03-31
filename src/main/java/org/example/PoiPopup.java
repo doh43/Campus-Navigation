@@ -1,5 +1,7 @@
 package org.example;
 
+import org.json.JSONArray;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -43,9 +45,9 @@ public class PoiPopup extends JDialog  {
          */
         if(false)
             if(false) favoriteOnlyDialog();
-            else editDialog();
+            else editDialog(selectedPoi);
         else
-            editDialog();
+            editDialog(selectedPoi);
 
 
 
@@ -57,6 +59,7 @@ public class PoiPopup extends JDialog  {
 
         pack();
         this.setSize(300,200);
+        this.setResizable(false);
         this.setLocationRelativeTo(Maps.getMapFrame());
     }
 
@@ -105,17 +108,50 @@ public class PoiPopup extends JDialog  {
      *          - ALL BUILT-IN poi's for DEVELOPER
      *          - USER-CREATED poi's for USER
      */
-    private void editDialog(){
+    private void editDialog(Poi selectedPoi){
         favoriteButton = new JButton("Favorite");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
-
+        editButton.addActionListener(e -> {
+            // Open Add Panel
+            if (PoiPanel.getButton().getText().equals("ADD")) {
+                PoiPanel.getButton().doClick();
+            }
+            // Pass values of selected Poi to input fields
+            PoiPanel.getPoiName().setText(selectedPoi.getName());
+            PoiPanel.getPoiType().setSelectedItem(selectedPoi.getType());
+            PoiPanel.getPoiRoomNum().setText(String.valueOf(selectedPoi.getRoomNum()));
+            PoiPanel.getPoiDesc().setText(selectedPoi.getDesc());
+            PoiPanel.getMousePosAbsolute().x = selectedPoi.getPosX();
+            PoiPanel.getMousePosAbsolute().y = selectedPoi.getPosY();
+            PoiPanel.getPoiPosLabel().setText("Current Pos: " + selectedPoi.getPosX() + "," + selectedPoi.getPosY());
+            PoiPanel.setPoiId(selectedPoi.getId());
+            // Set enter mode to true
+            PoiPanel.enterEditMode();
+            // Remove PoiPopup
+            this.dispose();
+        });
+        deleteButton.addActionListener(e -> {
+            deletePoi(selectedPoi);
+            MapPanel.setUpTypePanels();
+            this.dispose();
+        });
 
         buttonPanel.add(favoriteButton);
         buttonPanel.add(editButton);
         buttonPanel.add(deleteButton);
         buttonPanel.setLayout(new FlowLayout());
 
+    }
+    public void deletePoi(Poi p) {
+        Data d = Data.getInstance();
+        JSONArray a = d.getPois(Maps.getBuildingCode(), MapPanel.getFloorNum());
+        for (int i = 0; i < a.length(); i++) {
+            if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                a.remove(i);
+            }
+        }
+        d.storeData(d.savedData);
     }
 
 

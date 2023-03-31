@@ -5,7 +5,7 @@
     "floors":[
       {"name":"Ground Floor","id":0,"pois":[
         {"posX":974,"posY":346,"roomNum":19,"favourited":false,"builtIn":false,"name":"Grad Club","icon":"","id":19,"type":"Restaurant","desc":"MC's restaurant"},
-        {"posX":512,"posY":552,"roomNum":17,"favourited":false,"builtIn":false,"name":"MC 17","icon":"","id":17,"type":"Classroom","desc":"Small classroom for about 48 students."}]
+        {"posX":512,"posY":552,"roomNum":17,"favourited":false,"builtIn":false,"name":"MC 17","icon":"","id":17,"type":"Classroom","desc":"Small classroom for around 48 students."}]
       },
       {"name":"First Floor","id":1,"pois":[]},
       {"name":"Second Floor","id":2,"pois":[]},

@@ -97,6 +97,9 @@ public class Poi {
     public String getDesc() {
         return this.desc;
     }
+    public int getPosX() { return this.posX; }
+    public int getPosY() { return this.posY; }
+    public int getId() { return this.id; }
 
     /**
      Converts the Poi object to a JSONObject.
@@ -117,4 +120,11 @@ public class Poi {
         return o;
     }
     // Other methods add later
+
+
+    /**
+     * @return the name of the room (e.g., MC 17)
+     */
+
+
 }

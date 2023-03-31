@@ -102,7 +102,7 @@ public class LandingPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == back) {
             this.dispose();
-            LoginPage frame = new LoginPage(); // Takes the user back to the login page.
+            LoginFrame frame = new LoginFrame(); // Takes the user back to the login page.
         }
         if (event.getSource() == help) {
             this.dispose();
