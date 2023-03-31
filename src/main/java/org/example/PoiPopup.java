@@ -1,5 +1,7 @@
 package org.example;
 
+import org.json.JSONArray;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -128,7 +130,11 @@ public class PoiPopup extends JDialog  {
             PoiPanel.enterEditMode();
             // Remove PoiPopup
             this.dispose();
-
+        });
+        deleteButton.addActionListener(e -> {
+            deletePoi(selectedPoi);
+            MapPanel.setUpTypePanels();
+            this.dispose();
         });
 
         buttonPanel.add(favoriteButton);
@@ -136,6 +142,16 @@ public class PoiPopup extends JDialog  {
         buttonPanel.add(deleteButton);
         buttonPanel.setLayout(new FlowLayout());
 
+    }
+    public void deletePoi(Poi p) {
+        Data d = Data.getInstance();
+        JSONArray a = d.getPois(Maps.getBuildingCode(), MapPanel.getFloorNum());
+        for (int i = 0; i < a.length(); i++) {
+            if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                a.remove(i);
+            }
+        }
+        d.storeData(d.savedData);
     }
 
 
