@@ -22,7 +22,7 @@ public class SearchPanel extends JPanel {
 
         // Retrieves the data to determine the building name and the floor name
         Data d = Data.getInstance();
-        Object floorName = d.savedData.getJSONObject(buildingName).getJSONArray("floors").getJSONObject(floorNum-1).get("name");
+        Object floorName = d.savedData.getJSONObject(buildingName).getJSONArray("floors").getJSONObject(floorNum).get("name");
         buildingName = String.valueOf(d.savedData.getJSONObject(buildingName).getString("name"));
 
         // Creates the floor label

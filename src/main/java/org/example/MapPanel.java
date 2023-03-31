@@ -17,17 +17,17 @@ public class MapPanel extends JPanel {
     static String buildingCode;
     private static JLayeredPane layeredPane;
     private static HashMap<String, Integer> typePanels;
-    private static HashMap<String, JButton> allButtons;
+    private static HashMap<Integer, JButton> allButtons;
 
     /** CONSTRUCTOR: MapPanel()
      *
      */
     MapPanel() {
         staticMapPanel = this;
-        this.buildingCode = Maps.getBuildingCode();
+        buildingCode = Maps.getBuildingCode();
         setLayout(new BorderLayout());
 
-        floorNum = 1;
+        floorNum = 0;
 
         imageLabel = new JLabel();
         mapScroll = new JScrollPane();
@@ -43,7 +43,8 @@ public class MapPanel extends JPanel {
     public static void setFloorNum(int i) {
 
         floorNum = i;
-
+        System.out.println(MapPanel.getFloorNum());
+        SidePanel.updateDropDown();
     }
 
     public static int getFloorNum() {
@@ -59,7 +60,7 @@ public class MapPanel extends JPanel {
      *
      * @param id - unique id of poi
      */
-    public static void jumpToPoi(String id){
+    public static void jumpToPoi(int id){
 
         if (allButtons.containsKey(id)) {
 
@@ -174,7 +175,7 @@ public class MapPanel extends JPanel {
             int accessLayerValue = typePanels.get(type);
             JPanel targetPanel = (JPanel) (layeredPane.getComponentsInLayer(accessLayerValue))[0];
             targetPanel.add(button);
-            allButtons.put(poi.getString("name"), button);  //register poi (name,button) into hashMap
+            allButtons.put(poi.getInt("id"), button);  //register poi (name,button) into hashMap
         }
 
         // ADD TO SCROLL PANE DISPLAY

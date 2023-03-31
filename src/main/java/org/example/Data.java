@@ -67,7 +67,7 @@ public final class Data {
      @return The JSONArray containing the POIs for the given building and floor number.
      */
     public JSONArray getPois(String building, int floorNum) {
-        return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum - 1).getJSONArray("pois");
+        return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).getJSONArray("pois");
     }
 }
 

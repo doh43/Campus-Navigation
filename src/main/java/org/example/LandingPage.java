@@ -86,7 +86,6 @@ public class LandingPage extends JFrame implements ActionListener {
             if (string.equals("North Campus Building")) {
                 choice = "ncb";
             }
-            System.out.print(choice); // Remove later, testing to see what prints.
         }
         // Whenever a building cannot be found, it will print a message.
         catch (Exception e)  {
