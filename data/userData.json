@@ -1,9 +1,1 @@
-[
-  {
-  "Username":"doh43",
-  "Password":"cs2212",
-  "Role":"admin",
-  "Favourites": [],
-  "CustomPOIs": []
-  }
-]
+[{"Role":"admin","CustomPOIs":[],"Username":"doh43","Favourites":[],"Password":"cs2212"},{"Username":"","Password":""}]

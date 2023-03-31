@@ -5,11 +5,13 @@ public class Favourites {
     private Floor floor;
     private Poi roomName;
 
+    // Favourited POIs are defined by these 3
     public Favourites(Building building, Floor floor, Poi roomName) {
         this.building = building;
         this.floor = floor;
         this.roomName = roomName;
     }
+
 
     /**
      *

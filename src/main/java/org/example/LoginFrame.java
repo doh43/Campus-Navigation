@@ -4,11 +4,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Login frame responsible for registering and signing in users.
+ * @author Daniel Oh
+ * @version 2.0
+ */
 public class LoginFrame extends JFrame {
     private JPasswordField passwordField;
     private JTextField usernameField;
@@ -37,10 +40,13 @@ public class LoginFrame extends JFrame {
         passwordField = new JPasswordField();
         passwordField.setBounds(300,250,300,40);
 
-        /** Register new users */
+        /** Registers new users by creating a unique JSON file */
         registerButton = new JButton("Register");
         registerButton.setBounds(420,300,100,40);
         registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        /**
+         * @param ActionEvent register button
+         */
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -65,7 +71,9 @@ public class LoginFrame extends JFrame {
             }
         });
 
-        /** Login verification */
+        /** Verifies username and password
+         * @param ActionEvent Sign in button
+         * */
         signInButton = new JButton("Sign In");
         signInButton.setBounds(300,300,100,40);
         signInButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
