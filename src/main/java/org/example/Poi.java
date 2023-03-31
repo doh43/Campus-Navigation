@@ -117,4 +117,11 @@ public class Poi {
         return o;
     }
     // Other methods add later
+
+
+    /**
+     * @return the name of the room (e.g., MC 17)
+     */
+
+
 }

@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/data/userData.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Favourites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Favourites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LoginFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +78,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Maps">
+  <component name="RunManager" selected="Application.org.example.LoginFrame">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="app" />
@@ -99,15 +105,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.LoginPage" />
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,19 +123,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="org.example.LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.LoginFrame" />
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.org.example.LoginFrame" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.LoginFrame" />
         <item itemvalue="Application.Maps" />
         <item itemvalue="Application.Building" />
-        <item itemvalue="Application.LoginPage" />
-        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e4cd6c79-fe4c-4baa-a644-d5b248e039b0" name="Changes" comment="" />
+      <changelist id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="" />
       <created>1677596659007</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -151,6 +163,11 @@
       <workItem from="1679539837149" duration="10009000" />
       <workItem from="1679610906875" duration="2600000" />
       <workItem from="1679802117702" duration="3585000" />
+      <workItem from="1680056431352" duration="5864000" />
+      <workItem from="1680066773574" duration="22576000" />
+      <workItem from="1680113407382" duration="1051000" />
+      <workItem from="1680142298972" duration="8991000" />
+      <workItem from="1680216462482" duration="8052000" />
     </task>
     <task id="LOCAL-00001" summary="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them).">
       <created>1679697931707</created>
