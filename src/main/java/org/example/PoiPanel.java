@@ -143,6 +143,7 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
         poiId = i;
     }
     public void resetForm() {
+        editMode = false;
         poiName.setText("");
         poiType.setSelectedIndex(0);
         poiRoomNum.setText("");
@@ -251,6 +252,7 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
         // Save the data to the json file
         d.storeData(d.savedData);
     }
+
 
     @Override
     public void mouseClicked(MouseEvent e) {
