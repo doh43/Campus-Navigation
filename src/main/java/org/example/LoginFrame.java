@@ -4,6 +4,9 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,11 +55,13 @@ public class LoginFrame extends JFrame {
 
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
-                Boolean isDeveloper = false;
+                String userType = "base";
+                List<POILocation> favourites = new ArrayList<>();
+                List<POILocation> customPOIs = new ArrayList<>();
 
                 // TODO: Add customPOI field
-                User user = new User(username, password, isDeveloper);
-                JSONObject userJSONObject = user.toJSONObject();
+                User user = new User(username, password, userType, favourites, customPOIs);
+                JSONObject userJSONObject = user.toJSONObject(customPOIs);
 
                 try {
                     FileWriter file = new FileWriter("./data/userData/" + username + ".json");
@@ -108,6 +113,7 @@ public class LoginFrame extends JFrame {
                         ex.printStackTrace();
                     }
                 }
+                // TODO: Load up saved favourites and customPOIs
             });
 
         message = new JLabel();

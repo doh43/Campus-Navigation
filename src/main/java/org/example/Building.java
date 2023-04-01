@@ -75,7 +75,6 @@ public class Building {
             floors[i].getPois();
         }
     }
-
     /** Used to test the class
      * @ //TODO: delete main after testing */
     public static void main(String[] args) {

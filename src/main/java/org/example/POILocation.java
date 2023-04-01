@@ -1,12 +1,13 @@
 package org.example;
 
-public class Favourites {
-    private Building building;
-    private Floor floor;
+public class POILocation {
+    public Building building;
+    public Floor floor;
     private Poi roomName;
+    public Poi poi;
 
     // Favourited POIs are defined by these 3
-    public Favourites(Building building, Floor floor, Poi roomName) {
+    public POILocation(Building building, Floor floor, Poi roomName) {
         this.building = building;
         this.floor = floor;
         this.roomName = roomName;
@@ -35,6 +36,10 @@ public class Favourites {
      */
     public Poi getRoomName() {
         return roomName;
+    }
+
+    public Poi getPOI() {
+        return poi;
     }
 }
 

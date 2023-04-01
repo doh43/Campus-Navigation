@@ -116,12 +116,33 @@ public class Poi {
         o.put("favourited", this.favourited);
         return o;
     }
-    // Other methods add later
+
+    public JSONObject toJSON() {
+        JSONObject jsonPOI = new JSONObject();
+        jsonPOI.put("roomNum", roomNum);
+        jsonPOI.put("type", type);
+        jsonPOI.put("posX", posX);
+        jsonPOI.put("posY", posY);
+        jsonPOI.put("id", id);
+        if (name != null) {
+            jsonPOI.put("name", name);
+        }
+
+        if (desc != null) {
+            jsonPOI.put("information", desc);
+        }
+
+        return jsonPOI;
+
+    }
+    public JSONObject createJSONObjectOfCustomPOI(Building building, Floor floor) {
+        JSONObject jsonPOI = this.toJSON();
+        jsonPOI.put("building", building.getName());
+        jsonPOI.put("floor", floor.getName());
+        return jsonPOI;
+    }
 
 
-    /**
-     * @return the name of the room (e.g., MC 17)
-     */
 
 
 }

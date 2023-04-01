@@ -12,6 +12,8 @@ import java.nio.file.Paths;
  This class represents the data manager responsible for storing and retrieving data from the buildings.json file.
  */
 public final class Data {
+
+    User user;
     /**
      The singleton instance of the data manager.
      */
@@ -68,6 +70,15 @@ public final class Data {
      */
     public JSONArray getPois(String building, int floorNum) {
         return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum - 1).getJSONArray("pois");
+    }
+
+    public void writeToUser(JSONObject object) {
+        try (FileWriter file = new FileWriter("./data/userData/" + user.getUsername() + ".json")) {
+            file.write(object.toString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
