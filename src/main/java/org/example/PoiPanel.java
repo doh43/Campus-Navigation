@@ -232,6 +232,7 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
             if (editMode) editPoi(Maps.getBuildingCode(), MapPanel.getFloorNum(), p);
             MapPanel.setUpTypePanels();
             resetForm();
+            JOptionPane.showMessageDialog(null, "Changes Saved!", "Success", JOptionPane.PLAIN_MESSAGE);
         } else if (e.getSource() == poiPos) {
             // Toggle on posMode (disable all other inputs)
             if (!posMode) {
