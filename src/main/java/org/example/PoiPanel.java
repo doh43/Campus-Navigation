@@ -193,6 +193,27 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
                 SidePanel.enableSelection();
             }
         } else if (e.getSource() == submit) {
+            // Check to see if all inputs are filled
+            if (poiName.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter a name", "Missing Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            if (poiRoomNum.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter a room number", "Missing Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            try {
+                Integer.parseInt(poiRoomNum.getText());
+            } catch (NumberFormatException exc) {
+                JOptionPane.showMessageDialog(null, "Room number must be a number", "Missing Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (poiDesc.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter a description", "Missing Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             // If not editing, generate a new id
             if (!editMode)  poiId = getAvailableId(Maps.getBuildingCode(), MapPanel.getFloorNum());
             Poi p = new Poi(
