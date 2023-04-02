@@ -49,7 +49,9 @@ public class PoiPopup extends JDialog  {
         else
             editDialog(selectedPoi);
 
-
+        Point mousePosRelativeToViewport = MapPanel.getMapScroll().getMousePosition();
+        mousePosRelativeToViewport.x += 40;
+        mousePosRelativeToViewport.y -= 140;
 
 
         this.add(labelPanel);
@@ -60,7 +62,8 @@ public class PoiPopup extends JDialog  {
         pack();
         this.setSize(300,200);
         this.setResizable(false);
-        this.setLocationRelativeTo(Maps.getMapFrame());
+//        this.setLocationRelativeTo(Maps.getMapFrame());
+        this.setLocation(mousePosRelativeToViewport);
     }
 
     /** initPopupDialog()
@@ -72,14 +75,15 @@ public class PoiPopup extends JDialog  {
     private void initPopupDialog(Poi selectedPoi) {
 
         //make sure getter methods are in place for POIs name, type, description
-        poiType = new JLabel("  Type: " + selectedPoi.getType());
-        poiRoomNum = new JLabel("  Room Number: " + selectedPoi.getRoomNum());
-        poiDescription = new JLabel("  Description: " + selectedPoi.getDesc());
-
+        poiType = new JLabel("<html>  <b>Type:</b> " + selectedPoi.getType());
+        poiRoomNum = new JLabel("<html>  <b>Room Number:</b> " + selectedPoi.getRoomNum());
+        poiDescription = new JLabel("<html>  <b>Description:</b> " + selectedPoi.getDesc());
         poiType.setFont(new java.awt.Font("Segoe UI", 0, 12));
         poiRoomNum.setFont(new java.awt.Font("Segoe UI", 0, 12));
         poiDescription.setFont(new java.awt.Font("Segoe UI", 0, 12));
 
+        // Add padding
+        labelPanel.setBorder(BorderFactory.createEmptyBorder(0,10,0,10));
         labelPanel.add(poiType);
         labelPanel.add(poiRoomNum);
         labelPanel.add(poiDescription);
@@ -132,9 +136,12 @@ public class PoiPopup extends JDialog  {
             this.dispose();
         });
         deleteButton.addActionListener(e -> {
-            deletePoi(selectedPoi);
-            MapPanel.setUpTypePanels();
-            this.dispose();
+            int answer = JOptionPane.showConfirmDialog(null, "Are you sure?", "Delete Poi", JOptionPane.YES_NO_OPTION);
+            if (answer == 0) {
+                deletePoi(selectedPoi);
+                MapPanel.setUpTypePanels();
+                this.dispose();
+            }
         });
 
         buttonPanel.add(favoriteButton);

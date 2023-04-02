@@ -152,6 +152,12 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
         mousePosAbsolute.y = 0;
         poiPosLabel.setText("Current Pos: 0,0");
     }
+    public boolean checkFormUsed() {
+        if (!poiName.getText().equals("") || !poiRoomNum.getText().equals("") || !poiDesc.getText().equals("") || mousePosAbsolute.x != 0 || mousePosAbsolute.y != 0) {
+            return true;
+        }
+        return false;
+    }
     /**
 
      This method is called when the user performs an action on a component that
@@ -166,6 +172,17 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
                 button.setBounds(0,605, panelWidth,200);
                 button.setText("CLOSE");
                 SidePanel.disableSelection();
+            } else if (checkFormUsed()) {
+                int answer = JOptionPane.showConfirmDialog(null, "Are you sure?", "Remove Changes", JOptionPane.YES_NO_OPTION);
+                if (answer == 0) {
+                    this.setBounds(0, 605, panelWidth, 200);
+                    button.setBounds(0, 0, panelWidth, 200);
+                    button.setText("ADD");
+                    // Reset editMode when closing the panel
+                    editMode = false;
+                    resetForm();
+                    SidePanel.enableSelection();
+                }
             } else {
                 this.setBounds(0,605,panelWidth,200);
                 button.setBounds(0,0, panelWidth,200);
@@ -176,6 +193,27 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
                 SidePanel.enableSelection();
             }
         } else if (e.getSource() == submit) {
+            // Check to see if all inputs are filled
+            if (poiName.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter a name", "Missing Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            if (poiRoomNum.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter a room number", "Missing Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            try {
+                Integer.parseInt(poiRoomNum.getText());
+            } catch (NumberFormatException exc) {
+                JOptionPane.showMessageDialog(null, "Room number must be a number", "Missing Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (poiDesc.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter a description", "Missing Input", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             // If not editing, generate a new id
             if (!editMode)  poiId = getAvailableId(Maps.getBuildingCode(), MapPanel.getFloorNum());
             Poi p = new Poi(
@@ -194,6 +232,7 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
             if (editMode) editPoi(Maps.getBuildingCode(), MapPanel.getFloorNum(), p);
             MapPanel.setUpTypePanels();
             resetForm();
+            JOptionPane.showMessageDialog(null, "Changes Saved!", "Success", JOptionPane.PLAIN_MESSAGE);
         } else if (e.getSource() == poiPos) {
             // Toggle on posMode (disable all other inputs)
             if (!posMode) {
