@@ -1,6 +1,7 @@
 package org.example;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,13 +18,13 @@ public class SearchPanel extends JPanel {
     SearchPanel() {
 
         // Creating the building label for the map
-        String buildingName = Maps.getBuildingCode();
+        String building = Maps.getBuildingCode();
         int floorNum = MapPanel.getFloorNum();
 
         // Retrieves the data to determine the building name and the floor name
         Data d = Data.getInstance();
-        Object floorName = d.savedData.getJSONObject(buildingName).getJSONArray("floors").getJSONObject(floorNum).get("name");
-        buildingName = String.valueOf(d.savedData.getJSONObject(buildingName).getString("name"));
+        Object floorName = d.savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).get("name");
+        String buildingName = String.valueOf(d.savedData.getJSONObject(building).getString("name"));
 
         // Creates the floor label
         floorLabel = new JLabel("<html><b> - "+(String) floorName+"</b>");
@@ -38,15 +39,60 @@ public class SearchPanel extends JPanel {
         JTextField searchPrompt = new JTextField("Search for POIs");
         searchPrompt.setPreferredSize(new Dimension(190,25));
 
-        JButton searchButton = new JButton();
-        searchButton.setPreferredSize(new Dimension(25,25));
+        JButton searchButton = new JButton("Search");
         searchButton.addActionListener(e -> {
-            // Saves the user input (needs to be used for search NOT IMPLEMENTED YET)
-            String s1 = searchPrompt.getText();
+            // Saves the user input
+            String userInput = searchPrompt.getText();
+
+            // Retrieving all of the POI data
+            int i = 0;
+            JSONArray jsonPois = Maps.getMapBuilding().getFloors()[i].getPois();
+            int numPois = jsonPois.length();
+
+            // Creating variables
+            String[] poiNames = new String[numPois];
+            int[] floorPoiIDs = new int[numPois];
+            String[] poiDesc = new String[numPois];
+
+            // Loop through all the POIs to see if there is a match with the use search, if found, there is a pop-up
+            for (i = 0; i < jsonPois.length(); i++) {
+                JSONObject poi = (JSONObject) jsonPois.get(i);
+                poiNames[i] = poi.getString("name");
+                floorPoiIDs[i] = poi.getInt("id");
+                poiDesc[i] = poi.getString("desc");
+                System.out.println(poiDesc[i]); // TEST REMOVE LATER
+
+                // Checking if the name of the POI can be matched
+                if (userInput.equalsIgnoreCase(poiNames[i])) {
+                    PoiPopup p = new PoiPopup(new Poi(poi));
+                    p.setVisible(true);
+
+                    else {
+                        JOptionPane.showMessageDialog(null, "Sorry, what you searched for cannot be found", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+
+                // Checking if the id of the POI can be matched
+                if (userInput.equalsIgnoreCase(String.valueOf(floorPoiIDs[i]))) {
+                    PoiPopup p = new PoiPopup(new Poi(poi));
+                    p.setVisible(true);
+                }
+
+                // Checking if the POI description can be matched
+                if (userInput.equalsIgnoreCase(poiDesc[i])) {
+                    PoiPopup p = new PoiPopup(new Poi(poi));
+                    p.setVisible(true);
+                }
+
+                // If there is no match, the user will be presented with a pop-up message stating that there search cannot be matched.
+//                else {
+//                    JOptionPane.showMessageDialog(null, "Sorry, what you searched for cannot be found", "Error", JOptionPane.ERROR_MESSAGE);
+//                }
+            }
         });
 
-        add(searchButton);
         add(searchPrompt);
+        add(searchButton);
         add(buildingLabel);
         add(floorLabel);
     }
