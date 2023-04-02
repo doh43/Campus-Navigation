@@ -5,7 +5,6 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Map;
 
 /**
  * This class is responsible for creating the search bar and the corresponding building/floor labels so the user knows
@@ -15,6 +14,7 @@ import java.util.Map;
  */
 public class SearchPanel extends JPanel {
     public static JLabel floorLabel;
+    String userInput;
     SearchPanel() {
 
         // Creating the building label for the map
@@ -44,53 +44,19 @@ public class SearchPanel extends JPanel {
             // Saves the user input
             String userInput = searchPrompt.getText();
 
-            // Retrieving all of the POI data
-            int i = 0;
-            JSONArray jsonPois = Maps.getMapBuilding().getFloors()[i].getPois();
-            int numPois = jsonPois.length();
+            // Checks to see if the user's input is valid or not
+            JSONObject searchPoi = searchChecker(userInput);
 
-            // Creating variables
-            String[] poiNames = new String[numPois];
-            int[] floorPoiIDs = new int[numPois];
-            String[] poiDesc = new String[numPois];
-
-            // Loop through all the POIs to see if there is a match with the use search, if found, there is a pop-up
-            for (i = 0; i < jsonPois.length(); i++) {
-                JSONObject poi = (JSONObject) jsonPois.get(i);
-                poiNames[i] = poi.getString("name");
-                floorPoiIDs[i] = poi.getInt("id");
-                poiDesc[i] = poi.getString("desc");
-                System.out.println(poiDesc[i]); // TEST REMOVE LATER
-
-                // Checking if the name of the POI can be matched
-                if (userInput.equalsIgnoreCase(poiNames[i])) {
-                    PoiPopup p = new PoiPopup(new Poi(poi));
-                    p.setVisible(true);
-
-                    else {
-                        JOptionPane.showMessageDialog(null, "Sorry, what you searched for cannot be found", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-
-                // Checking if the id of the POI can be matched
-                if (userInput.equalsIgnoreCase(String.valueOf(floorPoiIDs[i]))) {
-                    PoiPopup p = new PoiPopup(new Poi(poi));
-                    p.setVisible(true);
-                }
-
-                // Checking if the POI description can be matched
-                if (userInput.equalsIgnoreCase(poiDesc[i])) {
-                    PoiPopup p = new PoiPopup(new Poi(poi));
-                    p.setVisible(true);
-                }
-
-                // If there is no match, the user will be presented with a pop-up message stating that there search cannot be matched.
-//                else {
-//                    JOptionPane.showMessageDialog(null, "Sorry, what you searched for cannot be found", "Error", JOptionPane.ERROR_MESSAGE);
-//                }
+            // If the user's input is invalid, the user will be presented with an error
+            if (searchPoi == null) {
+                JOptionPane.showMessageDialog(null, "The POI you are searching for cannot be found.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            // Otherwise, the POI they were searching for will show
+            else {
+                PoiPopup p = new PoiPopup(new Poi(searchPoi));
+                p.setVisible(true);
             }
         });
-
         add(searchPrompt);
         add(searchButton);
         add(buildingLabel);
@@ -98,17 +64,64 @@ public class SearchPanel extends JPanel {
     }
 
     /**
-     * When the method is called, it will change the floor label beside the search bar, it essentially refreshes the
-     * top panel of the GUI.
+     * This method searches the JSON file to check if whatever the user inputted is in the database, if it is not,
+     * then it will return nothing.
      *
-     * @param floor takes in the floor number that the user selects.
+     * @param input uses the user's input to compare.
+     * @return the POI the user is looking for, if not found, return null.
      */
-    public static void changeLabel(int floor) {
-        String buildingName = Maps.getBuildingCode();
-        Data d = Data.getInstance();
-        Object name = d.savedData.getJSONObject(buildingName).getJSONArray("floors").getJSONObject(floor).get("name");
-        floorLabel.setText(("<html><b> - "+name.toString()+"</b>"));
-        floorLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+    private JSONObject searchChecker(String input) {
+        // Retrieving all the POI data
+        int i = 0;
+        JSONArray jsonPois = Maps.getMapBuilding().getFloors()[i].getPois();
+        int numPois = jsonPois.length();
+
+        // Creating variables
+        String[] poiNames = new String[numPois];
+        int[] floorPoiIDs = new int[numPois];
+        String[] poiDesc = new String[numPois];
+
+        // Loop through all the POIs to see if there is a match with the user's search, if found, return the POI
+        for (i = 0; i < jsonPois.length(); i++) {
+            JSONObject poi = (JSONObject) jsonPois.get(i);
+
+            // Looks through POI names, ID, and description
+            poiNames[i] = poi.getString("name");
+            floorPoiIDs[i] = poi.getInt("id");
+            poiDesc[i] = poi.getString("desc");
+
+            System.out.println(poiDesc[i]); // TEST REMOVE LATER
+
+            // Checking if the name of the POI can be matched
+            if (input.equalsIgnoreCase(poiNames[i])) {
+                return poi;
+            }
+
+            // Checking if the ID of the POI can be matched
+            else if (input.equalsIgnoreCase(String.valueOf(floorPoiIDs[i]))) {
+                return poi;
+            }
+
+            // Checking if the POI description can be matched
+            else if (input.equalsIgnoreCase(poiDesc[i])) {
+                return poi;
+            }
+        }
+        return null;
     }
 
-}
+        /**
+         * When the method is called, it will change the floor label beside the search bar, it essentially refreshes the
+         * top panel of the GUI.
+         *
+         * @param floor takes in the floor number that the user selects.
+         */
+        public static void changeLabel (int floor) {
+            String buildingName = Maps.getBuildingCode();
+            Data d = Data.getInstance();
+            Object name = d.savedData.getJSONObject(buildingName).getJSONArray("floors").getJSONObject(floor).get("name");
+            floorLabel.setText(("<html><b> - " + name.toString() + "</b>"));
+            floorLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+        }
+    }
+
