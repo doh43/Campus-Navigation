@@ -132,9 +132,12 @@ public class PoiPopup extends JDialog  {
             this.dispose();
         });
         deleteButton.addActionListener(e -> {
-            deletePoi(selectedPoi);
-            MapPanel.setUpTypePanels();
-            this.dispose();
+            int answer = JOptionPane.showConfirmDialog(null, "Are you sure?", "Delete Poi", JOptionPane.YES_NO_OPTION);
+            if (answer == 0) {
+                deletePoi(selectedPoi);
+                MapPanel.setUpTypePanels();
+                this.dispose();
+            }
         });
 
         buttonPanel.add(favoriteButton);

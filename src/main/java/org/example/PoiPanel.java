@@ -152,6 +152,12 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
         mousePosAbsolute.y = 0;
         poiPosLabel.setText("Current Pos: 0,0");
     }
+    public boolean checkFormUsed() {
+        if (!poiName.getText().equals("") || !poiRoomNum.getText().equals("") || !poiDesc.getText().equals("") || mousePosAbsolute.x != 0 || mousePosAbsolute.y != 0) {
+            return true;
+        }
+        return false;
+    }
     /**
 
      This method is called when the user performs an action on a component that
@@ -166,6 +172,17 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
                 button.setBounds(0,605, panelWidth,200);
                 button.setText("CLOSE");
                 SidePanel.disableSelection();
+            } else if (checkFormUsed()) {
+                int answer = JOptionPane.showConfirmDialog(null, "Are you sure?", "Remove Changes", JOptionPane.YES_NO_OPTION);
+                if (answer == 0) {
+                    this.setBounds(0, 605, panelWidth, 200);
+                    button.setBounds(0, 0, panelWidth, 200);
+                    button.setText("ADD");
+                    // Reset editMode when closing the panel
+                    editMode = false;
+                    resetForm();
+                    SidePanel.enableSelection();
+                }
             } else {
                 this.setBounds(0,605,panelWidth,200);
                 button.setBounds(0,0, panelWidth,200);
