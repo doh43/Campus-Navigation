@@ -138,14 +138,4 @@ public class Poi {
         return jsonPOI;
 
     }
-    public JSONObject createJSONObjectOfCustomPOI(Building building, Floor floor) {
-        JSONObject jsonPOI = this.toJSON();
-        jsonPOI.put("building", building.getName());
-        jsonPOI.put("floor", floor.getName());
-        return jsonPOI;
-    }
-
-
-
-
 }

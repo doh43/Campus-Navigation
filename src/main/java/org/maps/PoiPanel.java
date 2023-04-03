@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Objects;
+
 /**
 
  PoiPanel is a JPanel used to create and submit Point of Interest (POI) objects.
@@ -280,7 +282,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
 
         d.getPois(building, floorNum).put(o);
 
-        if (sessionManager.getCurrentUser().userType() == "admin") { // If admin, save to built-in POI JSON file
+        if (Objects.equals(sessionManager.getCurrentUser().userType(), "admin")) { // If admin, save to built-in POI JSON file
             d.storeData(d.savedData);
         } else {
             d.addCustomPOI(d.savedData);

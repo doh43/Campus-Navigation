@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/doh43.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData/doh43.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/newUser.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/ohdaniel43.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData/ohdaniel43.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userData/admin.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userData/doh43.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Poi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Poi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/User.java" afterDir="false" />
     </list>
@@ -72,6 +72,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example" />
     </key>
@@ -303,6 +306,11 @@
           <properties class="java.io.FileNotFoundException" package="java.io" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java</url>
+          <line>284</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

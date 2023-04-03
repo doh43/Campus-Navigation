@@ -2,6 +2,10 @@ package org.maps;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +22,9 @@ public class User {
     private String userType;
     private ArrayList<POILocation> favourites;
     private ArrayList<POILocation> customPOIs;
+    Data data;
+
+    Poi poi;
 
     /**
      * Class constructor
@@ -28,7 +35,7 @@ public class User {
     public User(String username, String password, String userType) {
         this.username = username;
         this.password = password;
-        this.userType = "base";
+        this.userType = userType;
         this.favourites = new ArrayList<POILocation>();
         this.customPOIs = new ArrayList<POILocation>();
     }
@@ -64,13 +71,20 @@ public class User {
 
         /* populating customPOI array */
         JSONArray customJsonArray = new JSONArray();
-
+        try {
+            JSONObject PoiTemplate = new JSONObject(new JSONTokener(new FileReader("./data/template.json")));
+            customJsonArray.put(PoiTemplate);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        /*
 
         if (customPOIs != null) {
             for (POILocation poiLocation : customPOIs) {
                 customJsonArray.put(poiLocation.poi.createJSONObjectOfCustomPOI(poiLocation.building, poiLocation.floor));
             }
         }
+        */
         jsonObject.put("customPOIs", customJsonArray);
         return jsonObject;
     }
