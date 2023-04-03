@@ -6,6 +6,7 @@ import org.json.JSONTokener;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -105,7 +106,12 @@ public final class Data {
     }
 
     public JSONArray getCustomPOIs(String building, int floorNum) {
-        return userData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum - 1).getJSONArray("customPOIs");
+         return userData.getJSONArray("customPOIs").
+                 getJSONObject(0).
+                 getJSONObject(building).
+                 getJSONArray("floors").
+                 getJSONObject(floorNum - 1).
+                 getJSONArray("pois");
     }
 
     /**
