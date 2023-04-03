@@ -27,7 +27,8 @@ public class Building {
     /** Creates a new building
      * @param buildingCode building being accessed from buildings */
     Building(String buildingCode) {
-        openBuildings();
+        Data d = Data.getInstance();
+        buildings = d.savedData;
 
         /* Creates a JSON object storing the specified building */
         JSONObject build = buildings.getJSONObject(buildingCode);
@@ -43,16 +44,6 @@ public class Building {
         floors = new Floor[numOfFloors];
         for (int i = 0; i < numOfFloors; i++) {
             floors[i] = new Floor(floorList, i);
-        }
-    }
-
-    /** Turns buildings.JSON into a JSON object */
-    private void openBuildings() {
-        try {
-            String contents =  new String(Files.readAllBytes(Paths.get("./data/buildings.json")));
-            buildings = new JSONObject(contents);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
