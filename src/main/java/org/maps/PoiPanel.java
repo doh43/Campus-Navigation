@@ -16,6 +16,8 @@ import java.awt.event.*;
  */
 public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseListener {
 
+    SessionManager sessionManager;
+
     /** JButton for opening/closing the POI panel */
     JButton button;
     /** JButton for submitting POI information */
@@ -172,16 +174,12 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
     public void addPoi(String building, int floorNum, JSONObject o) {
 
         d.getPois(building, floorNum).put(o);
-        /*
-        if (sessionManager.getCurrentUser().userType() == "admin") { // right now this should be false on default bc i didn't add the admin user yet
+
+        if (sessionManager.getCurrentUser().userType() == "admin") { // right now this should be "base" on default bc I didn't add an admin user yet
             d.storeData(d.savedData);
         } else {
-
-         */
             d.addCustomPOI(d.savedData);
-
-
-        //}
+        }
     }
 
     @Override

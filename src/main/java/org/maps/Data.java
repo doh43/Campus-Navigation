@@ -23,6 +23,11 @@ public final class Data {
      The singleton instance of the data manager.
      */
     private static Data INSTANCE;
+
+    /**
+     The saved data read from the user's JSON file.
+     */
+    public JSONObject userData;
     /**
      The saved data read from the JSON file.
      */
@@ -30,8 +35,10 @@ public final class Data {
     /**
      Creates a new instance of the data manager and loads the saved data from the JSON file.
      */
+
     Data() {
         loadData();
+        loadUserData();
     }
     /**
      Returns the singleton instance of the data manager.
@@ -77,9 +84,13 @@ public final class Data {
         return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum - 1).getJSONArray("pois");
     }
 
+    /**
+     * Adds a custom POI to the user's customPOIs array
+     * @param object the POI to be added.
+     *
+     */
 
     public void addCustomPOI(JSONObject object) {
-        JSONParser parser = new JSONParser();
         try {
             JSONObject jsonObject = new JSONObject(new JSONTokener(new FileReader("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json")));
             JSONArray customPOIs = jsonObject.getJSONArray("customPOIs");
@@ -87,9 +98,25 @@ public final class Data {
             FileWriter fileWriter = new FileWriter("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json");
             fileWriter.write(jsonObject.toString());
             fileWriter.flush();
+            fileWriter.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
 
+    public JSONArray getCustomPOIs(String building, int floorNum) {
+        return userData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum - 1).getJSONArray("customPOIs");
+    }
+
+    /**
+     * Loads the user's custom POIs from the user's JSON file.
+     */
+    public void loadUserData() {
+        try {
+            String contents =  new String(Files.readAllBytes(Paths.get("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json")));
+            userData = new JSONObject(contents);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

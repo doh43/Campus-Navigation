@@ -125,7 +125,7 @@ public class MapPanel extends JPanel {
         // COLLECT POIs
         Data d = Data.getInstance();
         JSONArray floorPois = d.getPois(buildingCode, floorNum);
-
+        // TODO: Add custom POIs here!!!
 
         // SETUP STATIC VARIABLES
         typePanels = new HashMap<>();   // for toggleLayer()

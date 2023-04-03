@@ -6,29 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/doh43.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/About.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/BottomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EditTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/EditTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Floor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/POILocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/POILocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Poi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Poi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/PoiPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SearchPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/maps/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userData/ohdaniel43.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData/ohdaniel43.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/customPOI.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +170,7 @@
       <workItem from="1680328419717" duration="12435000" />
       <workItem from="1680399847699" duration="24531000" />
       <workItem from="1680488682766" duration="3563000" />
-      <workItem from="1680492328934" duration="1228000" />
+      <workItem from="1680492328934" duration="3979000" />
     </task>
     <task id="LOCAL-00001" summary="Used encapsulation to divide the Map page into several classes. Edited some images in the data folder (not finished with all of them).">
       <created>1679697931707</created>
