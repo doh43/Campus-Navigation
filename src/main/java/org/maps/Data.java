@@ -13,11 +13,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 /**
-
  This class represents the data manager responsible for storing and retrieving data from the buildings.json file.
  */
 public final class Data {
 
+    /**
+     The singleton instance of the session manager.
+     */
     SessionManager sessionManager;
     /**
      The singleton instance of the data manager.

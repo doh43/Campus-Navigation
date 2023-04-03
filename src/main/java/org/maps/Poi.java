@@ -119,23 +119,4 @@ public class Poi {
         o.put("favourited", this.favourited);
         return o;
     }
-
-    public JSONObject toJSON() {
-        JSONObject jsonPOI = new JSONObject();
-        jsonPOI.put("roomNum", roomNum);
-        jsonPOI.put("type", type);
-        jsonPOI.put("posX", posX);
-        jsonPOI.put("posY", posY);
-        jsonPOI.put("id", id);
-        if (name != null) {
-            jsonPOI.put("name", name);
-        }
-
-        if (desc != null) {
-            jsonPOI.put("information", desc);
-        }
-
-        return jsonPOI;
-
-    }
 }

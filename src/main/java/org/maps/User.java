@@ -22,9 +22,6 @@ public class User {
     private String userType;
     private ArrayList<POILocation> favourites;
     private ArrayList<POILocation> customPOIs;
-    Data data;
-
-    Poi poi;
 
     /**
      * Class constructor
@@ -51,7 +48,7 @@ public class User {
     }
 
     /**
-     *
+     * Creates a JSONObject to hold user data inside the user's json file
      * @return JSONObject representing the User object
      */
     public JSONObject toJSONObject(List<POILocation> customPOIs) {
@@ -77,14 +74,6 @@ public class User {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        /*
-
-        if (customPOIs != null) {
-            for (POILocation poiLocation : customPOIs) {
-                customJsonArray.put(poiLocation.poi.createJSONObjectOfCustomPOI(poiLocation.building, poiLocation.floor));
-            }
-        }
-        */
         jsonObject.put("customPOIs", customJsonArray);
         return jsonObject;
     }
