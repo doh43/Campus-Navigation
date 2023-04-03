@@ -54,14 +54,11 @@ public class SearchPanel extends JPanel {
             }
             // Otherwise, the POI they were searching for will show
             else {
-                JSONArray jsonFloors = d.savedData.getJSONObject(building).getJSONArray("floors");
-                for (int i = 0; i < jsonFloors.length(); i++) {
-                    // This updates the map if the POI they searched for was on a different floor
-                    if (floorNum == i) {
-                        changeLabel(i);
-                        BottomPanel.changeFloor(i);
-                    }
-                }
+                // This updates the floor map with the map that contains the POI searched for
+                changeLabel(MapPanel.getFloorNum());
+                MapPanel.setUpTypePanels();
+
+                // Creates POI pop-up
                 PoiPopup p = new PoiPopup(new Poi(searchPoi));
                 p.setVisible(true);
             }
@@ -91,6 +88,8 @@ public class SearchPanel extends JPanel {
             String[] poiNames = new String[numPois];
             int[] floorPoiIDs = new int[numPois];
             String[] poiDesc = new String[numPois];
+            MapPanel.setFloorNum(j);
+
             for (int i = 0; i < jsonPois.length(); i++) {
                 JSONObject poi = (JSONObject) jsonPois.get(i);
 
@@ -102,19 +101,16 @@ public class SearchPanel extends JPanel {
 
                 // Checking if the name of the POI can be matched
                 if (input.equalsIgnoreCase(poiNames[i])) {
-                    Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
                     return poi;
                 }
 
                 // Checking if the ID of the POI can be matched
                 else if (input.equalsIgnoreCase(String.valueOf(floorPoiIDs[i]))) {
-                    Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
                     return poi;
                 }
 
                 // Checking if the description of the POI can be matched
                 else if (input.equalsIgnoreCase(poiDesc[i])) {
-                    Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
                     return poi;
                 }
             }
