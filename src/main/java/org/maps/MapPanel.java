@@ -1,4 +1,4 @@
-package org.example;
+package org.maps;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

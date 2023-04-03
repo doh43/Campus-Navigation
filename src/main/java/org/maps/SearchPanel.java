@@ -1,10 +1,7 @@
-package org.example;
-
-import org.json.JSONArray;
+package org.maps;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Map;
 
 /**
  * This class is responsible for creating the search bar and the corresponding building/floor labels so the user knows

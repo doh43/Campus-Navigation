@@ -1,4 +1,4 @@
-package org.example;
+package org.maps;
 
 public class POILocation {
     public Building building;

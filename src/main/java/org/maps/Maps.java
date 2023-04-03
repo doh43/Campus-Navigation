@@ -2,12 +2,12 @@
  * are used to access/modify map data.
  * @author Tomas Garcia, Ethan Tiger Wakefield, Taejun Ha
  * @version 1.0
- * @see org.example.Building
- * @see org.example.PoiPanel
- * @see org.example.SidePanel
- * @see org.example.BottomPanel
- * @see org.example.SearchPanel */
-package org.example;
+ * @see org.maps.Building
+ * @see org.maps.PoiPanel
+ * @see org.maps.SidePanel
+ * @see org.maps.BottomPanel
+ * @see org.maps.SearchPanel */
+package org.maps;
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,8 +1,7 @@
-package org.example;
+package org.maps;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import org.json.JSONObject;
 
 /**
  * This is the landing page GUI.

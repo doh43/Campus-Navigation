@@ -1,4 +1,4 @@
-package org.example;
+package org.maps;
 
 import java.awt.event.*;
 import javax.swing.*;
@@ -20,8 +20,11 @@ public class LoginFrame extends JFrame {
     private JTextField usernameField;
     private JLabel passwordLabel, usernameLabel, message;
     private JButton signInButton, registerButton;
+    private String username;
+    private String password;
 
     public LoginFrame() {
+
         super("Login");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(700,500);
@@ -56,11 +59,11 @@ public class LoginFrame extends JFrame {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
                 String userType = "base";
-                List<POILocation> favourites = new ArrayList<>();
+                // List<POILocation> favourites = new ArrayList<>();
                 List<POILocation> customPOIs = new ArrayList<>();
 
                 // TODO: Add customPOI field
-                User user = new User(username, password, userType, favourites, customPOIs);
+                User user = new User(username, password, userType);
                 JSONObject userJSONObject = user.toJSONObject(customPOIs);
 
                 try {
@@ -83,11 +86,11 @@ public class LoginFrame extends JFrame {
         signInButton.setBounds(300,300,100,40);
         signInButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
         signInButton.addActionListener(new ActionListener() {
-
                 public void actionPerformed(ActionEvent e) {
                     String username = usernameField.getText();
                     char[] passwordChars = passwordField.getPassword();
                     String password = new String(passwordChars);
+
 
                     // Check if the user exists and if their password is correct
                     try {
@@ -98,6 +101,10 @@ public class LoginFrame extends JFrame {
                             if (user.getString("password").equals(password)) {
                                 JOptionPane.showMessageDialog(LoginFrame.this, "Login successful!");
                                 dispose();
+                                User currentUser = new User(user.getString("username"), user.getString("password"), "base");
+                                SessionManager.setCurrentUser(currentUser); // should hold a static value of the current user (hopefully)
+
+                                // TODO: Load up saved favourites and customPOIs
                                 LandingPage frame = new LandingPage();
                             } else {
                                 JOptionPane.showMessageDialog(LoginFrame.this, "Incorrect password!");

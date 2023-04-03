@@ -1,8 +1,12 @@
-package org.example;
+package org.maps;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,30 +24,52 @@ public class User {
     private String userType;
     private ArrayList<POILocation> favourites;
     private ArrayList<POILocation> customPOIs;
-
     private Building building;
     private Floor floor;
     private ArrayList<Poi> poi;
+
+
 
     /**
      * Class constructor
      *
      * @param username username
      * @param password password
-     * @param userType (either base or admin)
      */
-    public User(String username, String password, String userType, List<POILocation> favourites, List<POILocation> customPOIs) {
+    public User(String username, String password, String UserType) {
         this.username = username;
         this.password = password;
         this.userType = userType;
-        this.favourites = new ArrayList<>(favourites);
-        this.customPOIs = new ArrayList<>(customPOIs);
+        this.favourites = new ArrayList<POILocation>();
+        this.customPOIs = new ArrayList<POILocation>();
     }
 
-    public static User getInstance() {
+    public static User loadUser(String username) {
+        String filePath = "./data/userData/" + username + ".json";
+        FileReader file = null;
+        try {
+            file = new FileReader(filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
 
-        return instance;
+        JSONParser parser = new JSONParser();
+        JSONObject userObj = null;
+        try {
+            userObj = (JSONObject) parser.parse(file);
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        String password = (String) userObj.get("password");
+        String userType = (String) userObj.get("userType");
+        User user = new User(username, password, userType);
+
+        return user;
     }
+
 
     /**
      * JSON representation of a user
@@ -76,6 +102,8 @@ public class User {
 
         /* populating customPOI array */
         JSONArray customJsonArray = new JSONArray();
+
+
         if (customPOIs != null) {
             for (POILocation poiLocation : customPOIs) {
                 customJsonArray.put(poiLocation.poi.createJSONObjectOfCustomPOI(poiLocation.building, poiLocation.floor));

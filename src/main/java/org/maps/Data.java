@@ -1,19 +1,24 @@
-package org.example;
+package org.maps;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONTokener;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+//import org.json.simple.JSONObject;
 /**
 
  This class represents the data manager responsible for storing and retrieving data from the buildings.json file.
  */
 public final class Data {
 
-    User user;
+    SessionManager sessionManager;
     /**
      The singleton instance of the data manager.
      */
@@ -72,12 +77,19 @@ public final class Data {
         return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum - 1).getJSONArray("pois");
     }
 
-    public void writeToUser(JSONObject object) {
-        try (FileWriter file = new FileWriter("./data/userData/" + user.getUsername() + ".json")) {
-            file.write(object.toString());
-            file.flush();
+
+    public void addCustomPOI(JSONObject object) {
+        JSONParser parser = new JSONParser();
+        try {
+            JSONObject jsonObject = new JSONObject(new JSONTokener(new FileReader("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json")));
+            JSONArray customPOIs = jsonObject.getJSONArray("customPOIs");
+            customPOIs.put(object);
+            FileWriter fileWriter = new FileWriter("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json");
+            fileWriter.write(jsonObject.toString());
+            fileWriter.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+
         }
     }
 }

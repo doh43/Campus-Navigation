@@ -1,4 +1,4 @@
-package org.example;
+package org.maps;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,9 +1,9 @@
 /** Implements the side panel of the Map screen
  * @author Tomas Garcia, Ethan Tiger Wakefield
  * @version 1.0
- * @see org.example.MainPanel
- * @see org.example.PoiPanel */
-package org.example;
+ * @see org.maps.MainPanel
+ * @see org.maps.PoiPanel */
+package org.maps;
 
 import javax.swing.*;
 import java.awt.*;
