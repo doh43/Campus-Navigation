@@ -6,22 +6,49 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
-
+/**
+ * A panel that displays a map image and allows users to interact with points of interest (POIs) on the map.
+ *
+ * @version 1.0
+ * @author Ethan Wakefield, Aryan Saxena
+ * */
 public class MapPanel extends JPanel {
-
     // STATIC VARIABLES
+    /**
+     * A static JPanel that is used to access the map panel.
+     * */
     private static JPanel staticMapPanel;
+    /**
+     * A static JScrollPane that is used to access the map scroll pane.
+     * */
     private static JScrollPane mapScroll;
+    /**
+     * A static int that is used to access the current floor number.
+     * */
     private static int floorNum;
+    /**
+     * A static JLabel that is used to access the map image.
+     * */
     private static JLabel imageLabel;
+    /**
+     * A static String that is used to access the building code.
+     * */
     static String buildingCode;
+    /**
+     * A static JLayeredPane that is used to access the layered pane.
+     * */
     private static JLayeredPane layeredPane;
+    /**
+     * A static HashMap that is used to access the type panels.
+     * */
     private static HashMap<String, Integer> typePanels;
+    /**
+     * A static HashMap that is used to access the buttons.
+     * */
     private static HashMap<Integer, JButton> allButtons;
-
-    /** CONSTRUCTOR: MapPanel()
-     *
-     */
+    /**
+     * Creates a new MapPanel object.
+     * */
     MapPanel() {
         staticMapPanel = this;
         buildingCode = Maps.getBuildingCode();
@@ -36,14 +63,11 @@ public class MapPanel extends JPanel {
         add(mapScroll);
     }
 
-
     public static JScrollPane getMapScroll() {
         return mapScroll;
     }
     public static void setFloorNum(int i) {
-
         floorNum = i;
-        System.out.println(MapPanel.getFloorNum());
         SidePanel.updateDropDown();
     }
 
@@ -51,15 +75,10 @@ public class MapPanel extends JPanel {
         return floorNum;
     }
 
-
-    public static JLabel getImageLabel() {                      //is this being used ????
-        return imageLabel;
-    }
-
-    /** METHOD 1: jumpToPoi(id)
-     *
-     * @param id - unique id of poi
-     */
+    /**
+     * Jumps to a specific POI on the map.
+     * @param id The unique ID of the POI to jump to.
+     * */
     public static void jumpToPoi(int id){
 
         if (allButtons.containsKey(id)) {
@@ -71,10 +90,10 @@ public class MapPanel extends JPanel {
         }
     }
 
-    /** METHOD 2: toggleLayerOff(type)
-     *
-     * @param type - string variable for poi-types to be toggled off
-     */
+    /**
+     * Toggles a specific POI type off.
+     * @param type The type of POI to toggle off.
+     * */
     public static void toggleLayerOff(String type){
 
         if (typePanels.containsKey(type)) {
@@ -85,10 +104,10 @@ public class MapPanel extends JPanel {
         }
     }
 
-    /** METHOD 3: toggleLayerOn(type)
-     *
-     * @param type - string variable for poi-types to be toggled on
-     */
+    /**
+     * Toggles a specific POI type on.
+     * @param type The type of POI to toggle on.
+     * */
     public static void toggleLayerOn(String type){
 
         if (typePanels.containsKey(type)) {
@@ -100,7 +119,7 @@ public class MapPanel extends JPanel {
     }
 
 
-    /** METHOD # - setUpTypePanels()
+    /* METHOD # - setUpTypePanels()
      *     BottomPanel use:     - based on floor selection set up new display for image and type-layered-buttons
      *     Static Variables:
      *          imageLabel      - to load new map png
@@ -110,6 +129,10 @@ public class MapPanel extends JPanel {
      *          allButtons      - store HashMap with (id, JButton object in layeredPane) K,V pairing
      *                              - to be used by METHOD # jumpToPoi()
      */
+
+    /**
+     * Sets up the map and points of interest (POIs) on the map.
+     * */
     public static void setUpTypePanels() {
 
         // SETUP FLOOR IMAGE

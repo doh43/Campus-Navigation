@@ -5,27 +5,42 @@ import org.json.JSONArray;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class is responsible for creating the search bar and the corresponding building/floor labels so the user knows
+ * which building and floor they are in when they open the map.
+ *
+ * @version 1.0
+ * @author Ethan Wakefield, Taejun Ha, Tomas Garcia
+ */
 public class PoiPopup extends JDialog  {
-
-    //labels for labelPanel
+    /** JLabel for displaying the type of POI */
     private JLabel poiType;
+    /** JLabel for displaying the room number of the POI */
     private JLabel poiRoomNum;
+    /** JLabel for displaying the description of the POI */
     private JLabel poiDescription;
 
-    //buttons for buttonPanel
+    /** JButton for favoriting a POI */
     private JButton favoriteButton;
+    /** JButton for editing a POI */
     private JButton editButton;
+    /** JButton for deleting a POI */
     private JButton deleteButton;
 
 
-    //panels for the dialog
+    /** JPanel for holding the label components */
     JPanel labelPanel = new JPanel();       //handled by initPopupDialog()
+    /** JPanel for holding the button components */
     JPanel buttonPanel = new JPanel();      //control statements based on Poi.user
 
 
 
-    /** grab correct map frame */
-    /** grab POI and its components correctly */
+    /** PoiPopup()
+     * constructor for the PoiPopup class
+     * sets up the dialog box
+     *
+     * @param selectedPoi - the POI that was clicked on
+     */
     PoiPopup(Poi selectedPoi) {
         super(Maps.getMapFrame(), selectedPoi.getName(), true);
         /* DIALOG TITLE
@@ -67,10 +82,9 @@ public class PoiPopup extends JDialog  {
     }
 
     /** initPopupDialog()
-     * <p>
-     *      using the POI that's clicked
+     * sets up the label panel with POI description/name/type
      *
-     * @param selectedPoi to grab its descriptions
+     * @param selectedPoi - the POI that was clicked on
      */
     private void initPopupDialog(Poi selectedPoi) {
 
@@ -92,11 +106,8 @@ public class PoiPopup extends JDialog  {
         labelPanel.setLayout(new GridLayout(3,1));
     }
 
-    /** userFavoriteDialog() for button panel POI.user
-     *
-     *      displays: [favorite]
-     *      for:
-     *          - ONLY BUILT-IN poi's for USER
+    /** favoriteOnlyDialog()
+     * sets up the button panel with only the favorite button
      */
     private void favoriteOnlyDialog(){
         favoriteButton = new JButton("Favorite");
@@ -105,12 +116,10 @@ public class PoiPopup extends JDialog  {
 
     }
 
-    /** editDialog() for button panel based on POI.user
-     * <p>
-     *      displays: [favorite] [edit] [delete]
-     *      for:
-     *          - ALL BUILT-IN poi's for DEVELOPER
-     *          - USER-CREATED poi's for USER
+    /** editDialog()
+     * sets up the button panel with the edit and delete buttons
+     *
+     * @param selectedPoi - the POI that was clicked on
      */
     private void editDialog(Poi selectedPoi){
         favoriteButton = new JButton("Favorite");
@@ -150,6 +159,11 @@ public class PoiPopup extends JDialog  {
         buttonPanel.setLayout(new FlowLayout());
 
     }
+    /** deletePoi()
+     * deletes a POI from the data file
+     *
+     * @param p - the POI to be deleted
+     */
     public void deletePoi(Poi p) {
         Data d = Data.getInstance();
         JSONArray a = d.getPois(Maps.getBuildingCode(), MapPanel.getFloorNum());
