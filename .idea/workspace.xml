@@ -5,7 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia">
+      <change afterPath="$PROJECT_DIR$/data/maps/ah/ah0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/maps/mc/mc0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/maps/ncb/ncb0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ah/ah1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ah/ah2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/ah/ah3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/mc/mc4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/mc/mc5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb1.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb3.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb4.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/ncb/ncb4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/ncb/ncb5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BottomPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MapPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SearchPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SidePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" afterDir="false" />
     </list>
@@ -133,9 +156,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.org.maps.LoginFrame" />
+        <item itemvalue="Application.Maps" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.LoginFrame" />
-        <item itemvalue="Application.Maps" />
         <item itemvalue="Application.Building" />
       </list>
     </recent_temporary>

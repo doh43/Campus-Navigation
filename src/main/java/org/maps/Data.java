@@ -12,7 +12,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-//import org.json.simple.JSONObject;
 /**
 
  This class represents the data manager responsible for storing and retrieving data from the buildings.json file.
@@ -82,7 +81,7 @@ public final class Data {
      @return The JSONArray containing the POIs for the given building and floor number.
      */
     public JSONArray getPois(String building, int floorNum) {
-        return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum - 1).getJSONArray("pois");
+        return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).getJSONArray("pois");
     }
 
     /**
@@ -90,7 +89,6 @@ public final class Data {
      * @param object the POI to be added.
      *
      */
-
     public void addCustomPOI(JSONObject object) {
         try {
             JSONObject jsonObject = new JSONObject(new JSONTokener(new FileReader("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json")));
@@ -105,12 +103,18 @@ public final class Data {
         }
     }
 
+    /**
+     Returns the custom POIs for the given building and floor number from the user's JSON file.
+     @param building The name of the building to get the POIs for.
+     @param floorNum The number of the floor to get the POIs for.
+     @return The JSONArray containing the POIs for the given building and floor number.
+     */
     public JSONArray getCustomPOIs(String building, int floorNum) {
          return userData.getJSONArray("customPOIs").
                  getJSONObject(0).
                  getJSONObject(building).
                  getJSONArray("floors").
-                 getJSONObject(floorNum - 1).
+                 getJSONObject(floorNum).
                  getJSONArray("pois");
     }
 

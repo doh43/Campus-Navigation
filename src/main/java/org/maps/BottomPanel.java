@@ -66,10 +66,9 @@ public class BottomPanel extends JPanel implements ActionListener {
         JButton src = (JButton) e.getSource();
             for (int i = 0; i < jsonFloors.length(); i++) {
                 if (src == floor[i]) {
-                     MapPanel.setFloorNum(i);
                      // Calls the changeLabel to essentially refresh the top panel
                     SearchPanel.changeLabel(i);
-                    changeFloor(i+1);
+                    changeFloor(i);
             }
             }
     }
