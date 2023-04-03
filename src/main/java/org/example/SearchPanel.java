@@ -15,6 +15,7 @@ import java.awt.*;
 public class SearchPanel extends JPanel {
     public static JLabel floorLabel;
     Integer floorNum;
+
     SearchPanel() {
 
         // Creating the building label for the map
@@ -79,41 +80,43 @@ public class SearchPanel extends JPanel {
      * @return the POI the user is looking for, if not found, return null.
      */
     private JSONObject searchChecker(String input) {
-        // Retrieving all the POI data
-
-        JSONArray jsonPois = Maps.getMapBuilding().getFloors()[0].getPois();
-        int numPois = jsonPois.length();
-
-        // Creating variables
-        String[] poiNames = new String[numPois];
-        int[] floorPoiIDs = new int[numPois];
-        String[] poiDesc = new String[numPois];
-
         // Loop through all the POIs to see if there is a match with the user's search, if found, return the POI
-        for (int i = 0; i < numPois; i++) {
-            JSONObject poi = (JSONObject) jsonPois.get(i);
+        for (int j = 0; j < Maps.getMapBuilding().getNumFloors(); j++) {
 
-            // Looks through POI names, ID, and description
-            poiNames[i] = poi.getString("name");
-            floorPoiIDs[i] = poi.getInt("id");
-            poiDesc[i] = poi.getString("desc");
+            // Retrieving all the POI data
+            JSONArray jsonPois = Maps.getMapBuilding().getFloors()[j].getPois();
+            int numPois = jsonPois.length();
 
-            // Checking if the name of the POI can be matched
-            if (input.equalsIgnoreCase(poiNames[i])) {
-                Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
-                return poi;
-            }
+            // Creating variables
+            String[] poiNames = new String[numPois];
+            int[] floorPoiIDs = new int[numPois];
+            String[] poiDesc = new String[numPois];
+            for (int i = 0; i < jsonPois.length(); i++) {
+                JSONObject poi = (JSONObject) jsonPois.get(i);
 
-            // Checking if the ID of the POI can be matched
-            else if (input.equalsIgnoreCase(String.valueOf(floorPoiIDs[i]))) {
-                Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
-                return poi;
-            }
+                // Looks through POI names, ID, and description
+                poiNames[i] = poi.getString("name");
+                floorPoiIDs[i] = poi.getInt("id");
+                poiDesc[i] = poi.getString("desc");
+                System.out.print(poiNames[i]);
 
-            // Checking if the description of the POI can be matched
-            else if (input.equalsIgnoreCase(poiDesc[i])) {
-                Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
-                return poi;
+                // Checking if the name of the POI can be matched
+                if (input.equalsIgnoreCase(poiNames[i])) {
+                    Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
+                    return poi;
+                }
+
+                // Checking if the ID of the POI can be matched
+                else if (input.equalsIgnoreCase(String.valueOf(floorPoiIDs[i]))) {
+                    Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
+                    return poi;
+                }
+
+                // Checking if the description of the POI can be matched
+                else if (input.equalsIgnoreCase(poiDesc[i])) {
+                    Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
+                    return poi;
+                }
             }
         }
         return null;
