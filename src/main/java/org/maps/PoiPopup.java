@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import javax.swing.*;
 import java.awt.*;
 
+
 /**
  * This class is responsible for creating the search bar and the corresponding building/floor labels so the user knows
  * which building and floor they are in when they open the map.
@@ -128,7 +129,7 @@ public class PoiPopup extends JDialog  {
      * @param selectedPoi - the POI that was clicked on
      */
     private void editDialog(Poi selectedPoi){
-        favoriteButton = new JButton("Favorite");
+        favoriteButton = new JButton(selectedPoi.getFavourited() ? "Unfavorite" : "Favorite");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
         editButton.addActionListener(e -> {
@@ -157,6 +158,34 @@ public class PoiPopup extends JDialog  {
                 MapPanel.setUpTypePanels();
                 this.dispose();
             }
+        });
+        favoriteButton.addActionListener(e -> {
+            if (SessionManager.getCurrentUser().equals("admin")) {
+                return;
+            }
+            Data d = Data.getInstance();
+            JSONArray a = d.getCustomPOIs(Maps.getBuildingCode(), MapPanel.getFloorNum());
+            if (selectedPoi.getFavourited() == true) {
+                favoriteButton.setText("Favourite");
+                for (int i = 0; i < a.length(); i++) {
+                    // Find poi matching the id and edit fields
+                    if (a.getJSONObject(i).getInt("id") == selectedPoi.getId()) {
+                        a.getJSONObject(i).put("favourited", false);
+                    }
+                }
+            } else {
+                favoriteButton.setText("Unfavourite");
+                for (int i = 0; i < a.length(); i++) {
+                    // Find poi matching the id and edit fields
+                    if (a.getJSONObject(i).getInt("id") == selectedPoi.getId()) {
+                        a.getJSONObject(i).put("favourited", true);
+                    }
+                }
+            }
+            d.storeData(d.userData);
+            MapPanel.setUpTypePanels();
+            this.dispose();
+
         });
 
         buttonPanel.add(favoriteButton);

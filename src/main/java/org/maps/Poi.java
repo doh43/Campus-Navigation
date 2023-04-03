@@ -70,7 +70,11 @@ public class Poi {
         this.icon = icon;
         this.posX = posX;
         this.posY = posY;
-        this.builtIn = false;
+        if (SessionManager.getCurrentUser().userType().equals("admin")) {
+            this.builtIn = true;
+        } else {
+            this.builtIn = false;
+        }
         this.favourited = false;
     }
     /**
@@ -86,7 +90,7 @@ public class Poi {
         this.icon = poi.getString("icon");
         this.posX = poi.getInt("posX");
         this.posY = poi.getInt("posY");
-        this.builtIn = false;
+        this.builtIn = poi.getBoolean("builtIn");
         this.favourited = false;
     }
     public String getName() {
@@ -103,6 +107,8 @@ public class Poi {
     public int getPosX() { return this.posX; }
     public int getPosY() { return this.posY; }
     public int getId() { return this.id; }
+    public boolean getBuiltIn() { return this.builtIn; }
+    public boolean getFavourited() { return this.favourited; }
 
     /**
      * Converts the Poi object to a JSONObject.

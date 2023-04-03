@@ -289,11 +289,12 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
      * @param o the JSON object representing the POI to add
      */
     public void addPoi(String building, int floorNum, JSONObject o) {
-        d.getPois(building, floorNum).put(o);
         if (Objects.equals(sessionManager.getCurrentUser().userType(), "admin")) { // If admin, save POIs to buildings.json
+            d.getPois(building, floorNum).put(o);
             d.storeData(d.savedData);
         } else {
-            d.addCustomPOI(d.savedData);
+            d.getCustomPOIs(building, floorNum).put(o);
+            d.storeData(d.userData);
         }
     }
     /**
