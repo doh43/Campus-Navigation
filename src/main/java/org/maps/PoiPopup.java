@@ -49,9 +49,9 @@ public class PoiPopup extends JDialog  {
         else
             editDialog(selectedPoi);
 
+
         Point mousePosRelativeToViewport = MapPanel.getMapScroll().getMousePosition();
-        mousePosRelativeToViewport.x += 40;
-        mousePosRelativeToViewport.y -= 140;
+
 
 
         this.add(labelPanel);
@@ -62,8 +62,14 @@ public class PoiPopup extends JDialog  {
         pack();
         this.setSize(300,200);
         this.setResizable(false);
-//        this.setLocationRelativeTo(Maps.getMapFrame());
-        this.setLocation(mousePosRelativeToViewport);
+
+        if (mousePosRelativeToViewport == null) {
+            this.setLocationRelativeTo(Maps.getMapFrame());
+        } else {
+            mousePosRelativeToViewport.x += 40;
+            mousePosRelativeToViewport.y -= 140;
+            this.setLocation(mousePosRelativeToViewport);
+        }
     }
 
     /** initPopupDialog()
