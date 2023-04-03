@@ -14,7 +14,7 @@ import java.awt.*;
  */
 public class SearchPanel extends JPanel {
     public static JLabel floorLabel;
-    String userInput;
+    Integer floorNum;
     SearchPanel() {
 
         // Creating the building label for the map
@@ -27,7 +27,7 @@ public class SearchPanel extends JPanel {
         String buildingName = String.valueOf(d.savedData.getJSONObject(building).getString("name"));
 
         // Creates the floor label
-        floorLabel = new JLabel("<html><b> - "+(String) floorName+"</b>");
+        floorLabel = new JLabel("<html><b> - "+ floorName +"</b>");
         floorLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
 
         // Creates the building label
@@ -53,6 +53,14 @@ public class SearchPanel extends JPanel {
             }
             // Otherwise, the POI they were searching for will show
             else {
+                JSONArray jsonFloors = d.savedData.getJSONObject(building).getJSONArray("floors");
+                for (int i = 0; i < jsonFloors.length(); i++) {
+                    // This updates the map if the POI they searched for was on a different floor
+                    if (floorNum == i) {
+                        changeLabel(i);
+                        BottomPanel.changeFloor(i);
+                    }
+                }
                 PoiPopup p = new PoiPopup(new Poi(searchPoi));
                 p.setVisible(true);
             }
@@ -72,8 +80,8 @@ public class SearchPanel extends JPanel {
      */
     private JSONObject searchChecker(String input) {
         // Retrieving all the POI data
-        int i = 0;
-        JSONArray jsonPois = Maps.getMapBuilding().getFloors()[i].getPois();
+
+        JSONArray jsonPois = Maps.getMapBuilding().getFloors()[0].getPois();
         int numPois = jsonPois.length();
 
         // Creating variables
@@ -82,7 +90,7 @@ public class SearchPanel extends JPanel {
         String[] poiDesc = new String[numPois];
 
         // Loop through all the POIs to see if there is a match with the user's search, if found, return the POI
-        for (i = 0; i < jsonPois.length(); i++) {
+        for (int i = 0; i < numPois; i++) {
             JSONObject poi = (JSONObject) jsonPois.get(i);
 
             // Looks through POI names, ID, and description
@@ -90,20 +98,21 @@ public class SearchPanel extends JPanel {
             floorPoiIDs[i] = poi.getInt("id");
             poiDesc[i] = poi.getString("desc");
 
-            System.out.println(poiDesc[i]); // TEST REMOVE LATER
-
             // Checking if the name of the POI can be matched
             if (input.equalsIgnoreCase(poiNames[i])) {
+                Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
                 return poi;
             }
 
             // Checking if the ID of the POI can be matched
             else if (input.equalsIgnoreCase(String.valueOf(floorPoiIDs[i]))) {
+                Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
                 return poi;
             }
 
-            // Checking if the POI description can be matched
+            // Checking if the description of the POI can be matched
             else if (input.equalsIgnoreCase(poiDesc[i])) {
+                Integer floorNum = Maps.getMapBuilding().getFloors()[i].getId();
                 return poi;
             }
         }
