@@ -91,7 +91,6 @@ public class LoginFrame extends JFrame {
                     char[] passwordChars = passwordField.getPassword();
                     String password = new String(passwordChars);
 
-
                     // Check if the user exists and if their password is correct
                     try {
                         File file = new File("./data/userData/" + username + ".json");
@@ -101,8 +100,8 @@ public class LoginFrame extends JFrame {
                             if (user.getString("password").equals(password)) {
                                 JOptionPane.showMessageDialog(LoginFrame.this, "Login successful!");
                                 dispose();
-                                User currentUser = new User(user.getString("username"), user.getString("password"), "base");
-                                SessionManager.setCurrentUser(currentUser); // should hold a static value of the current user (hopefully)
+                                User currentUser = new User(user.getString("username"), user.getString("password"), user.getString("userType"));
+                                SessionManager.setCurrentUser(currentUser);
 
                                 // TODO: Load up saved favourites and customPOIs
                                 LandingPage frame = new LandingPage();

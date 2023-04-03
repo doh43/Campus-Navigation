@@ -2,11 +2,6 @@ package org.maps;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,18 +12,12 @@ import java.util.List;
  */
 
 public class User {
-
     private static User instance;
     private String username;
     private String password;
     private String userType;
     private ArrayList<POILocation> favourites;
     private ArrayList<POILocation> customPOIs;
-    private Building building;
-    private Floor floor;
-    private ArrayList<Poi> poi;
-
-
 
     /**
      * Class constructor
@@ -36,40 +25,13 @@ public class User {
      * @param username username
      * @param password password
      */
-    public User(String username, String password, String UserType) {
+    public User(String username, String password, String userType) {
         this.username = username;
         this.password = password;
-        this.userType = userType;
+        this.userType = "base";
         this.favourites = new ArrayList<POILocation>();
         this.customPOIs = new ArrayList<POILocation>();
     }
-
-    public static User loadUser(String username) {
-        String filePath = "./data/userData/" + username + ".json";
-        FileReader file = null;
-        try {
-            file = new FileReader(filePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-        JSONParser parser = new JSONParser();
-        JSONObject userObj = null;
-        try {
-            userObj = (JSONObject) parser.parse(file);
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-        String password = (String) userObj.get("password");
-        String userType = (String) userObj.get("userType");
-        User user = new User(username, password, userType);
-
-        return user;
-    }
-
 
     /**
      * JSON representation of a user
@@ -89,7 +51,7 @@ public class User {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("username", this.username);
         jsonObject.put("password", this.password);
-        jsonObject.put("userType", this.userType);
+        jsonObject.put("userType", "base");
         JSONArray favouritesJsonArray = new JSONArray();
         for (POILocation poiLocation : this.favourites) {
             JSONObject jsonPOILocation = new JSONObject();

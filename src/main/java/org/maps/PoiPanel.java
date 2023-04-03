@@ -280,7 +280,7 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
 
         d.getPois(building, floorNum).put(o);
 
-        if (sessionManager.getCurrentUser().userType() == "admin") { // right now this should be "base" on default bc I didn't add an admin user yet
+        if (sessionManager.getCurrentUser().userType() == "admin") { // If admin, save to built-in POI JSON file
             d.storeData(d.savedData);
         } else {
             d.addCustomPOI(d.savedData);
