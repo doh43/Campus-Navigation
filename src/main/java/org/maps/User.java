@@ -113,8 +113,6 @@ public class User {
         return jsonObject;
     }
 
-
-
     public String getUsername() {
         return username;
     }

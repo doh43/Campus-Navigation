@@ -99,7 +99,6 @@ public class MapPanel extends JPanel {
         }
     }
 
-
     /** METHOD # - setUpTypePanels()
      *     BottomPanel use:     - based on floor selection set up new display for image and type-layered-buttons
      *     Static Variables:
@@ -127,8 +126,9 @@ public class MapPanel extends JPanel {
         Data d = Data.getInstance();
         JSONArray floorPois = d.getPois(buildingCode, floorNum);
         JSONArray userFloorPois = d.getCustomPOIs(buildingCode, floorNum);
+        // MERGES USER-ADDED POIs WITH EXISTING POIs
         floorPois.putAll(userFloorPois);
-        // TODO: Add custom POIs here!!!
+
 
         // SETUP STATIC VARIABLES
         typePanels = new HashMap<>();   // for toggleLayer()
