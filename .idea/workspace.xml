@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/admin.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/userData/doh43.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Poi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Poi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -78,7 +79,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.org.maps.LoginFrame">
+  <component name="RunManager" selected="Application.org.maps.LoginFrame (1)">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="app" />
@@ -92,8 +93,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Building" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.maps.Building" />
+    <configuration name="LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Maps" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.maps.Maps" />
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -105,13 +112,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Maps" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.maps.Maps" />
+    <configuration name="org.maps.LoginFrame (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -138,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.org.maps.LoginFrame (1)" />
         <item itemvalue="Application.org.maps.LoginFrame" />
         <item itemvalue="Application.Maps" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.LoginFrame" />
-        <item itemvalue="Application.Building" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +275,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="color-scroll" />
                       </list>
                     </value>
                   </entry>

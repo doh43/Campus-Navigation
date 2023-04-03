@@ -118,18 +118,6 @@ public class MapPanel extends JPanel {
         }
     }
 
-
-    /* METHOD # - setUpTypePanels()
-     *     BottomPanel use:     - based on floor selection set up new display for image and type-layered-buttons
-     *     Static Variables:
-     *          imageLabel      - to load new map png
-     *          layeredPane     - to load new type-layers and buttons
-     *          typePanels      - store HashMap with (type, layer in layeredPane) K,V pairing
-     *                              - to be used by METHOD # toggleLayer()
-     *          allButtons      - store HashMap with (id, JButton object in layeredPane) K,V pairing
-     *                              - to be used by METHOD # jumpToPoi()
-     */
-
     /**
      * Sets up the map and points of interest (POIs) on the map.
      * */
@@ -187,7 +175,7 @@ public class MapPanel extends JPanel {
 
             JButton button = new JButton();
             button.setBounds(posX-20,posY-20,40,40);
-            button.setBackground(Color.BLUE);
+            setButtonColor(button, type);   // SET BUTTON COLOR BASED ON TYPE
             button.setOpaque(true);
             button.setBorderPainted(false);
             button.addActionListener(e -> {
@@ -208,4 +196,38 @@ public class MapPanel extends JPanel {
         mapScroll.setViewportView(layeredPane);
         staticMapPanel.add(mapScroll);
     }
+
+    /**
+     * decide button color based on layer-type before adding to layer
+     * @param button - JButton being configured during for loop iteration in setUpTypePanels()
+     * @param type - the layer type
+     */
+    public static void setButtonColor(JButton button, String type) {
+
+        String temp = type.toLowerCase().substring(0,2);
+
+        //classroom
+        if(temp.equals("cl"))
+            button.setBackground(new Color(52, 132, 240));
+        //restaurant
+        else if(temp.equals("re"))
+            button.setBackground(new Color(178, 102,255));
+        //lab
+        else if(temp.equals("la"))
+            button.setBackground(new Color(211, 144, 79));
+        //washroom
+        else if(temp.equals("wa"))
+            button.setBackground(new Color(255, 130, 130));
+        //entry/exit
+        else if(temp.equals("en"))
+            button.setBackground(new Color(90, 90, 90));
+        //navigation
+        else if(temp.equals("na"))
+            button.setBackground(new Color(0, 204, 0));
+        //collaborative room
+        else if(temp.equals("co"))
+            button.setBackground(new Color(246, 207, 101));
+
+    }
+
 }
