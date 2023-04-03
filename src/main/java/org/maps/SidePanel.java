@@ -24,6 +24,7 @@ public class SidePanel extends JLayeredPane {
 
     /* Displays the current user's favourites */
     private static JPanel favourites;
+    private static Object selectedPOI;
 
     /* Holds all side panel components */
     private JPanel selection;
@@ -133,11 +134,15 @@ public class SidePanel extends JLayeredPane {
         add(new PoiPanel(), Integer.valueOf(1));
     }
 
+    /**
+     * This method is responsible for retrieving all the POIs on a floor and storing it in a list.
+     *
+     * @return the POI names for the dropdown list
+     */
     private static String[] makePoiNameList() {
         int floorNum = MapPanel.getFloorNum();
         JSONArray jsonPois = Maps.getMapBuilding().getFloors()[floorNum].getPois();
         int numPois = jsonPois.length();
-
 
         String[] poiNames = new String[numPois];
         floorPoiIDs = new int[numPois];
@@ -150,13 +155,45 @@ public class SidePanel extends JLayeredPane {
         return poiNames;
     }
 
+    /**
+     * This method creates the dropdown list and makes the dropdown list functional whenever a user selects a POI from it.
+     *
+     * @return cb, the combo-box or the dropdown list
+     */
     private static JComboBox<String> addPoiDropdown() {
         String[] poiNames = makePoiNameList();
         JComboBox<String> cb = new JComboBox<>(poiNames);
-        cb.addActionListener(e -> MapPanel.jumpToPoi(floorPoiIDs[cb.getSelectedIndex()]));
+        cb.addActionListener(e -> {
+            // Retrieves whatever the user selected from the POI dropdown list
+            Object selection = poiDrop.getSelectedItem();
+
+            // Retrieves the POI data
+            int floorNum = MapPanel.getFloorNum();
+            JSONArray jsonPois = Maps.getMapBuilding().getFloors()[floorNum].getPois();
+            int numPois = jsonPois.length();
+
+            // Creates variable
+            String[] poiName = new String[numPois];
+
+            // Loops through the JSON file to find the JSONObject to create a pop-up POI
+            for (int i = 0; i < jsonPois.length(); i++) {
+                JSONObject poi = (JSONObject) jsonPois.get(i);
+                poiName[i] = poi.getString("name");
+
+                // If the name of the POI is equivalent to what is in the JSON file, it creates a pop-up
+                if (selection.toString().equals(poiName[i])) {
+                    PoiPopup p = new PoiPopup(new Poi(poi));
+                    p.setVisible(true);
+                }
+            }
+        }
+        );
         return cb;
     }
 
+    /**
+     * Updates the dropdown list with new POIs.
+     */
     public static void updateDropDown() {
         String[] poiNames = makePoiNameList();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>( poiNames );
