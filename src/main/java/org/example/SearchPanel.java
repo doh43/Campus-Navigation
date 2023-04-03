@@ -7,15 +7,13 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * This class is responsible for creating the search bar and the corresponding building/floor labels so the user knows
- * which building and floor they are in when they open the map.
+ * This class is responsible for creating a functional search bar and the corresponding building/floor labels so
+ * the user knows which building and floor they are in when they open the map.
  *
  * @author ewakefi, tha7, tgarci3
  */
 public class SearchPanel extends JPanel {
     public static JLabel floorLabel;
-    Integer floorNum;
-
     SearchPanel() {
 
         // Creating the building label for the map
@@ -29,11 +27,11 @@ public class SearchPanel extends JPanel {
 
         // Creates the floor label
         floorLabel = new JLabel("<html><b> - "+ floorName +"</b>");
-        floorLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+        floorLabel.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 25));
 
         // Creates the building label
         JLabel buildingLabel = new JLabel("<html><b> "+buildingName+"</b>");
-        buildingLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+        buildingLabel.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 25));
 
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
@@ -54,7 +52,7 @@ public class SearchPanel extends JPanel {
             }
             // Otherwise, the POI they were searching for will show
             else {
-                // This updates the floor map with the map that contains the POI searched for
+                // This updates the floor map with the map that contains the POI that was searched for
                 changeLabel(MapPanel.getFloorNum());
                 MapPanel.setUpTypePanels();
 
@@ -88,8 +86,10 @@ public class SearchPanel extends JPanel {
             String[] poiNames = new String[numPois];
             int[] floorPoiIDs = new int[numPois];
             String[] poiDesc = new String[numPois];
+            int[] roomNum = new int[numPois];
             MapPanel.setFloorNum(j);
 
+            // Loops through the POIs on a floor
             for (int i = 0; i < jsonPois.length(); i++) {
                 JSONObject poi = (JSONObject) jsonPois.get(i);
 
@@ -97,10 +97,15 @@ public class SearchPanel extends JPanel {
                 poiNames[i] = poi.getString("name");
                 floorPoiIDs[i] = poi.getInt("id");
                 poiDesc[i] = poi.getString("desc");
-                System.out.print(poiNames[i]);
+                roomNum[i] = poi.getInt("roomNum");
 
                 // Checking if the name of the POI can be matched
                 if (input.equalsIgnoreCase(poiNames[i])) {
+                    return poi;
+                }
+
+                // Checking if room number of the POI can be matched
+                else if (input.equalsIgnoreCase(String.valueOf(roomNum[i]))) {
                     return poi;
                 }
 
@@ -129,7 +134,7 @@ public class SearchPanel extends JPanel {
             Data d = Data.getInstance();
             Object name = d.savedData.getJSONObject(buildingName).getJSONArray("floors").getJSONObject(floor).get("name");
             floorLabel.setText(("<html><b> - " + name.toString() + "</b>"));
-            floorLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+            floorLabel.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 25));
         }
     }
 
