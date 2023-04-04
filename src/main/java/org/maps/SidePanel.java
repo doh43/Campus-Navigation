@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 
 public class SidePanel extends JLayeredPane {
+
     /* Displays existing POIs*/
     private static JPanel poiList;
 
@@ -42,6 +43,8 @@ public class SidePanel extends JLayeredPane {
      * Contains a PoiPanel that will hide the side panel components and expand when pressed
      * @ //TODO: 2023-03-29 Change the dropdown for favourites to access POI data */
     SidePanel() {
+
+
         setLayout(null);
         setPreferredSize(new Dimension(200,1000));
 
@@ -114,7 +117,7 @@ public class SidePanel extends JLayeredPane {
 
         /* Title for the favourites panel */
         JLabel favSelect = new JLabel("Favourites");
-
+        // TODO: ADD FAVOURITES SEARCH FUNCTIONALITY
         String[] favs = {"fav1","fav2","fav3","fav4"};
         JComboBox<String> favBox = new JComboBox<>(favs);
 
@@ -140,15 +143,22 @@ public class SidePanel extends JLayeredPane {
      * @return the POI names for the dropdown list
      */
     private static String[] makePoiNameList() {
+        Data data = new Data();
+        // TODO: ADD COMMENTS (DANIEL)
+        String building = Maps.getBuildingCode();
         int floorNum = MapPanel.getFloorNum();
-        JSONArray jsonPois = Maps.getMapBuilding().getFloors()[floorNum].getPois();
-        int numPois = jsonPois.length();
+        JSONArray customPois = data.getCustomPOIs(building, floorNum);
+        JSONArray jsonPois = data.getPois(building, floorNum);
+        JSONArray allPois = new JSONArray();
+        allPois.putAll(jsonPois);
+        allPois.putAll(customPois);
+        int numPois = allPois.length();
 
         String[] poiNames = new String[numPois];
         floorPoiIDs = new int[numPois];
 
         for (int i = 0; i < numPois; i++) {
-            JSONObject poi = (JSONObject) jsonPois.get(i);
+            JSONObject poi = (JSONObject) allPois.get(i);
             poiNames[i] = poi.getString("name");
             floorPoiIDs[i] = poi.getInt("id");
         }
@@ -161,23 +171,30 @@ public class SidePanel extends JLayeredPane {
      * @return cb, the combo-box or the dropdown list
      */
     private static JComboBox<String> addPoiDropdown() {
+        Data data = new Data();
+
         String[] poiNames = makePoiNameList();
         JComboBox<String> cb = new JComboBox<>(poiNames);
         cb.addActionListener(e -> {
             // Retrieves whatever the user selected from the POI dropdown list
             Object selection = poiDrop.getSelectedItem();
 
-            // Retrieves the POI data
+            // TODO: ADD COMMENTS (DANIEL)
+            String building = Maps.getBuildingCode();
             int floorNum = MapPanel.getFloorNum();
-            JSONArray jsonPois = Maps.getMapBuilding().getFloors()[floorNum].getPois();
-            int numPois = jsonPois.length();
+            JSONArray customPois = data.getCustomPOIs(building, floorNum);
+            JSONArray jsonPois = data.getPois(building, floorNum);
+            JSONArray allPois = new JSONArray();
+            allPois.putAll(jsonPois);
+            allPois.putAll(customPois);
+            int numPois = allPois.length();
 
             // Creates variable
             String[] poiName = new String[numPois];
 
             // Loops through the JSON file to find the JSONObject to create a pop-up POI
-            for (int i = 0; i < jsonPois.length(); i++) {
-                JSONObject poi = (JSONObject) jsonPois.get(i);
+            for (int i = 0; i < allPois.length(); i++) {
+                JSONObject poi = (JSONObject) allPois.get(i);
                 poiName[i] = poi.getString("name");
 
                 // If the name of the POI is equivalent to what is in the JSON file, it creates a pop-up
