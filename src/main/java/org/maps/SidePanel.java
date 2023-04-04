@@ -14,36 +14,43 @@ import java.awt.event.ItemEvent;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/** Implements the side panel of the Map screen
+ * @author Tomas Garcia, Ethan Tiger Wakefield
+ * @version 1.0
+ * @see org.maps.MainPanel
+ * @see org.maps.PoiPanel */
 public class SidePanel extends JLayeredPane {
-    /* Displays existing POIs*/
+    /** Displays existing POIs*/
     private static JPanel poiList;
 
-    /* Displays the layers currently selected/deselected on the map */
+    /** Displays the layers currently selected/deselected on the map */
     private static JPanel layer;
 
-    /* Holds the checkboxes inside the layer panel */
+    /** Holds the checkboxes inside the layer panel */
     private static JPanel checkPan;
 
-    /* Displays the current user's favourites */
+    /** Displays the current user's favourites */
     private static JPanel favourites;
-    private static Object selectedPOI;
 
-    /* Holds all side panel components */
+    /** Holds all side panel components */
     private JPanel selection;
 
-    /* Represent types of POIs */
+    /** Represent types of POIs */
     private JCheckBox cRoom, nav, wash, entry, genL, res, collab;
 
-    /* Stores the POI names for each floor */
+    /** Stores the POI names for each floor */
     private static JComboBox<String> poiDrop;
 
-    /* Stores the ids of the POIs stored in poiDrop */
+    /** Stores the POI IDs for each floor */
     private static int[] floorPoiIDs;
+    /** Stores the favourites dropdown */
     private static JComboBox<String> favBox;
 
-    /** Creates a new side panel
-     * Contains a PoiPanel that will hide the side panel components and expand when pressed
-     * @ //TODO: 2023-03-29 Change the dropdown for favourites to access POI data */
+    /** SidePanel()
+     * Constructor for the SidePanel class
+     * Sets up the side panel of the map screen
+     * @see org.maps.MainPanel
+     * @see org.maps.PoiPanel */
     SidePanel() {
         setLayout(null);
         setPreferredSize(new Dimension(200,1000));
@@ -136,11 +143,13 @@ public class SidePanel extends JLayeredPane {
         add(selection, Integer.valueOf(0));
         add(new PoiPanel(), Integer.valueOf(1));
     }
+    /** Rerenders the favourites dropdown */
     public static void updateFavourites() {
         String[] favNames = makeFavNameList();
         favBox.setModel(new DefaultComboBoxModel<>(favNames));
     }
-
+    /** Creates a JComboBox with the favourited poi names
+     * @return JComboBox<String> */
     public static JComboBox<String> makeFavouritesDropdown() {
         Data d = Data.getInstance();
         String[] favNames = makeFavNameList();
@@ -180,6 +189,8 @@ public class SidePanel extends JLayeredPane {
         });
         return favBox;
     }
+    /** Creates a list of the names of the favourites
+     * @return String[] of favourite names */
     public static String[] makeFavNameList() {
         Data d = Data.getInstance();
         JSONArray favs = d.getFavourites();
