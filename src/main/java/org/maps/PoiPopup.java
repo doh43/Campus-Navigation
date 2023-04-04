@@ -4,6 +4,8 @@ import org.json.JSONArray;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 
 /**
@@ -42,7 +44,7 @@ public class PoiPopup extends JDialog  {
      *
      * @param selectedPoi - the POI that was clicked on
      */
-    PoiPopup(Poi selectedPoi) {
+    PoiPopup(Poi selectedPoi, JButton selectedButton) {
         super(Maps.getMapFrame(), selectedPoi.getName(), true);
         /* DIALOG TITLE
          *      frame - make sure the map screen frame is being passed
@@ -90,6 +92,16 @@ public class PoiPopup extends JDialog  {
             mousePosRelativeToViewport.y -= 140;
             this.setLocation(mousePosRelativeToViewport);
         }
+
+        Color holdButtonColor = selectedButton.getBackground();
+        selectedButton.setBackground(Color.BLACK);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosed(WindowEvent e) {
+                selectedButton.setBackground(holdButtonColor);
+            }
+        });
+
     }
 
     /** initPopupDialog()
