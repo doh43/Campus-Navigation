@@ -3,7 +3,6 @@ package org.maps;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.json.JSONObject;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
