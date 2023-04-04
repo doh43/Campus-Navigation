@@ -345,7 +345,6 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
             Point viewportLocation = MapPanel.getMapScroll().getViewport().getViewPosition();
             mousePosAbsolute.setLocation(mousePosRelativeToViewport.x + viewportLocation.x, mousePosRelativeToViewport.y + viewportLocation.y);
             poiPosLabel.setText("Current Pos: " + mousePosAbsolute.x + "," + mousePosAbsolute.y);
-            System.out.println(mousePosAbsolute);
         }
     }
 

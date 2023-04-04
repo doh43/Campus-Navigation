@@ -130,6 +130,14 @@ public final class Data {
     }
 
     /**
+     * Returns the user's favourites from the user's JSON file.
+     * @return The JSONArray containing the user's favourites.
+     */
+    public JSONArray getFavourites() {
+        return userData.getJSONArray("favourites");
+    }
+
+    /**
      * Loads the user's custom POIs from the user's JSON file.
      */
     public void loadUserData() {

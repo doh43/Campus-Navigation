@@ -148,10 +148,13 @@ public class MapPanel extends JPanel {
 
         // COLLECT POIs
         Data d = Data.getInstance();
+        JSONArray allPois = new JSONArray();
         JSONArray floorPois = d.getPois(buildingCode, floorNum);
         JSONArray userFloorPois = d.getCustomPOIs(buildingCode, floorNum);
         // MERGES USER-ADDED POIs WITH EXISTING POIs
-        floorPois.putAll(userFloorPois);
+        allPois.putAll(floorPois);
+        allPois.putAll(userFloorPois);
+
 
 
         // SETUP STATIC VARIABLES
@@ -163,7 +166,7 @@ public class MapPanel extends JPanel {
 
 
         // FOR ALL POIs IN SELECTED FLOOR
-        for (Object obj : floorPois) {
+        for (Object obj : allPois) {
             JSONObject poi = (JSONObject) obj;
 
             String type = poi.getString("type");

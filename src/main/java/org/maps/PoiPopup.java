@@ -129,7 +129,7 @@ public class PoiPopup extends JDialog  {
      * @param selectedPoi - the POI that was clicked on
      */
     private void editDialog(Poi selectedPoi){
-        favoriteButton = new JButton(selectedPoi.getFavourited() ? "Unfavorite" : "Favorite");
+        favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavorite" : "Favorite");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
         editButton.addActionListener(e -> {
@@ -164,23 +164,18 @@ public class PoiPopup extends JDialog  {
                 return;
             }
             Data d = Data.getInstance();
-            JSONArray a = d.getCustomPOIs(Maps.getBuildingCode(), MapPanel.getFloorNum());
-            if (selectedPoi.getFavourited() == true) {
+            JSONArray a = d.getFavourites();
+            if (isFavourited(selectedPoi)) {
                 favoriteButton.setText("Favourite");
                 for (int i = 0; i < a.length(); i++) {
-                    // Find poi matching the id and edit fields
                     if (a.getJSONObject(i).getInt("id") == selectedPoi.getId()) {
-                        a.getJSONObject(i).put("favourited", false);
+                        a.remove(i);
                     }
                 }
             } else {
                 favoriteButton.setText("Unfavourite");
-                for (int i = 0; i < a.length(); i++) {
-                    // Find poi matching the id and edit fields
-                    if (a.getJSONObject(i).getInt("id") == selectedPoi.getId()) {
-                        a.getJSONObject(i).put("favourited", true);
-                    }
-                }
+
+                    a.put(selectedPoi.convertJSON());
             }
             d.storeData(d.userData);
             MapPanel.setUpTypePanels();
@@ -201,13 +196,40 @@ public class PoiPopup extends JDialog  {
      */
     public void deletePoi(Poi p) {
         Data d = Data.getInstance();
-        JSONArray a = d.getPois(Maps.getBuildingCode(), MapPanel.getFloorNum());
+        // if the poi is builtin then remove it from the building.json, otherwise remove it from the user's custompois array
+        if (p.getBuiltIn()) {
+            JSONArray a = d.getPois(Maps.getBuildingCode(), MapPanel.getFloorNum());
+            for (int i = 0; i < a.length(); i++) {
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.remove(i);
+                }
+            }
+            d.storeData(d.savedData);
+        } else {
+            JSONArray a = d.getCustomPOIs(Maps.getBuildingCode(), MapPanel.getFloorNum());
+            for (int i = 0; i < a.length(); i++) {
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.remove(i);
+                }
+            }
+            d.storeData(d.userData);
+        }
+    }
+    /** isFavourited()
+     * checks if a POI is favourited
+     *
+     * @param p - the POI to be checked
+     * @return true if the POI is favourited, false otherwise
+     */
+    public boolean isFavourited(Poi p) {
+        Data d = Data.getInstance();
+        JSONArray a = d.getFavourites();
         for (int i = 0; i < a.length(); i++) {
             if (a.getJSONObject(i).getInt("id") == p.getId()) {
-                a.remove(i);
+                return true;
             }
         }
-        d.storeData(d.savedData);
+        return false;
     }
 
 
