@@ -215,13 +215,23 @@ public class SidePanel extends JLayeredPane {
 
 
         }
-        // if any favNames are null, remove them
-        for (int i = 0; i < favNames.length; i++) {
-            if (favNames[i] == null) {
-                favNames = Arrays.copyOf(favNames, favNames.length - 1);
+        int numFavs = 0;
+        for (String favName : favNames) {
+            if (favName != null) {
+                numFavs++;
             }
         }
-        return favNames;
+        String[] newFavNames = new String[numFavs];
+        for (String favName: favNames) {
+            if (favName != null) {
+                newFavNames[numFavs - 1] = favName;
+                numFavs--;
+            }
+        }
+
+
+
+        return newFavNames;
     }
 
     /**
