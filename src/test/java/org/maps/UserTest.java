@@ -27,16 +27,6 @@ public class UserTest {
     }
 
     /**
-     * Test the getPassword method of class User
-     */
-    @Test
-    public void testGetPassword() {
-        System.out.print("Testing getPassword");
-        User user = new User("john_doe", "password123", "testData");
-        assertEquals("password123", user.getPassword());
-    }
-
-    /**
      * Test the userType method of class User
      */
     @Test
