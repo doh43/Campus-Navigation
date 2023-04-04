@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 
 /**
  * This class is responsible for creating a functional search bar and the corresponding building/floor labels so
@@ -57,8 +58,9 @@ public class SearchPanel extends JPanel {
                 MapPanel.setUpTypePanels();
 
                 // Creates POI pop-up
-                PoiPopup p = new PoiPopup(new Poi(searchPoi));
-                p.setVisible(true);
+//                PoiPopup p = new PoiPopup(new Poi(searchPoi));
+//                p.setVisible(true);
+                MapPanel.jumpToPoi(new Poi(searchPoi));
             }
         });
         add(searchPrompt);

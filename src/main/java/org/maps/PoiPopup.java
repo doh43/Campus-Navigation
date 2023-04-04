@@ -10,7 +10,7 @@ import java.awt.*;
  * which building and floor they are in when they open the map.
  *
  * @version 1.0
- * @author Ethan Wakefield, Taejun Ha, Tomas Garcia
+ * @author Ethan Wakefield, Taejun Ha, Tomas Garcia, Aryan Saxena
  */
 public class PoiPopup extends JDialog  {
     /** JLabel for displaying the type of POI */
@@ -43,12 +43,6 @@ public class PoiPopup extends JDialog  {
      */
     PoiPopup(Poi selectedPoi) {
         super(Maps.getMapFrame(), selectedPoi.getName(), true);
-        /* DIALOG TITLE
-         *      frame - make sure the map screen frame is being passed
-         *      title - String - call getter method for POIs name, set as dialog title
-         *      modal - true - can't interact with map frame unless dialog is exited
-         *
-         */
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
         //set up the label panel with POI description/name/type

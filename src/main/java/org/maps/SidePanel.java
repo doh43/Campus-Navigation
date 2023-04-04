@@ -182,8 +182,14 @@ public class SidePanel extends JLayeredPane {
 
                 // If the name of the POI is equivalent to what is in the JSON file, it creates a pop-up
                 if (selection.toString().equals(poiName[i])) {
-                    PoiPopup p = new PoiPopup(new Poi(poi));
-                    p.setVisible(true);
+
+                   // Poi tempPoi = new Poi(poi);
+
+                    MapPanel.jumpToPoi(new Poi(poi));
+/*
+                    PoiPopup p = new PoiPopup(tempPoi);
+                    p.setLocation(tempPoi.getPosX(), tempPoi.getPosY());
+                    p.setVisible(true); */
                 }
             }
         }

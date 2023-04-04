@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
+import java.util.Map;
+
 /**
  * A panel that displays a map image and allows users to interact with points of interest (POIs) on the map.
  *
@@ -70,23 +72,35 @@ public class MapPanel extends JPanel {
         floorNum = i;
         SidePanel.updateDropDown();
     }
-
     public static int getFloorNum() {
         return floorNum;
     }
 
     /**
      * Jumps to a specific POI on the map.
-     * @param id The unique ID of the POI to jump to.
+     * @param poi to jump to
      * */
-    public static void jumpToPoi(int id){
+    public static void jumpToPoi(Poi poi){
+        int id = poi.getId();
 
         if (allButtons.containsKey(id)) {
-
             JButton targetButton = allButtons.get(id);
             Rectangle buttonBounds = targetButton.getBounds();
-            JViewport targetViewport = mapScroll.getViewport();
+            JViewport targetViewport = MapPanel.getMapScroll().getViewport();
+
+            // Convert the button bounds to the viewport's coordinate space
+            Point buttonLocation = SwingUtilities.convertPoint(targetButton.getParent(), buttonBounds.getLocation(), targetViewport);
+            buttonBounds.setLocation(buttonLocation);
+
+            // SIZE ADJUSTMENT
+            buttonBounds.grow(400,400);
+
             targetViewport.scrollRectToVisible(buttonBounds);
+
+            PoiPopup p = new PoiPopup(poi);
+            p.setLocationRelativeTo(targetButton);
+            p.setVisible(true);
+
         }
     }
 
@@ -182,6 +196,7 @@ public class MapPanel extends JPanel {
                 if (e.getSource() == button) {
 //                    Poi p = new Poi(poi);
                     PoiPopup p = new PoiPopup(new Poi(poi));
+                    p.setLocationRelativeTo(button);
                     p.setVisible(true);
                 }
             });
