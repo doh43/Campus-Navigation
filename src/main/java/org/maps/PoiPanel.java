@@ -16,7 +16,7 @@ import java.util.Random;
  * @author Ethan Wakefield
  */
 
-public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseListener {
+public class PoiPanel extends JPanel implements ActionListener, MouseListener {
 
     /** Holds the name of the current user logged in */
     SessionManager sessionManager;
@@ -289,11 +289,12 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
      * @param o the JSON object representing the POI to add
      */
     public void addPoi(String building, int floorNum, JSONObject o) {
-        d.getPois(building, floorNum).put(o);
         if (Objects.equals(sessionManager.getCurrentUser().userType(), "admin")) { // If admin, save POIs to buildings.json
+            d.getPois(building, floorNum).put(o);
             d.storeData(d.savedData);
         } else {
-            d.addCustomPOI(d.savedData);
+            d.getCustomPOIs(building, floorNum).put(o);
+            d.storeData(d.userData);
         }
     }
     /**
@@ -304,20 +305,37 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
      * @param p the POI to edit
      */
     public void editPoi(String building, int floorNum, Poi p) {
-        JSONArray a = d.getPois(building, floorNum);
-        for (int i = 0; i < a.length(); i++) {
-            // Find poi matching the id and edit fields
-            if (a.getJSONObject(i).getInt("id") == p.getId()) {
-                a.getJSONObject(i).put("name", p.getName());
-                a.getJSONObject(i).put("type", p.getType());
-                a.getJSONObject(i).put("roomNum", p.getRoomNum());
-                a.getJSONObject(i).put("desc", p.getDesc());
-                a.getJSONObject(i).put("posX", p.getPosX());
-                a.getJSONObject(i).put("posY", p.getPosY());
+        if (SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            JSONArray a = d.getPois(building, floorNum);
+            for (int i = 0; i < a.length(); i++) {
+                // Find poi matching the id and edit fields
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.getJSONObject(i).put("name", p.getName());
+                    a.getJSONObject(i).put("type", p.getType());
+                    a.getJSONObject(i).put("roomNum", p.getRoomNum());
+                    a.getJSONObject(i).put("desc", p.getDesc());
+                    a.getJSONObject(i).put("posX", p.getPosX());
+                    a.getJSONObject(i).put("posY", p.getPosY());
+                }
             }
+            // Save the data to the json file
+            d.storeData(d.savedData);
+        } else {
+            JSONArray a = d.getCustomPOIs(building, floorNum);
+            for (int i = 0; i < a.length(); i++) {
+                // Find poi matching the id and edit fields
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.getJSONObject(i).put("name", p.getName());
+                    a.getJSONObject(i).put("type", p.getType());
+                    a.getJSONObject(i).put("roomNum", p.getRoomNum());
+                    a.getJSONObject(i).put("desc", p.getDesc());
+                    a.getJSONObject(i).put("posX", p.getPosX());
+                    a.getJSONObject(i).put("posY", p.getPosY());
+                }
+            }
+            // Save the data to the json file
+            d.storeData(d.userData);
         }
-        // Save the data to the json file
-        d.storeData(d.savedData);
     }
 
 
@@ -344,7 +362,6 @@ public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseL
             Point viewportLocation = MapPanel.getMapScroll().getViewport().getViewPosition();
             mousePosAbsolute.setLocation(mousePosRelativeToViewport.x + viewportLocation.x, mousePosRelativeToViewport.y + viewportLocation.y);
             poiPosLabel.setText("Current Pos: " + mousePosAbsolute.x + "," + mousePosAbsolute.y);
-            System.out.println(mousePosAbsolute);
         }
     }
 

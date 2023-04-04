@@ -57,11 +57,20 @@ public final class Data {
      @param o The JSON object to store as the new data.
      */
     public void storeData(JSONObject o) {
-        try (FileWriter file = new FileWriter("./data/buildings.json")) {
-            file.write(o.toString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            try (FileWriter file = new FileWriter("./data/buildings.json")) {
+                file.write(o.toString());
+                file.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try (FileWriter file = new FileWriter("./data/userData/" + SessionManager.getCurrentUser().getUsername() + ".json")) {
+                file.write(o.toString());
+                file.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
     /**
@@ -86,24 +95,24 @@ public final class Data {
         return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).getJSONArray("pois");
     }
 
-    /**
-     * Adds a custom POI to the user's customPOIs array
-     * @param object the POI to be added.
-     *
-     */
-    public void addCustomPOI(JSONObject object) {
-        try {
-            JSONObject jsonObject = new JSONObject(new JSONTokener(new FileReader("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json")));
-            JSONArray customPOIs = jsonObject.getJSONArray("customPOIs");
-            customPOIs.put(object);
-            FileWriter fileWriter = new FileWriter("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json");
-            fileWriter.write(jsonObject.toString());
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    /**
+//     * Adds a custom POI to the user's customPOIs array
+//     * @param object the POI to be added.
+//     *
+//     */
+//    public void addCustomPOI(String building, int floorNum, JSONObject object) {
+//        try {
+//            JSONObject jsonObject = new JSONObject(new JSONTokener(new FileReader("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json")));
+//            JSONArray customPOIs = jsonObject.getJSONArray("customPOIs");
+//            customPOIs.put(object);
+//            FileWriter fileWriter = new FileWriter("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json");
+//            fileWriter.write(jsonObject.toString());
+//            fileWriter.flush();
+//            fileWriter.close();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     /**
      Returns the custom POIs for the given building and floor number from the user's JSON file.
@@ -118,6 +127,14 @@ public final class Data {
                  getJSONArray("floors").
                  getJSONObject(floorNum).
                  getJSONArray("pois");
+    }
+
+    /**
+     * Returns the user's favourites from the user's JSON file.
+     * @return The JSONArray containing the user's favourites.
+     */
+    public JSONArray getFavourites() {
+        return userData.getJSONArray("favourites");
     }
 
     /**

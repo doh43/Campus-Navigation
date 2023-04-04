@@ -5,12 +5,13 @@ import org.json.JSONArray;
 import javax.swing.*;
 import java.awt.*;
 
+
 /**
  * This class is responsible for creating the search bar and the corresponding building/floor labels so the user knows
  * which building and floor they are in when they open the map.
  *
  * @version 1.0
- * @author Ethan Wakefield, Taejun Ha, Tomas Garcia
+ * @author Ethan Wakefield, Aryan Saxena
  */
 public class PoiPopup extends JDialog  {
     /** JLabel for displaying the type of POI */
@@ -58,11 +59,15 @@ public class PoiPopup extends JDialog  {
         /*  SELECT favoriteOnly or edit Dialog to display
          *      BASED ON
          */
-        if(false)
-            if(false) favoriteOnlyDialog();
-            else editDialog(selectedPoi);
-        else
+        if(!SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            if(selectedPoi.getBuiltIn()) {
+                favoriteOnlyDialog(selectedPoi);
+            } else {
+                editDialog(selectedPoi);
+            }
+        } else {
             editDialog(selectedPoi);
+        }
 
 
         Point mousePosRelativeToViewport = MapPanel.getMapScroll().getMousePosition();
@@ -115,11 +120,16 @@ public class PoiPopup extends JDialog  {
     /** favoriteOnlyDialog()
      * sets up the button panel with only the favorite button
      */
-    private void favoriteOnlyDialog(){
-        favoriteButton = new JButton("Favorite");
+    private void favoriteOnlyDialog(Poi selectedPoi){
+        favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavourite" : "Favourite");
         buttonPanel.add(favoriteButton);
         buttonPanel.setLayout(new FlowLayout());
+        favoriteButton.addActionListener(e -> {
+            favouritePoi(selectedPoi);
+            MapPanel.setUpTypePanels();
+            this.dispose();
 
+        });
     }
 
     /** editDialog()
@@ -128,7 +138,7 @@ public class PoiPopup extends JDialog  {
      * @param selectedPoi - the POI that was clicked on
      */
     private void editDialog(Poi selectedPoi){
-        favoriteButton = new JButton("Favorite");
+        favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavourite" : "Favourite");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
         editButton.addActionListener(e -> {
@@ -158,6 +168,12 @@ public class PoiPopup extends JDialog  {
                 this.dispose();
             }
         });
+        favoriteButton.addActionListener(e -> {
+            favouritePoi(selectedPoi);
+            MapPanel.setUpTypePanels();
+            this.dispose();
+
+        });
 
         buttonPanel.add(favoriteButton);
         buttonPanel.add(editButton);
@@ -172,14 +188,70 @@ public class PoiPopup extends JDialog  {
      */
     public void deletePoi(Poi p) {
         Data d = Data.getInstance();
-        JSONArray a = d.getPois(Maps.getBuildingCode(), MapPanel.getFloorNum());
+        // If the user is an admin, delete the POI from the savedData
+        if (SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            JSONArray a = d.getPois(Maps.getBuildingCode(), MapPanel.getFloorNum());
+            for (int i = 0; i < a.length(); i++) {
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.remove(i);
+                }
+            }
+            d.storeData(d.savedData);
+        // if the user is not an admin, delete the POI from the userData
+        } else {
+            JSONArray a = d.getCustomPOIs(Maps.getBuildingCode(), MapPanel.getFloorNum());
+            for (int i = 0; i < a.length(); i++) {
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.remove(i);
+                }
+            }
+            // if the poi is favourited, remove it from the favourites array
+            if (isFavourited(p)) {
+                JSONArray f = d.getFavourites();
+                for (int i = 0; i < f.length(); i++) {
+                    if (f.getInt(i) == p.getId()) {
+                        f.remove(i);
+                    }
+                }
+            }
+            d.storeData(d.userData);
+        }
+    }
+    /** isFavourited()
+     * checks if a POI is favourited
+     *
+     * @param p - the POI to be checked
+     * @return true if the POI is favourited, false otherwise
+     */
+    public boolean isFavourited(Poi p) {
+        Data d = Data.getInstance();
+        JSONArray a = d.getFavourites();
         for (int i = 0; i < a.length(); i++) {
-            if (a.getJSONObject(i).getInt("id") == p.getId()) {
-                a.remove(i);
+            if (a.getInt(i) == p.getId()) {
+                return true;
             }
         }
-        d.storeData(d.savedData);
+        return false;
     }
 
+    public void favouritePoi(Poi selectedPoi) {
+        if (SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            return;
+        }
+        Data d = Data.getInstance();
+        JSONArray a = d.getFavourites();
+        if (isFavourited(selectedPoi)) {
+            favoriteButton.setText("Favourite");
+            for (int i = 0; i < a.length(); i++) {
+                if (a.getInt(i) == selectedPoi.getId()) {
+                    a.remove(i);
+                }
+            }
+        } else {
+            favoriteButton.setText("Unfavourite");
 
+            a.put(selectedPoi.getId());
+        }
+        d.storeData(d.userData);
+    }
 }
