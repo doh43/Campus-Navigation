@@ -148,7 +148,7 @@ public class MapPanel extends JPanel {
 
         // COLLECT POIs
         Data d = Data.getInstance();
-        JSONArray allPois = new JSONArray();
+        JSONArray allPois = new JSONArray(); // stores all POIs including both built-in and user-added
         JSONArray floorPois = d.getPois(buildingCode, floorNum);
         JSONArray userFloorPois = d.getCustomPOIs(buildingCode, floorNum);
         // MERGES USER-ADDED POIs WITH EXISTING POIs

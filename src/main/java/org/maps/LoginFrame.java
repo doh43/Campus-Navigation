@@ -60,11 +60,11 @@ public class LoginFrame extends JFrame {
                 String password = new String(passwordField.getPassword());
                 String userType = "base";
                 // List<POILocation> favourites = new ArrayList<>();
-                List<POILocation> customPOIs = new ArrayList<>();
+                // List<POILocation> customPOIs = new ArrayList<>();
 
                 // TODO: Add customPOI field
                 User user = new User(username, password, userType);
-                JSONObject userJSONObject = user.toJSONObject(customPOIs);
+                JSONObject userJSONObject = user.toJSONObject();
 
                 try {
                     FileWriter file = new FileWriter("./data/userData/" + username + ".json");

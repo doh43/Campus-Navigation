@@ -20,8 +20,8 @@ public class User {
     private String username;
     private String password;
     private String userType;
-    private ArrayList<POILocation> favourites;
-    private ArrayList<POILocation> customPOIs;
+   // private ArrayList<POILocation> favourites;
+    //private ArrayList<POILocation> customPOIs;
 
     /**
      * Class constructor
@@ -33,8 +33,8 @@ public class User {
         this.username = username;
         this.password = password;
         this.userType = userType;
-        this.favourites = new ArrayList<POILocation>();
-        this.customPOIs = new ArrayList<POILocation>();
+        //this.favourites = new ArrayList<POILocation>();
+       // this.customPOIs = new ArrayList<POILocation>();
     }
 
     /**
@@ -51,12 +51,13 @@ public class User {
      * Creates a JSONObject to hold user data inside the user's json file
      * @return JSONObject representing the User object
      */
-    public JSONObject toJSONObject(List<POILocation> customPOIs) {
+    public JSONObject toJSONObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("username", this.username);
         jsonObject.put("password", this.password);
         jsonObject.put("userType", "base");
         JSONArray favouritesJsonArray = new JSONArray();
+        /*
         for (POILocation poiLocation : this.favourites) {
             JSONObject jsonPOILocation = new JSONObject();
             jsonPOILocation.put("building", poiLocation.getBuilding().getName());
@@ -64,6 +65,8 @@ public class User {
             jsonPOILocation.put("poi", poiLocation.getRoomName().getName());
             favouritesJsonArray.put(jsonPOILocation);
         }
+        */
+
         jsonObject.put("favourites", favouritesJsonArray);
 
         /* populating customPOI array */
@@ -89,17 +92,4 @@ public class User {
     public String userType() {
         return userType;
     }
-
-    public List<POILocation> getFavourites() {
-        return this.favourites;
-    }
-
-    public void addFavourite(POILocation fav) {
-        favourites.add(fav);
-    }
-
-    public void removeFavourite(POILocation fav) {
-       favourites.remove(fav);
-    }
-
 }
