@@ -29,6 +29,11 @@ public class LandingPage extends JFrame implements ActionListener {
         this.setLayout(null);
         this.setResizable(false);
 
+        // If the user is a developer, the title of the panel will change to indicate it
+        if(SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            this.setTitle("Western Campus Navigation (DEVELOPER MODE) - Landing Page");
+        }
+
         String[] buildings = {"North Campus Building", "Middlesex College", "Alumni Hall"};
         campusBuildings = new JComboBox(buildings);
         campusBuildings.setBounds(200, 180, 300, 45);

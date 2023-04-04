@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="updated MC rooms">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,24 +54,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/JavaSwing Test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/JavaSwing Test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data" />
@@ -276,21 +276,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680581641178</updated>
     </task>
-    <task id="LOCAL-00014" summary="finished about">
-      <created>1680591422516</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1680591422516</updated>
-    </task>
-    <task id="LOCAL-00015" summary="updated MC rooms">
-      <created>1680594739408</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1680594739408</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +304,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="abot-elp" />
+                        <option value="origin/color-scroll" />
                       </list>
                     </value>
                   </entry>
@@ -344,9 +330,7 @@
     <MESSAGE value="layer colors working" />
     <MESSAGE value="scroll &amp; popup combined" />
     <MESSAGE value="blackeddd selection" />
-    <MESSAGE value="finished about" />
-    <MESSAGE value="updated MC rooms" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated MC rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="blackeddd selection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

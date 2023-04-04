@@ -10,18 +10,21 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+/** Provides a way to work with JSON building data abstractly
+ * @author Tomas Garcia
+ * @version 1.0
+ * @see org.maps.Floor */
 public class Building {
-    /* The name of the building */
+    /** The name of the building */
     private String name;
 
-    /* The floors of the building */
+    /** The floors of the building */
     private Floor[] floors;
 
-    /* The number of floors in the building */
+    /** The number of floors in the building */
     private int numOfFloors;
 
-    /* The buildings JSON that contains metadata for all buildings */
+    /** The buildings JSON that contains metadata for all buildings */
     private JSONObject buildings;
 
     /** Creates a new building
@@ -46,15 +49,18 @@ public class Building {
             floors[i] = new Floor(floorList, i);
         }
     }
-
+    /** Returns the name of the building
+     * @return Name of the building */
     public String getName() {
         return name;
     }
-
+    /** Returns the floors of the building
+     * @return Floors of the building */
     public Floor[] getFloors() {
         return floors;
     }
-
+    /** Returns the number of floors in the building
+     * @return Number of floors in the building */
     public int getNumFloors() {
         return numOfFloors;
     }
