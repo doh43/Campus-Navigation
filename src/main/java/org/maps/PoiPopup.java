@@ -261,9 +261,9 @@ public class PoiPopup extends JDialog  {
             }
         } else {
             favoriteButton.setText("Unfavourite");
-
             a.put(selectedPoi.getId());
         }
         d.storeData(d.userData);
+        SidePanel.updateFavourites();
     }
 }

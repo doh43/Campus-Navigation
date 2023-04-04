@@ -137,6 +137,7 @@ public class MapPanel extends JPanel {
      * */
     public static void setUpTypePanels() {
 
+
         // SETUP FLOOR IMAGE
         imageLabel.setIcon(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+floorNum+".png"));
         imageLabel.setBounds(0,0,imageLabel.getPreferredSize().width,imageLabel.getPreferredSize().height);
