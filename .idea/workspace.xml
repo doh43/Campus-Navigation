@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" afterDir="false" />
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="recovered MC rooms">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/About.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="abot-elp" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -276,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680581641178</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="recovered MC rooms">
+      <created>1680607996088</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680607996088</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +336,8 @@
     <MESSAGE value="layer colors working" />
     <MESSAGE value="scroll &amp; popup combined" />
     <MESSAGE value="blackeddd selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="blackeddd selection" />
+    <MESSAGE value="recovered MC rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="recovered MC rooms" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

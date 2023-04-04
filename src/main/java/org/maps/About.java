@@ -4,10 +4,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * About Page - application version and developer contact information
+ *
+ * @version 1.0
+ * @author Aryan Saxena
+ * */
 public class About extends JFrame implements ActionListener {
 
     JButton back;
 
+    /**
+     * About Constructor - sets up all information and back button to be displayed on page
+     */
     About() {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(700, 500);

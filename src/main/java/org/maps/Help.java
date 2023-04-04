@@ -5,6 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Help Page - Help Guide with picture and textual guidelines on how to interact with application
+ *
+ * @version 1.0
+ * @author Aryan Saxena
+ * */
+
 public class Help extends JFrame implements ActionListener {
     JButton back;
 
