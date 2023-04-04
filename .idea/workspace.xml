@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="blackeddd selection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -74,9 +79,9 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.org.maps.LoginFrame">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.App" />
+  <component name="RunManager" selected="Application.LoginFrame">
+    <configuration name="LoginFrame (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -88,8 +93,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Building" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.maps.Building" />
+    <configuration name="LoginFrame (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.maps.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginFrame (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.maps.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginFrame (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -102,24 +133,6 @@
       </method>
     </configuration>
     <configuration name="LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Maps" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.maps.Maps" />
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.maps.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="org.maps.LoginFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
       <module name="app" />
       <extension name="coverage">
@@ -134,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.org.maps.LoginFrame" />
-        <item itemvalue="Application.Maps" />
-        <item itemvalue="Application.App" />
         <item itemvalue="Application.LoginFrame" />
-        <item itemvalue="Application.Building" />
+        <item itemvalue="Application.LoginFrame (2)" />
+        <item itemvalue="Application.LoginFrame (1)" />
+        <item itemvalue="Application.LoginFrame (5)" />
+        <item itemvalue="Application.LoginFrame (4)" />
       </list>
     </recent_temporary>
   </component>
@@ -241,7 +254,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680114811544</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="layer colors working">
+      <created>1680565598804</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680565598804</updated>
+    </task>
+    <task id="LOCAL-00012" summary="scroll &amp; popup combined">
+      <created>1680575142138</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680575142138</updated>
+    </task>
+    <task id="LOCAL-00013" summary="blackeddd selection">
+      <created>1680581641177</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680581641178</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +303,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/color-scroll" />
                       </list>
                     </value>
                   </entry>
@@ -292,7 +326,10 @@
     <MESSAGE value="Added documentation for Building.java and SidePanel.java. Added TODO statements where backend functionality must be added. - Tomas Garcia" />
     <MESSAGE value="Added documentation for Floor.java - Tomas Garcia" />
     <MESSAGE value="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia" />
+    <MESSAGE value="layer colors working" />
+    <MESSAGE value="scroll &amp; popup combined" />
+    <MESSAGE value="blackeddd selection" />
+    <option name="LAST_COMMIT_MESSAGE" value="blackeddd selection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
