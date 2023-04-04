@@ -279,8 +279,7 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
      */
     public int generateRandomId() {
         Random rand = new Random();
-        int id = rand.nextInt(1000000);
-        return id;
+        return rand.nextInt(1000000);
     }
     /**
      * Adds a point of interest (POI) to the system's data store for the given building and floor number.

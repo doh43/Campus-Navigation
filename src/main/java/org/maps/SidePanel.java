@@ -303,10 +303,6 @@ public class SidePanel extends JLayeredPane {
                             // Poi tempPoi = new Poi(poi);
 
                             MapPanel.jumpToPoi(new Poi(poi));
-/*
-                    PoiPopup p = new PoiPopup(tempPoi);
-                    p.setLocation(tempPoi.getPosX(), tempPoi.getPosY());
-                    p.setVisible(true); */
                         }
                     }
                 }

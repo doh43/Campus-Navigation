@@ -1,5 +1,6 @@
 package org.maps;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,7 +12,7 @@ import java.awt.event.ActionListener;
  * @author tha7
  */
 public class LandingPage extends JFrame implements ActionListener {
-    JComboBox campusBuildings;
+    JComboBox<String> campusBuildings;
     JLabel boxLabel;
     JButton help, back, about, openMap;
     String choice;
@@ -34,33 +35,33 @@ public class LandingPage extends JFrame implements ActionListener {
         }
 
         String[] buildings = {"North Campus Building", "Middlesex College", "Alumni Hall"};
-        campusBuildings = new JComboBox(buildings);
+        campusBuildings = new JComboBox<>(buildings);
         campusBuildings.setBounds(200, 180, 300, 45);
         campusBuildings.addActionListener(this);
 
         boxLabel = new JLabel("<html><b>Browse available campus buildings</b>");
         boxLabel.setBounds(135, 100, 600, 40);
-        boxLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+        boxLabel.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 25));
 
         help = new JButton("Help");
         help.setBounds(240, 320, 100, 40);
         help.addActionListener(this);
-        help.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        help.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
 
         about = new JButton("About");
         about.setBounds(340, 320, 100, 40);
         about.addActionListener(this);
-        about.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        about.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
 
         back = new JButton("Back");
         back.setBounds(290, 400, 100, 40);
         back.addActionListener(this);
-        back.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        back.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
 
         openMap = new JButton("View Map");
         openMap.setBounds(240, 250, 200, 40);
         openMap.addActionListener(this);
-        openMap.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        openMap.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
 
         this.add(campusBuildings);
         this.add(boxLabel);
@@ -76,7 +77,7 @@ public class LandingPage extends JFrame implements ActionListener {
      * Displays an error if the building cannot be found.
      * @param campusBuildings
      */
-    private void buildingSelection(JComboBox campusBuildings) {
+    private void buildingSelection(JComboBox<String> campusBuildings) {
         try {
             String string = campusBuildings.getSelectedItem().toString();
             if (string.equals("Middlesex College")) {
