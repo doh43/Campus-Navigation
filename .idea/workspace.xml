@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Fixed the Layer Panel so that it can deselect/select a layer for multiple floors. Addressed some light intelliJ warnings for multiple classes and deleted unwanted main methods - Tomas Garcia">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Fixed more intelliJ warnings, did not touch functionality at all - Tomas Garcia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SearchPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -309,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680646667202</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed more intelliJ warnings, did not touch functionality at all - Tomas Garcia">
+      <created>1680648791403</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680648791403</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +368,8 @@
     <MESSAGE value="hlp/abt comments" />
     <MESSAGE value="delete/add sidePanel update" />
     <MESSAGE value="Fixed the Layer Panel so that it can deselect/select a layer for multiple floors. Addressed some light intelliJ warnings for multiple classes and deleted unwanted main methods - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the Layer Panel so that it can deselect/select a layer for multiple floors. Addressed some light intelliJ warnings for multiple classes and deleted unwanted main methods - Tomas Garcia" />
+    <MESSAGE value="Fixed more intelliJ warnings, did not touch functionality at all - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed more intelliJ warnings, did not touch functionality at all - Tomas Garcia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

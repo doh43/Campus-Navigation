@@ -436,7 +436,7 @@ public class SidePanel extends JLayeredPane {
         poiList.getComponent(1).setEnabled(false);
         favourites.getComponent(1).setEnabled(false);
         for (Component c: checkPan.getComponents()) {
-            if (c instanceof JCheckBox) {
+            if (c instanceof JToggleButton) {
                 c.setEnabled(false);
             }
         }
@@ -452,7 +452,7 @@ public class SidePanel extends JLayeredPane {
         poiList.getComponent(1).setEnabled(true);
         favourites.getComponent(1).setEnabled(true);
         for (Component c: checkPan.getComponents()) {
-            if (c instanceof JCheckBox) {
+            if (c instanceof JToggleButton) {
                 c.setEnabled(true);
             }
         }
