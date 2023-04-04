@@ -1,4 +1,3 @@
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -6,8 +5,6 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.util.Arrays;
 
 /** Implements the side panel of the Map screen
  * @author Tomas Garcia, Ethan Tiger Wakefield
@@ -31,7 +28,7 @@ public class SidePanel extends JLayeredPane {
     private JPanel selection;
 
     /** Represent types of POIs */
-    private JCheckBox cRoom, nav, wash, entry, genL, res, collab;
+    private static JToggleButton cRoom, nav, wash, entry, genL, res, collab;
 
     /** Stores the POI names for each floor */
     private static JComboBox<String> poiDrop;
@@ -79,26 +76,33 @@ public class SidePanel extends JLayeredPane {
 
         checkPan = new JPanel(new GridLayout(7,1));
 
-        cRoom = new JCheckBox("Classrooms",true);
-        addLayerListener(cRoom);
+        cRoom = new JToggleButton("Classrooms");
+        cRoom.setSelected(true);
+        addLayerChangeTracker(cRoom);
 
-        nav = new JCheckBox("Navigation",true);
-        addLayerListener(nav);
+        nav = new JToggleButton("Navigation");
+        nav.setSelected(true);
+        addLayerChangeTracker(nav);
 
-        wash = new JCheckBox("Washrooms",true);
-        addLayerListener(wash);
+        wash = new JToggleButton("Washrooms");
+        wash.setSelected(true);
+        addLayerChangeTracker(wash);
 
-        entry = new JCheckBox("Entries / Exits",true);
-        addLayerListener(entry);
+        entry = new JToggleButton("Entries / Exits");
+        entry.setSelected(true);
+        addLayerChangeTracker(entry);
 
-        genL = new JCheckBox("Labs",true);
-        addLayerListener(genL);
+        genL = new JToggleButton("Labs");
+        genL.setSelected(true);
+        addLayerChangeTracker(genL);
 
-        res = new JCheckBox("Restaurants",true);
-        addLayerListener(res);
+        res = new JToggleButton("Restaurants");
+        res.setSelected(true);
+        addLayerChangeTracker(res);
 
-        collab = new JCheckBox("Collaborative Rooms",true);
-        addLayerListener(collab);
+        collab = new JToggleButton("Collaborative Rooms");
+        collab.setSelected(true);
+        addLayerChangeTracker(collab);
 
         checkPan.add(cRoom);
         checkPan.add(nav);
@@ -320,67 +324,114 @@ public class SidePanel extends JLayeredPane {
         poiDrop.setModel(model);
     }
 
-    /** Enables or disables a POI type layer from the map
-     * Current state: Tracks whether any of the layer checkboxes are selected/deselected
-     * @param check1 checkbox whose state is being tracked */
-    private void addLayerListener(JCheckBox check1) {
-        check1.addItemListener(e -> {
-            if (e.getSource() == cRoom) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    MapPanel.toggleLayerOn("Classroom");
-                }
-                else {
-                    MapPanel.toggleLayerOff("Classroom");
-                }
-            }
-            else if (e.getSource() == nav) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    MapPanel.toggleLayerOn("Navigation");
-                }
-                else {
-                    MapPanel.toggleLayerOff("Navigation");
-                }
-            }
-            else if (e.getSource() == wash) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    MapPanel.toggleLayerOn("Washroom");
-                }
-                else {
-                    MapPanel.toggleLayerOff("Washroom");
-                }
-            }
-            else if (e.getSource() == entry) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    MapPanel.toggleLayerOn("Entry / Exit");
-                }
-                else {
-                    MapPanel.toggleLayerOff("Entry / Exit");
-                }
-            }
-            else if (e.getSource() == genL) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    MapPanel.toggleLayerOn("Lab");
-                }
-                else {
-                    MapPanel.toggleLayerOff("Lab");
-                }
-            }
-            else if (e.getSource() == res) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    MapPanel.toggleLayerOn("Restaurant");
-                }
-                else {
-                    MapPanel.toggleLayerOff("Restaurant");
-                }
-            }
-            else if (e.getSource() == collab) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    MapPanel.toggleLayerOn("Collaborative Room");
-                }
-                else {
-                    MapPanel.toggleLayerOff("Collaborative Room");
-                }
-            }
+    public static void layerTracker() {
+        if (cRoom.isSelected()) {
+            MapPanel.toggleLayerOn("Classroom");
+        }
+        else {
+            MapPanel.toggleLayerOff("Classroom");
+        }
+
+        if (nav.isSelected()) {
+            MapPanel.toggleLayerOn("Navigation");
+        }
+        else {
+            MapPanel.toggleLayerOff("Navigation");
+        }
+
+        if (wash.isSelected()) {
+            MapPanel.toggleLayerOn("Washroom");
+        }
+        else {
+            MapPanel.toggleLayerOff("Washroom");
+        }
+
+        if (entry.isSelected()) {
+            MapPanel.toggleLayerOn("Entry / Exit");
+        }
+        else {
+            MapPanel.toggleLayerOff("Entry / Exit");
+        }
+
+        if (genL.isSelected()) {
+            MapPanel.toggleLayerOn("Lab");
+        }
+        else {
+            MapPanel.toggleLayerOff("Lab");
+        }
+
+        if (res.isSelected()) {
+            MapPanel.toggleLayerOn("Restaurant");
+        }
+        else {
+            MapPanel.toggleLayerOff("Restaurant");
+        }
+
+        if (collab.isSelected()) {
+            MapPanel.toggleLayerOn("Collaborative Room");
+        }
+        else {
+            MapPanel.toggleLayerOff("Collaborative Room");
+        }
+    }
+
+    private void addLayerChangeTracker(JToggleButton toggle1) {
+        toggle1.addItemListener(e -> {
+                    if (e.getSource() == cRoom) {
+                        if (cRoom.isSelected()) {
+                            MapPanel.toggleLayerOn("Classroom");
+                        }
+                        else {
+                            MapPanel.toggleLayerOff("Classroom");
+                        }
+                    }
+                    else if (e.getSource() == nav) {
+                        if (nav.isSelected()) {
+                            MapPanel.toggleLayerOn("Navigation");
+                        }
+                        else {
+                            MapPanel.toggleLayerOff("Navigation");
+                        }
+                    }
+                    else if (e.getSource() == wash) {
+                        if (wash.isSelected()) {
+                            MapPanel.toggleLayerOn("Washroom");
+                        }
+                        else {
+                            MapPanel.toggleLayerOff("Washroom");
+                        }
+                    }
+                    else if (e.getSource() == entry) {
+                        if (entry.isSelected()) {
+                            MapPanel.toggleLayerOn("Entry / Exit");
+                        }
+                        else {
+                            MapPanel.toggleLayerOff("Entry / Exit");
+                        }
+                    }
+                    else if (e.getSource() == genL) {
+                        if (genL.isSelected()) {
+                            MapPanel.toggleLayerOn("Lab");
+                        }
+                        else {
+                            MapPanel.toggleLayerOff("Lab");
+                        }
+                    }
+                    else if (e.getSource() == res) {
+                        if (res.isSelected()) {
+                            MapPanel.toggleLayerOn("Restaurant");
+                        }
+                        else {
+                            MapPanel.toggleLayerOff("Restaurant");
+                        }
+                    }
+                    else if (e.getSource() == collab) {
+                        if (collab.isSelected()) {
+                            MapPanel.toggleLayerOn("Collaborative Room");
+                        } else {
+                            MapPanel.toggleLayerOff("Collaborative Room");
+                        }
+                    }
         });
     }
 

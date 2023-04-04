@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 /**
  * This is the landing page GUI.
- *
  * The user will be able to choose a map from a dropdown list.
  * Users can also discover the about/help section using the buttons.
  *
@@ -110,18 +109,18 @@ public class LandingPage extends JFrame implements ActionListener {
         }
         if (event.getSource() == help) {
             this.dispose();
-            Help frame = new Help(); // Takes the user to the help page.
+            new Help(); // Takes the user to the help page.
         }
         if (event.getSource() == about) {
             this.dispose();
-            About frame = new About(); // Takes the user to the about page.
+            new About(); // Takes the user to the about page.
         }
         if (event.getSource() == campusBuildings) {
             buildingSelection(campusBuildings);
         }
         if (event.getSource() == openMap) {
             this.dispose();
-            Maps newMap = new Maps(choice); // Opens a map page for users to view.
+            new Maps(choice); // Opens a map page for users to view.
         }
     }
 }

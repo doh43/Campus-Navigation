@@ -6,7 +6,6 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A panel that displays a map image and allows users to interact with points of interest (POIs) on the map.

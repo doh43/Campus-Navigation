@@ -49,6 +49,7 @@ public class BottomPanel extends JPanel implements ActionListener {
         MapPanel.setFloorNum(i);
 //        MapPanel.getImageLabel().setIcon(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+i+".png"));
         MapPanel.setUpTypePanels();
+        SidePanel.layerTracker();
 
     }
 

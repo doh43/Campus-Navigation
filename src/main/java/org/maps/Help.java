@@ -158,7 +158,7 @@ public class Help extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == back) {
             this.dispose();
-            LandingPage frame = new LandingPage();
+            new LandingPage();
 
         }
     }
