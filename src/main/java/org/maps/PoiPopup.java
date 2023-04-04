@@ -121,7 +121,7 @@ public class PoiPopup extends JDialog  {
      * sets up the button panel with only the favorite button
      */
     private void favoriteOnlyDialog(Poi selectedPoi){
-        favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavorite" : "Favorite");
+        favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavourite" : "Favourite");
         buttonPanel.add(favoriteButton);
         buttonPanel.setLayout(new FlowLayout());
         favoriteButton.addActionListener(e -> {
@@ -138,7 +138,7 @@ public class PoiPopup extends JDialog  {
      * @param selectedPoi - the POI that was clicked on
      */
     private void editDialog(Poi selectedPoi){
-        favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavorite" : "Favorite");
+        favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavourite" : "Favourite");
         editButton = new JButton("Edit");
         deleteButton = new JButton("Delete");
         editButton.addActionListener(e -> {
@@ -209,7 +209,7 @@ public class PoiPopup extends JDialog  {
             if (isFavourited(p)) {
                 JSONArray f = d.getFavourites();
                 for (int i = 0; i < f.length(); i++) {
-                    if (f.getJSONObject(i).getInt("id") == p.getId()) {
+                    if (f.getInt(i) == p.getId()) {
                         f.remove(i);
                     }
                 }
@@ -227,7 +227,7 @@ public class PoiPopup extends JDialog  {
         Data d = Data.getInstance();
         JSONArray a = d.getFavourites();
         for (int i = 0; i < a.length(); i++) {
-            if (a.getJSONObject(i).getInt("id") == p.getId()) {
+            if (a.getInt(i) == p.getId()) {
                 return true;
             }
         }
@@ -243,17 +243,15 @@ public class PoiPopup extends JDialog  {
         if (isFavourited(selectedPoi)) {
             favoriteButton.setText("Favourite");
             for (int i = 0; i < a.length(); i++) {
-                if (a.getJSONObject(i).getInt("id") == selectedPoi.getId()) {
+                if (a.getInt(i) == selectedPoi.getId()) {
                     a.remove(i);
                 }
             }
         } else {
             favoriteButton.setText("Unfavourite");
 
-            a.put(selectedPoi.convertJSON());
+            a.put(selectedPoi.getId());
         }
         d.storeData(d.userData);
     }
-
-
 }
