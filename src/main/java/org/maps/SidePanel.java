@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
+import java.util.Arrays;
 
 public class SidePanel extends JLayeredPane {
     /* Displays existing POIs*/
@@ -37,6 +38,7 @@ public class SidePanel extends JLayeredPane {
 
     /* Stores the ids of the POIs stored in poiDrop */
     private static int[] floorPoiIDs;
+    private static JComboBox<String> favBox;
 
     /** Creates a new side panel
      * Contains a PoiPanel that will hide the side panel components and expand when pressed
@@ -114,9 +116,7 @@ public class SidePanel extends JLayeredPane {
 
         /* Title for the favourites panel */
         JLabel favSelect = new JLabel("Favourites");
-
-        String[] favs = {"fav1","fav2","fav3","fav4"};
-        JComboBox<String> favBox = new JComboBox<>(favs);
+        favBox = makeFavouritesDropdown();
 
         favourites.add(favSelect, BorderLayout.NORTH);
         favourites.add(favBox, BorderLayout.CENTER);
@@ -132,6 +132,36 @@ public class SidePanel extends JLayeredPane {
 
         add(selection, Integer.valueOf(0));
         add(new PoiPanel(), Integer.valueOf(1));
+    }
+    public JComboBox<String> makeFavouritesDropdown() {
+        String[] favNames = makeFavNameList();
+        // print all favNames
+        for (int i = 0; i < favNames.length; i++) {
+            System.out.println(favNames[i]);
+        }
+        JComboBox<String> favBox = new JComboBox<>(favNames);
+        return favBox;
+    }
+    public String[] makeFavNameList() {
+        Data d = Data.getInstance();
+        JSONArray favs = d.getFavourites();
+
+        String[] favNames = new String[favs.length()];
+        // For all favourite IDs
+        for (int i = 0; i < favs.length(); i++) {
+            // for each poi in each floor in the building, check if the id matches the favourite id and add the name to the list
+               for (int j = 0; j < Maps.getMapBuilding().getFloors().length; j++) {
+                    JSONArray pois = Maps.getMapBuilding().getFloors()[j].getPois();
+                    for (int k = 0; k < pois.length(); k++) {
+                        JSONObject poi = (JSONObject) pois.get(k);
+                        if (poi.getInt("id") == favs.getInt(i)) {
+                            favNames[i] = poi.getString("name");
+                        }
+                    }
+                }
+        }
+        // if any favNames are null,
+        return favNames;
     }
 
     /**
