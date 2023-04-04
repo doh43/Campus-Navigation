@@ -65,7 +65,6 @@ public class LandingPage extends JFrame implements ActionListener {
         this.add(back);
         this.add(openMap);
         this.setVisible(true);
-
     }
 
     /**
@@ -100,8 +99,9 @@ public class LandingPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == back) {
-            this.dispose();
-            LoginFrame frame = new LoginFrame(); // Takes the user back to the login page.
+            setVisible(false); // hide the current window
+            LoginFrame loginFrame = new LoginFrame(); // create a new instance of LoginFrame
+            loginFrame.setVisible(true); // show the LoginFrame window
         }
         if (event.getSource() == help) {
             this.dispose();

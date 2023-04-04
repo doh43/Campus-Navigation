@@ -20,8 +20,6 @@ public class LoginFrame extends JFrame {
     private JTextField usernameField;
     private JLabel passwordLabel, usernameLabel, message;
     private JButton signInButton, registerButton;
-    private String username;
-    private String password;
 
     public LoginFrame() {
 
@@ -59,10 +57,7 @@ public class LoginFrame extends JFrame {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
                 String userType = "base";
-                // List<POILocation> favourites = new ArrayList<>();
-                // List<POILocation> customPOIs = new ArrayList<>();
 
-                // TODO: Add customPOI field
                 User user = new User(username, password, userType);
                 JSONObject userJSONObject = user.toJSONObject();
 
@@ -103,7 +98,6 @@ public class LoginFrame extends JFrame {
                                 User currentUser = new User(user.getString("username"), user.getString("password"), user.getString("userType"));
                                 SessionManager.setCurrentUser(currentUser);
 
-                                // TODO: Load up saved favourites and customPOIs
                                 LandingPage frame = new LandingPage();
                             } else {
                                 JOptionPane.showMessageDialog(LoginFrame.this, "Incorrect password!");
@@ -119,7 +113,6 @@ public class LoginFrame extends JFrame {
                         ex.printStackTrace();
                     }
                 }
-                // TODO: Load up saved favourites and customPOIs
             });
 
         message = new JLabel();
