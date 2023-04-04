@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="scroll &amp; popup combined">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="blackeddd selection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoginFrame">
+  <component name="RunManager" selected="Application.LoginFrame (2)">
     <configuration name="LoginFrame (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
       <module name="app" />
@@ -107,7 +106,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginFrame (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginFrame (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
       <module name="app" />
       <extension name="coverage">
@@ -148,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginFrame" />
-        <item itemvalue="Application.LoginFrame (3)" />
         <item itemvalue="Application.LoginFrame (2)" />
         <item itemvalue="Application.LoginFrame (1)" />
         <item itemvalue="Application.LoginFrame (5)" />
+        <item itemvalue="Application.LoginFrame (4)" />
+        <item itemvalue="Application.LoginFrame" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680575142138</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="blackeddd selection">
+      <created>1680581641177</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680581641178</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +303,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="color-scroll" />
+                        <option value="origin/color-scroll" />
                       </list>
                     </value>
                   </entry>
@@ -322,7 +328,8 @@
     <MESSAGE value="Added documentation for Maps.java. Corrected an error and added an attribute for the buildings.json file. Added a subtitle for the Landing Page - Tomas Garcia" />
     <MESSAGE value="layer colors working" />
     <MESSAGE value="scroll &amp; popup combined" />
-    <option name="LAST_COMMIT_MESSAGE" value="scroll &amp; popup combined" />
+    <MESSAGE value="blackeddd selection" />
+    <option name="LAST_COMMIT_MESSAGE" value="blackeddd selection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

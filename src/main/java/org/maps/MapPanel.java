@@ -210,6 +210,16 @@ public class MapPanel extends JPanel {
 
         // ADD TO SCROLL PANE DISPLAY
         mapScroll.setViewportView(layeredPane);
+
+        /* IN THE WORKS **/
+        JViewport tempViewport = mapScroll.getViewport();
+        Dimension tempLayerSize = layeredPane.getPreferredSize();
+        Dimension tempViewSize = tempViewport.getExtentSize();
+        int x = (tempLayerSize.width - tempViewSize.width)/4;
+        int y = (tempLayerSize.height - tempViewSize.height)/4;
+        Rectangle viewRect = new Rectangle(x, y, tempViewSize.width, tempViewSize.height);
+        tempViewport.scrollRectToVisible(viewRect);
+
         staticMapPanel.add(mapScroll);
     }
 
