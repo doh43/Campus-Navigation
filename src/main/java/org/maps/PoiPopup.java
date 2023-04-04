@@ -80,9 +80,8 @@ public class PoiPopup extends JDialog  {
         this.add(buttonPanel);
         this.setLayout(new GridLayout(2,1));
 
-
         pack();
-        this.setSize(300,200);
+        this.setSize(300,300);
         this.setResizable(false);
 
         if (mousePosRelativeToViewport == null) {
@@ -118,15 +117,17 @@ public class PoiPopup extends JDialog  {
         poiType.setFont(new java.awt.Font("Segoe UI", 0, 12));
         poiRoomNum.setFont(new java.awt.Font("Segoe UI", 0, 12));
         poiDescription.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        poiDescription.setSize(poiDescription.getPreferredSize().width, poiDescription.getPreferredSize().height+10);
 
         // Add padding
-        labelPanel.setBorder(BorderFactory.createEmptyBorder(0,10,0,10));
+        labelPanel.setBorder(BorderFactory.createEmptyBorder(5,10,0,10));
+        labelPanel.setSize(labelPanel.getPreferredSize().width, labelPanel.getPreferredSize().height+30);
         labelPanel.add(poiType);
         labelPanel.add(poiRoomNum);
         labelPanel.add(poiDescription);
 
-
-        labelPanel.setLayout(new GridLayout(3,1));
+//        labelPanel.setLayout(new GridLayout(3,1));      //TODO try changing this to BoxLayout
+        labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.Y_AXIS));
     }
 
     /** favoriteOnlyDialog()
