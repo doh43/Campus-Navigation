@@ -305,20 +305,37 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
      * @param p the POI to edit
      */
     public void editPoi(String building, int floorNum, Poi p) {
-        JSONArray a = d.getPois(building, floorNum);
-        for (int i = 0; i < a.length(); i++) {
-            // Find poi matching the id and edit fields
-            if (a.getJSONObject(i).getInt("id") == p.getId()) {
-                a.getJSONObject(i).put("name", p.getName());
-                a.getJSONObject(i).put("type", p.getType());
-                a.getJSONObject(i).put("roomNum", p.getRoomNum());
-                a.getJSONObject(i).put("desc", p.getDesc());
-                a.getJSONObject(i).put("posX", p.getPosX());
-                a.getJSONObject(i).put("posY", p.getPosY());
+        if (SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            JSONArray a = d.getPois(building, floorNum);
+            for (int i = 0; i < a.length(); i++) {
+                // Find poi matching the id and edit fields
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.getJSONObject(i).put("name", p.getName());
+                    a.getJSONObject(i).put("type", p.getType());
+                    a.getJSONObject(i).put("roomNum", p.getRoomNum());
+                    a.getJSONObject(i).put("desc", p.getDesc());
+                    a.getJSONObject(i).put("posX", p.getPosX());
+                    a.getJSONObject(i).put("posY", p.getPosY());
+                }
             }
+            // Save the data to the json file
+            d.storeData(d.savedData);
+        } else {
+            JSONArray a = d.getCustomPOIs(building, floorNum);
+            for (int i = 0; i < a.length(); i++) {
+                // Find poi matching the id and edit fields
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.getJSONObject(i).put("name", p.getName());
+                    a.getJSONObject(i).put("type", p.getType());
+                    a.getJSONObject(i).put("roomNum", p.getRoomNum());
+                    a.getJSONObject(i).put("desc", p.getDesc());
+                    a.getJSONObject(i).put("posX", p.getPosX());
+                    a.getJSONObject(i).put("posY", p.getPosY());
+                }
+            }
+            // Save the data to the json file
+            d.storeData(d.userData);
         }
-        // Save the data to the json file
-        d.storeData(d.savedData);
     }
 
 
