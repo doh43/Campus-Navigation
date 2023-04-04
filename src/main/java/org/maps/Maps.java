@@ -26,6 +26,10 @@ public class Maps extends JFrame {
         setSize(1400,820);
         setLayout(new BorderLayout());
 
+        // If the user is a developer, the title of the panel will change to indicate it
+        if(SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            this.setTitle("Western Campus Navigation (DEVELOPER MODE) - Map Page");
+        }
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
