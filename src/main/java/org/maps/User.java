@@ -14,14 +14,10 @@ import java.util.List;
  * @author Daniel Oh
  * @version 2.0 (working on customPOI array)
  */
-
 public class User {
-    private static User instance;
     private String username;
     private String password;
     private String userType;
-   // private ArrayList<POILocation> favourites;
-    //private ArrayList<POILocation> customPOIs;
 
     /**
      * Class constructor
@@ -33,18 +29,6 @@ public class User {
         this.username = username;
         this.password = password;
         this.userType = userType;
-        //this.favourites = new ArrayList<POILocation>();
-       // this.customPOIs = new ArrayList<POILocation>();
-    }
-
-    /**
-     * JSON representation of a user
-     * @param jsonObject
-     */
-    protected User(JSONObject jsonObject) {
-        this.username = jsonObject.getString("username");
-        this.password = jsonObject.getString("password");
-        this.userType = jsonObject.getString("userType");
     }
 
     /**
@@ -56,17 +40,8 @@ public class User {
         jsonObject.put("username", this.username);
         jsonObject.put("password", this.password);
         jsonObject.put("userType", "base");
-        JSONArray favouritesJsonArray = new JSONArray();
-        /*
-        for (POILocation poiLocation : this.favourites) {
-            JSONObject jsonPOILocation = new JSONObject();
-            jsonPOILocation.put("building", poiLocation.getBuilding().getName());
-            jsonPOILocation.put("floor", poiLocation.getFloor().getId());
-            jsonPOILocation.put("poi", poiLocation.getRoomName().getName());
-            favouritesJsonArray.put(jsonPOILocation);
-        }
-        */
 
+        JSONArray favouritesJsonArray = new JSONArray();
         jsonObject.put("favourites", favouritesJsonArray);
 
         /* populating customPOI array */
@@ -83,10 +58,6 @@ public class User {
 
     public String getUsername() {
         return username;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public String userType() {

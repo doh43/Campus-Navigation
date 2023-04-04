@@ -95,25 +95,6 @@ public final class Data {
         return savedData.getJSONObject(building).getJSONArray("floors").getJSONObject(floorNum).getJSONArray("pois");
     }
 
-//    /**
-//     * Adds a custom POI to the user's customPOIs array
-//     * @param object the POI to be added.
-//     *
-//     */
-//    public void addCustomPOI(String building, int floorNum, JSONObject object) {
-//        try {
-//            JSONObject jsonObject = new JSONObject(new JSONTokener(new FileReader("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json")));
-//            JSONArray customPOIs = jsonObject.getJSONArray("customPOIs");
-//            customPOIs.put(object);
-//            FileWriter fileWriter = new FileWriter("./data/userData/" + sessionManager.getCurrentUser().getUsername() + ".json");
-//            fileWriter.write(jsonObject.toString());
-//            fileWriter.flush();
-//            fileWriter.close();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     /**
      Returns the custom POIs for the given building and floor number from the user's JSON file.
      @param building The name of the building to get the POIs for.

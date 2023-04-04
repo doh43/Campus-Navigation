@@ -7,7 +7,6 @@ public class About extends JFrame implements ActionListener {
 
     JButton back;
 
-
     About() {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(700, 500);
