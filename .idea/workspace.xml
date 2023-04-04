@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="hlp/abt comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/userData/doh43.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/userData/doh43.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -393,11 +393,15 @@ public class SidePanel extends JLayeredPane {
                 c.setEnabled(false);
             }
         }
+
     }
 
     /** Enables the side panel components when the ADD poi operation has been completed/cancelled
      * @see PoiPanel */
     public static void enableSelection() {
+        SidePanel.updateDropDown();             //ADDED RECENTLY TO UPDATE SIDE PANEL
+        SidePanel.updateFavourites();
+
         poiList.getComponent(1).setEnabled(true);
         favourites.getComponent(1).setEnabled(true);
         for (Component c: checkPan.getComponents()) {
@@ -405,5 +409,7 @@ public class SidePanel extends JLayeredPane {
                 c.setEnabled(true);
             }
         }
+
+
     }
 }

@@ -228,6 +228,9 @@ public class PoiPopup extends JDialog  {
             }
             d.storeData(d.userData);
         }
+
+        SidePanel.updateDropDown();         // ADDED RECENTLY TO UPDATE SIDE PANEL
+        SidePanel.updateFavourites();
     }
     /** isFavourited()
      * checks if a POI is favourited
