@@ -4,6 +4,8 @@ import org.json.JSONArray;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * This class is responsible for creating the search bar and the corresponding building/floor labels so the user knows
@@ -41,17 +43,13 @@ public class PoiPopup extends JDialog  {
      *
      * @param selectedPoi - the POI that was clicked on
      */
-    PoiPopup(Poi selectedPoi) {
+    PoiPopup(Poi selectedPoi, JButton selectedButton) {
         super(Maps.getMapFrame(), selectedPoi.getName(), true);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
         //set up the label panel with POI description/name/type
         initPopupDialog(selectedPoi);
 
-
-        /*  SELECT favoriteOnly or edit Dialog to display
-         *      BASED ON
-         */
         if(false)
             if(false) favoriteOnlyDialog();
             else editDialog(selectedPoi);
@@ -61,12 +59,9 @@ public class PoiPopup extends JDialog  {
 
         Point mousePosRelativeToViewport = MapPanel.getMapScroll().getMousePosition();
 
-
-
         this.add(labelPanel);
         this.add(buttonPanel);
         this.setLayout(new GridLayout(2,1));
-
 
         pack();
         this.setSize(300,200);
@@ -79,6 +74,18 @@ public class PoiPopup extends JDialog  {
             mousePosRelativeToViewport.y -= 140;
             this.setLocation(mousePosRelativeToViewport);
         }
+
+        //TODO FIXING ALL THIS
+
+        Color holdButtonColor = selectedButton.getBackground();
+        selectedButton.setBackground(Color.BLACK);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosed(WindowEvent e) {
+                selectedButton.setBackground(holdButtonColor);
+            }
+        });
+
     }
 
     /** initPopupDialog()

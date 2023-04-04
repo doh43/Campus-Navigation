@@ -97,7 +97,7 @@ public class MapPanel extends JPanel {
 
             targetViewport.scrollRectToVisible(buttonBounds);
 
-            PoiPopup p = new PoiPopup(poi);
+            PoiPopup p = new PoiPopup(poi, targetButton);
             p.setLocationRelativeTo(targetButton);
             p.setVisible(true);
 
@@ -190,12 +190,13 @@ public class MapPanel extends JPanel {
             JButton button = new JButton();
             button.setBounds(posX-20,posY-20,40,40);
             setButtonColor(button, type);   // SET BUTTON COLOR BASED ON TYPE
+
             button.setOpaque(true);
             button.setBorderPainted(false);
             button.addActionListener(e -> {
                 if (e.getSource() == button) {
-//                    Poi p = new Poi(poi);
-                    PoiPopup p = new PoiPopup(new Poi(poi));
+
+                    PoiPopup p = new PoiPopup(new Poi(poi), button);
                     p.setLocationRelativeTo(button);
                     p.setVisible(true);
                 }
