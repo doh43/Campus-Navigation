@@ -11,7 +11,7 @@ import java.awt.*;
  * which building and floor they are in when they open the map.
  *
  * @version 1.0
- * @author Ethan Wakefield, Aryan Saxena
+ * @author Ethan Wakefield, Aryan Saxena, Taejun Ha, Tomas Garcia, Aryan Saxena
  */
 public class PoiPopup extends JDialog  {
     /** JLabel for displaying the type of POI */
