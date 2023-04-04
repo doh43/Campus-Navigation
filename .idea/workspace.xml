@@ -79,7 +79,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoginFrame (2)">
+  <component name="RunManager" selected="Application.LoginFrame">
     <configuration name="LoginFrame (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.maps.LoginFrame" />
       <module name="app" />
@@ -147,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LoginFrame" />
         <item itemvalue="Application.LoginFrame (2)" />
         <item itemvalue="Application.LoginFrame (1)" />
         <item itemvalue="Application.LoginFrame (5)" />
         <item itemvalue="Application.LoginFrame (4)" />
-        <item itemvalue="Application.LoginFrame" />
       </list>
     </recent_temporary>
   </component>
