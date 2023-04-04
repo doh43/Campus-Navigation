@@ -214,6 +214,17 @@ public class PoiPopup extends JDialog  {
             }
             d.storeData(d.userData);
         }
+        // if the poi is favourited, remove it from the favourites array
+        System.out.println(isFavourited(p));
+        if (isFavourited(p)) {
+            JSONArray a = d.getFavourites();
+            for (int i = 0; i < a.length(); i++) {
+                if (a.getJSONObject(i).getInt("id") == p.getId()) {
+                    a.remove(i);
+                }
+            }
+            d.storeData(d.userData);
+        }
     }
     /** isFavourited()
      * checks if a POI is favourited

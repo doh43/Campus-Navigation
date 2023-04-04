@@ -16,7 +16,7 @@ import java.util.Random;
  * @author Ethan Wakefield
  */
 
-public class PoiPanel extends JPanel implements ActionListener, EditTool, MouseListener {
+public class PoiPanel extends JPanel implements ActionListener, MouseListener {
 
     /** Holds the name of the current user logged in */
     SessionManager sessionManager;
