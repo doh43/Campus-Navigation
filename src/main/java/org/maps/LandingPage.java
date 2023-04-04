@@ -1,18 +1,18 @@
 package org.maps;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
  * This is the landing page GUI.
- *
  * The user will be able to choose a map from a dropdown list.
  * Users can also discover the about/help section using the buttons.
  *
  * @author tha7
  */
 public class LandingPage extends JFrame implements ActionListener {
-    JComboBox campusBuildings;
+    JComboBox<String> campusBuildings;
     JLabel boxLabel;
     JButton help, back, about, openMap;
     String choice;
@@ -35,33 +35,33 @@ public class LandingPage extends JFrame implements ActionListener {
         }
 
         String[] buildings = {"North Campus Building", "Middlesex College", "Alumni Hall"};
-        campusBuildings = new JComboBox(buildings);
+        campusBuildings = new JComboBox<>(buildings);
         campusBuildings.setBounds(200, 180, 300, 45);
         campusBuildings.addActionListener(this);
 
         boxLabel = new JLabel("<html><b>Browse available campus buildings</b>");
         boxLabel.setBounds(135, 100, 600, 40);
-        boxLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+        boxLabel.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 25));
 
         help = new JButton("Help");
         help.setBounds(240, 320, 100, 40);
         help.addActionListener(this);
-        help.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        help.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
 
         about = new JButton("About");
         about.setBounds(340, 320, 100, 40);
         about.addActionListener(this);
-        about.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        about.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
 
         back = new JButton("Back");
         back.setBounds(290, 400, 100, 40);
         back.addActionListener(this);
-        back.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        back.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
 
         openMap = new JButton("View Map");
         openMap.setBounds(240, 250, 200, 40);
         openMap.addActionListener(this);
-        openMap.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        openMap.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
 
         this.add(campusBuildings);
         this.add(boxLabel);
@@ -77,7 +77,7 @@ public class LandingPage extends JFrame implements ActionListener {
      * Displays an error if the building cannot be found.
      * @param campusBuildings
      */
-    private void buildingSelection(JComboBox campusBuildings) {
+    private void buildingSelection(JComboBox<String> campusBuildings) {
         try {
             String string = campusBuildings.getSelectedItem().toString();
             if (string.equals("Middlesex College")) {
@@ -110,18 +110,18 @@ public class LandingPage extends JFrame implements ActionListener {
         }
         if (event.getSource() == help) {
             this.dispose();
-            Help frame = new Help(); // Takes the user to the help page.
+            new Help(); // Takes the user to the help page.
         }
         if (event.getSource() == about) {
             this.dispose();
-            About frame = new About(); // Takes the user to the about page.
+            new About(); // Takes the user to the about page.
         }
         if (event.getSource() == campusBuildings) {
             buildingSelection(campusBuildings);
         }
         if (event.getSource() == openMap) {
             this.dispose();
-            Maps newMap = new Maps(choice); // Opens a map page for users to view.
+            new Maps(choice); // Opens a map page for users to view.
         }
     }
 }

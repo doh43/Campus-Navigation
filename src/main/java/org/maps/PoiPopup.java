@@ -114,9 +114,9 @@ public class PoiPopup extends JDialog  {
         poiType = new JLabel("<html>  <b>Type:</b> " + selectedPoi.getType());
         poiRoomNum = new JLabel("<html>  <b>Room Number:</b> " + selectedPoi.getRoomNum());
         poiDescription = new JLabel("<html>  <b>Description:</b> " + selectedPoi.getDesc());
-        poiType.setFont(new java.awt.Font("Segoe UI", 0, 12));
-        poiRoomNum.setFont(new java.awt.Font("Segoe UI", 0, 12));
-        poiDescription.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        poiType.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
+        poiRoomNum.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
+        poiDescription.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         poiDescription.setSize(poiDescription.getPreferredSize().width, poiDescription.getPreferredSize().height+10);
 
         // Add padding

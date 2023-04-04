@@ -34,7 +34,7 @@ public class Help extends JFrame implements ActionListener {
         HelpTextPane.setText(HelpText);
         HelpTextPane.setEditable(false);
         HelpTextPane.setBounds(5, 5, 950, 100);
-        HelpTextPane.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        HelpTextPane.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         HelpTextPane.setBackground(this.getBackground());
         this.add(HelpTextPane);
 
@@ -42,7 +42,7 @@ public class Help extends JFrame implements ActionListener {
         back = new JButton("Back");
         back.setBounds(800, 750, 100, 40);
         back.addActionListener(this);
-        back.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        back.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         this.add(back);
 
         // SCROLL PANE WITH ALL THE HELP GUIDE CONTENT
@@ -69,7 +69,7 @@ public class Help extends JFrame implements ActionListener {
         helpPanel1.setEditorKit(new HTMLEditorKit());
         helpPanel1.setText(helpPanel1text);
         helpPanel1.setEditable(false);
-        helpPanel1.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        helpPanel1.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         helpPanel1.setBounds(0,0, helpViewport.width, 50);
         helpPanel1.setBackground(this.getBackground());
         tempPanel.add(helpPanel1);
@@ -93,7 +93,7 @@ public class Help extends JFrame implements ActionListener {
         helpPanel2.setEditorKit(new HTMLEditorKit());
         helpPanel2.setText(helpPanel2text);
         helpPanel2.setEditable(false);
-        helpPanel2.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        helpPanel2.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         helpPanel2.setBounds(0,0, helpViewport.width, 50);
         helpPanel2.setBackground(this.getBackground());
         tempPanel.add(helpPanel2);
@@ -116,7 +116,7 @@ public class Help extends JFrame implements ActionListener {
         helpPanel3.setEditorKit(new HTMLEditorKit());
         helpPanel3.setText(helpPanel1text);
         helpPanel3.setEditable(false);
-        helpPanel3.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        helpPanel3.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         helpPanel3.setBounds(0,0, helpViewport.width, 50);
         helpPanel3.setBackground(this.getBackground());
         tempPanel.add(helpPanel3);
@@ -139,7 +139,7 @@ public class Help extends JFrame implements ActionListener {
         helpPanel4.setEditorKit(new HTMLEditorKit());
         helpPanel4.setText(helpPanel4text);
         helpPanel4.setEditable(false);
-        helpPanel4.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        helpPanel4.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         helpPanel4.setBounds(0,0, helpViewport.width, 50);
         helpPanel4.setBackground(this.getBackground());
         tempPanel.add(helpPanel4);
@@ -158,7 +158,7 @@ public class Help extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == back) {
             this.dispose();
-            LandingPage frame = new LandingPage();
+            new LandingPage();
 
         }
     }

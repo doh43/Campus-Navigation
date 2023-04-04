@@ -1,11 +1,9 @@
 package org.maps;
 
-import java.awt.event.*;
+import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,16 +30,16 @@ public class LoginFrame extends JFrame {
 
         JLabel loginLabel = new JLabel("<html><b>Login</b>");
         loginLabel.setBounds(225, 100, 600, 40);
-        loginLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+        loginLabel.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 25));
 
 
         usernameLabel = new JLabel("Username");
         usernameLabel.setBounds(225,200,100,40);
-        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14));
+        usernameLabel.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14));
 
         passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(225,250,100,40);
-        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 14));
+        passwordLabel.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14));
 
         usernameField = new JTextField();
         usernameField.setBounds(300,200,300,40);
@@ -52,30 +50,28 @@ public class LoginFrame extends JFrame {
         /** Registers new users by creating a unique JSON file */
         registerButton = new JButton("Register");
         registerButton.setBounds(420,300,100,40);
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
+        registerButton.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         /**
          * @param ActionEvent register button
          */
-        registerButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        registerButton.addActionListener(e -> {
 
-                String username = usernameField.getText();
-                String password = new String(passwordField.getPassword());
-                String userType = "base";
+            String username = usernameField.getText();
+            String password = new String(passwordField.getPassword());
+            String userType = "base";
 
-                User user = new User(username, password, userType);
-                JSONObject userJSONObject = user.toJSONObject();
+            User user = new User(username, password, userType);
+            JSONObject userJSONObject = user.toJSONObject();
 
-                try {
-                    FileWriter file = new FileWriter("./data/userData/" + username + ".json");
-                    file.write(userJSONObject.toString());
-                    file.flush();
-                    file.close();
-                    JOptionPane.showMessageDialog(LoginFrame.this, "Account created successfully!");
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(LoginFrame.this, "Error creating account!");
-                    ex.printStackTrace();
-                }
+            try {
+                FileWriter file = new FileWriter("./data/userData/" + username + ".json");
+                file.write(userJSONObject.toString());
+                file.flush();
+                file.close();
+                JOptionPane.showMessageDialog(LoginFrame.this, "Account created successfully!");
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(LoginFrame.this, "Error creating account!");
+                ex.printStackTrace();
             }
         });
 
@@ -84,41 +80,39 @@ public class LoginFrame extends JFrame {
          * */
         signInButton = new JButton("Sign In");
         signInButton.setBounds(300,300,100,40);
-        signInButton.setFont(new java.awt.Font("Segoe UI", 0, 12));
-        signInButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    String username = usernameField.getText();
-                    char[] passwordChars = passwordField.getPassword();
-                    String password = new String(passwordChars);
+        signInButton.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
+        signInButton.addActionListener(e -> {
+            String username = usernameField.getText();
+            char[] passwordChars = passwordField.getPassword();
+            String password = new String(passwordChars);
 
-                    // Check if the user exists and if their password is correct
-                    try {
-                        File file = new File("./data/userData/" + username + ".json");
-                        if (file.exists()) {
-                            String userStr = new String(Files.readAllBytes(file.toPath()));
-                            JSONObject user = new JSONObject(userStr);
-                            if (user.getString("password").equals(password)) {
-                                JOptionPane.showMessageDialog(LoginFrame.this, "Login successful!");
-                                dispose();
-                                User currentUser = new User(user.getString("username"), user.getString("password"), user.getString("userType"));
-                                SessionManager.setCurrentUser(currentUser);
+            // Check if the user exists and if their password is correct
+            try {
+                File file = new File("./data/userData/" + username + ".json");
+                if (file.exists()) {
+                    String userStr = new String(Files.readAllBytes(file.toPath()));
+                    JSONObject user = new JSONObject(userStr);
+                    if (user.getString("password").equals(password)) {
+                        JOptionPane.showMessageDialog(LoginFrame.this, "Login successful!");
+                        dispose();
+                        User currentUser = new User(user.getString("username"), user.getString("password"), user.getString("userType"));
+                        SessionManager.setCurrentUser(currentUser);
 
-                                LandingPage frame = new LandingPage();
-                            } else {
-                                JOptionPane.showMessageDialog(LoginFrame.this, "Incorrect password!");
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(LoginFrame.this, "User does not exist!");
-                        }
-                    } catch (IOException ex) {
-                        JOptionPane.showMessageDialog(LoginFrame.this, "Error reading user data!");
-                        ex.printStackTrace();
-                    } catch (JSONException ex) {
-                        JOptionPane.showMessageDialog(LoginFrame.this, "Error parsing user data!");
-                        ex.printStackTrace();
+                        new LandingPage();
+                    } else {
+                        JOptionPane.showMessageDialog(LoginFrame.this, "Incorrect password!");
                     }
+                } else {
+                    JOptionPane.showMessageDialog(LoginFrame.this, "User does not exist!");
                 }
-            });
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(LoginFrame.this, "Error reading user data!");
+                ex.printStackTrace();
+            } catch (JSONException ex) {
+                JOptionPane.showMessageDialog(LoginFrame.this, "Error parsing user data!");
+                ex.printStackTrace();
+            }
+        });
 
         message = new JLabel();
         message.setBounds(300,350,300,40);
@@ -133,11 +127,9 @@ public class LoginFrame extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                LoginFrame frame = new LoginFrame();
-                frame.setVisible(true);
-            }
+        SwingUtilities.invokeLater(() -> {
+            LoginFrame frame = new LoginFrame();
+            frame.setVisible(true);
         });
     }
 }

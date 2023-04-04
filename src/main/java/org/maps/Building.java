@@ -7,9 +7,6 @@ package org.maps;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 /** Provides a way to work with JSON building data abstractly
  * @author Tomas Garcia
  * @version 1.0
@@ -63,28 +60,5 @@ public class Building {
      * @return Number of floors in the building */
     public int getNumFloors() {
         return numOfFloors;
-    }
-
-    /** Hides a POI layer from a building
-     * @ //TODO: make sure this method is necessary, if so, finish it */
-    public void hidePOILayer() {
-        for (int i = 0; i < numOfFloors; i++) {
-            floors[i].getPois();
-        }
-    }
-    /** Used to test the class
-     * @ //TODO: delete main after testing */
-    public static void main(String[] args) {
-        Building build1 = new Building("mc");
-        System.out.println(build1.getName());
-        System.out.println(build1.getNumFloors());
-
-        Building build2 = new Building("ah");
-        System.out.println(build2.getName());
-        System.out.println(build2.getNumFloors());
-
-        Building build3 = new Building("ncb");
-        System.out.println(build3.getName());
-        System.out.println(build3.getNumFloors());
     }
 }
