@@ -10,6 +10,8 @@
 package org.maps;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Maps extends JFrame {
     private static JFrame frame;
@@ -19,6 +21,9 @@ public class Maps extends JFrame {
     /* The building being displayed */
     private static Building mapBuilding;
     Maps(String choice) {
+
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
         frame = this;
         buildingCode = choice;
         mapBuilding = new Building(buildingCode);
@@ -37,9 +42,21 @@ public class Maps extends JFrame {
         JButton back = new JButton("Back");
         back.addActionListener(e -> {
             if (e.getSource() == back) {
-                dispose();
-                new LandingPage();
 
+                int option = JOptionPane.showConfirmDialog(
+                        frame,
+                        "Are you sure you want to close this window?",
+                        "Confirm Close",
+                        JOptionPane.YES_NO_OPTION
+                );
+
+                if (option == JOptionPane.YES_OPTION) {
+                    dispose(); // Close the window
+                    new LandingPage();
+
+                } else {
+                    setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                }
             }
         });
 
@@ -50,6 +67,25 @@ public class Maps extends JFrame {
 
 //        pack();
         setVisible(true);
+
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int option = JOptionPane.showConfirmDialog(
+                        frame,
+                        "Are you sure you want to close this window?",
+                        "Confirm Close",
+                        JOptionPane.YES_NO_OPTION
+                );
+                if (option == JOptionPane.YES_OPTION) {
+                    dispose(); // Close the window
+                } else {
+                    setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                }
+            }
+        });
+
 
     }
 

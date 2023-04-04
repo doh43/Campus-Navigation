@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="recovered MC rooms">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/About.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" afterDir="false" />
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="hlp/abt comments">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680607996088</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="hlp/abt comments">
+      <created>1680608378283</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680608378283</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +345,8 @@
     <MESSAGE value="scroll &amp; popup combined" />
     <MESSAGE value="blackeddd selection" />
     <MESSAGE value="recovered MC rooms" />
-    <option name="LAST_COMMIT_MESSAGE" value="recovered MC rooms" />
+    <MESSAGE value="hlp/abt comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="hlp/abt comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

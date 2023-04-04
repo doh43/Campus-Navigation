@@ -28,4 +28,5 @@ public class MainPanel extends JPanel {
         add(botPan, BorderLayout.SOUTH);
 
     }
+
 }
