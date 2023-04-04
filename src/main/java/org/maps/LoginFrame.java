@@ -30,6 +30,11 @@ public class LoginFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(null);
 
+        JLabel loginLabel = new JLabel("<html><b>Login</b>");
+        loginLabel.setBounds(225, 100, 600, 40);
+        loginLabel.setFont(new java.awt.Font("Segoe UI", 0, 25));
+
+
         usernameLabel = new JLabel("Username");
         usernameLabel.setBounds(225,200,100,40);
         usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14));
@@ -117,6 +122,7 @@ public class LoginFrame extends JFrame {
 
         message = new JLabel();
         message.setBounds(300,350,300,40);
+        this.add(loginLabel);
         this.add(usernameLabel);
         this.add(usernameField);
         this.add(passwordLabel);
