@@ -89,7 +89,7 @@ public class SearchPanel extends JPanel {
             int[] floorPoiIDs = new int[numPois];
             String[] poiDesc = new String[numPois];
             int[] roomNum = new int[numPois];
-            MapPanel.setFloorNum(j);
+
 
             // Loops through the POIs on a floor
             for (int i = 0; i < jsonPois.length(); i++) {
@@ -103,21 +103,25 @@ public class SearchPanel extends JPanel {
 
                 // Checking if the name of the POI can be matched
                 if (input.equalsIgnoreCase(poiNames[i])) {
+                    MapPanel.setFloorNum(j);
                     return poi;
                 }
 
                 // Checking if room number of the POI can be matched
                 else if (input.equalsIgnoreCase(String.valueOf(roomNum[i]))) {
+                    MapPanel.setFloorNum(j);
                     return poi;
                 }
 
                 // Checking if the ID of the POI can be matched
                 else if (input.equalsIgnoreCase(String.valueOf(floorPoiIDs[i]))) {
+                    MapPanel.setFloorNum(j);
                     return poi;
                 }
 
                 // Checking if the description of the POI can be matched
                 else if (input.equalsIgnoreCase(poiDesc[i])) {
+                    MapPanel.setFloorNum(j);
                     return poi;
                 }
             }
