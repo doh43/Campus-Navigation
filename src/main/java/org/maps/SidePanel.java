@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class SidePanel extends JLayeredPane {
     /* Displays existing POIs*/
@@ -119,7 +120,9 @@ public class SidePanel extends JLayeredPane {
         favBox = makeFavouritesDropdown();
 
         favourites.add(favSelect, BorderLayout.NORTH);
+
         favourites.add(favBox, BorderLayout.CENTER);
+
 
         /* Empty panel used to add distance between other panels */
         JPanel emptyPan = new JPanel();
@@ -133,34 +136,85 @@ public class SidePanel extends JLayeredPane {
         add(selection, Integer.valueOf(0));
         add(new PoiPanel(), Integer.valueOf(1));
     }
-    public JComboBox<String> makeFavouritesDropdown() {
+    public static void updateFavourites() {
         String[] favNames = makeFavNameList();
-        // print all favNames
-        for (int i = 0; i < favNames.length; i++) {
-            System.out.println(favNames[i]);
-        }
+        favBox.setModel(new DefaultComboBoxModel<>(favNames));
+    }
+
+    public static JComboBox<String> makeFavouritesDropdown() {
+        Data d = Data.getInstance();
+        String[] favNames = makeFavNameList();
         JComboBox<String> favBox = new JComboBox<>(favNames);
+        favBox.addActionListener(e -> {
+            String selectedFav = (String) favBox.getSelectedItem();
+            // find the poi and floor number that matches the selected favourite
+            for (int i = 0; i < Maps.getMapBuilding().getFloors().length; i++) {
+                JSONArray pois = Maps.getMapBuilding().getFloors()[i].getPois();
+                for (int j = 0; j < pois.length(); j++) {
+                    JSONObject poi = (JSONObject) pois.get(j);
+                    if (poi.getString("name").equals(selectedFav)) {
+                        // set the floor and poi
+                        MapPanel.setFloorNum(i);
+                        MapPanel.setUpTypePanels();
+                        MapPanel.jumpToPoi(new Poi(poi));
+                        return;
+                    }
+                }
+            }
+            // find the poi and floor number in custom pois that matches the selected favourite
+            for (int i = 0; i < Maps.getMapBuilding().getFloors().length; i++) {
+                JSONArray pois = d.getCustomPOIs(Maps.getBuildingCode(), i);
+                for (int j = 0; j < pois.length(); j++) {
+                    JSONObject poi = (JSONObject) pois.get(j);
+                    if (poi.getString("name").equals(selectedFav)) {
+                        // set the floor and poi
+                        MapPanel.setFloorNum(i);
+                        MapPanel.setUpTypePanels();
+                        MapPanel.jumpToPoi(new Poi(poi));
+                        return;
+                    }
+                }
+            }
+
+
+        });
         return favBox;
     }
-    public String[] makeFavNameList() {
+    public static String[] makeFavNameList() {
         Data d = Data.getInstance();
         JSONArray favs = d.getFavourites();
-
         String[] favNames = new String[favs.length()];
         // For all favourite IDs
         for (int i = 0; i < favs.length(); i++) {
             // for each poi in each floor in the building, check if the id matches the favourite id and add the name to the list
-               for (int j = 0; j < Maps.getMapBuilding().getFloors().length; j++) {
-                    JSONArray pois = Maps.getMapBuilding().getFloors()[j].getPois();
-                    for (int k = 0; k < pois.length(); k++) {
-                        JSONObject poi = (JSONObject) pois.get(k);
-                        if (poi.getInt("id") == favs.getInt(i)) {
-                            favNames[i] = poi.getString("name");
-                        }
+           for (int j = 0; j < Maps.getMapBuilding().getFloors().length; j++) {
+                JSONArray pois = Maps.getMapBuilding().getFloors()[j].getPois();
+                for (int k = 0; k < pois.length(); k++) {
+                    JSONObject poi = (JSONObject) pois.get(k);
+                    if (poi.getInt("id") == favs.getInt(i)) {
+                        favNames[i] = poi.getString("name");
                     }
                 }
+            }
+           // for each custom poi in each floor in the building, check if the id matches the favourite id and add the name to the list
+            for (int j = 0; j < Maps.getMapBuilding().getFloors().length; j++) {
+                JSONArray pois = d.getCustomPOIs(Maps.getBuildingCode(),j);
+                for (int k = 0; k < pois.length(); k++) {
+                    JSONObject poi = (JSONObject) pois.get(k);
+                    if (poi.getInt("id") == favs.getInt(i)) {
+                        favNames[i] = poi.getString("name");
+                    }
+                }
+            }
+
+
         }
-        // if any favNames are null,
+        // if any favNames are null, remove them
+        for (int i = 0; i < favNames.length; i++) {
+            if (favNames[i] == null) {
+                favNames = Arrays.copyOf(favNames, favNames.length - 1);
+            }
+        }
         return favNames;
     }
 
