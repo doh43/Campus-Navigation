@@ -102,6 +102,8 @@ public class LoginFrame extends JFrame {
                                 dispose();
                                 User currentUser = new User(user.getString("username"), user.getString("password"), user.getString("userType"));
                                 SessionManager.setCurrentUser(currentUser);
+                                Data d = Data.getInstance();
+                                d.loadUserData();
 
                                 LandingPage frame = new LandingPage();
                             } else {

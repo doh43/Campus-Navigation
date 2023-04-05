@@ -252,6 +252,7 @@ public class PoiPopup extends JDialog  {
 
     public void favouritePoi(Poi selectedPoi) {
         if (SessionManager.getCurrentUser().getUsername().equals("admin")) {
+            JOptionPane.showMessageDialog(null, "Admins cannot favourite POIs", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         Data d = Data.getInstance();
