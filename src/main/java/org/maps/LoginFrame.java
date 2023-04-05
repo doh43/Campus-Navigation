@@ -86,17 +86,19 @@ public class LoginFrame extends JFrame {
             char[] passwordChars = passwordField.getPassword();
             String password = new String(passwordChars);
 
-            // Check if the user exists and if their password is correct
-            try {
-                File file = new File("./data/userData/" + username + ".json");
-                if (file.exists()) {
-                    String userStr = new String(Files.readAllBytes(file.toPath()));
-                    JSONObject user = new JSONObject(userStr);
-                    if (user.getString("password").equals(password)) {
-                        JOptionPane.showMessageDialog(LoginFrame.this, "Login successful!");
-                        dispose();
-                        User currentUser = new User(user.getString("username"), user.getString("password"), user.getString("userType"));
-                        SessionManager.setCurrentUser(currentUser);
+                    // Check if the user exists and if their password is correct
+                    try {
+                        File file = new File("./data/userData/" + username + ".json");
+                        if (file.exists()) {
+                            String userStr = new String(Files.readAllBytes(file.toPath()));
+                            JSONObject user = new JSONObject(userStr);
+                            if (user.getString("password").equals(password)) {
+                                JOptionPane.showMessageDialog(LoginFrame.this, "Login successful!");
+                                dispose();
+                                User currentUser = new User(user.getString("username"), user.getString("password"), user.getString("userType"));
+                                SessionManager.setCurrentUser(currentUser);
+                                Data d = Data.getInstance();
+                                d.loadUserData();
 
                         new LandingPage();
                     } else {
