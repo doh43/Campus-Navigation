@@ -97,7 +97,7 @@ public class SearchPanel extends JPanel {
 
             // Loops through the POIs on a floor
             for (int i = 0; i < numPois; i++) {
-                JSONObject poi = (JSONObject) jsonPois.get(i);
+                JSONObject poi = (JSONObject) allPois.get(i);
 
                 // Looks through POI names, ID, and description
                 poiNames[i] = poi.getString("name");
