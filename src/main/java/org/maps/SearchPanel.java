@@ -14,6 +14,7 @@ import java.awt.*;
  */
 public class SearchPanel extends JPanel {
     public static JLabel floorLabel;
+
     SearchPanel() {
 
         // Creating the building label for the map
@@ -74,12 +75,18 @@ public class SearchPanel extends JPanel {
      * @return the POI the user is looking for, if not found, return null.
      */
     private JSONObject searchChecker(String input) {
+        Data data = new Data();
         // Loop through all the POIs to see if there is a match with the user's search, if found, return the POI
         for (int j = 0; j < Maps.getMapBuilding().getNumFloors(); j++) {
-
             // Retrieving all the POI data
-            JSONArray jsonPois = Maps.getMapBuilding().getFloors()[j].getPois();
-            int numPois = jsonPois.length();
+            JSONArray jsonPois = data.getPois(Maps.getBuildingCode(), j);
+            JSONArray customPois = data.getCustomPOIs(Maps.getBuildingCode(), j);
+
+            JSONArray allPois = new JSONArray();
+            allPois.putAll(jsonPois);
+            allPois.putAll(customPois);
+
+            int numPois = allPois.length();
 
             // Creating variables
             String[] poiNames = new String[numPois];
@@ -89,8 +96,8 @@ public class SearchPanel extends JPanel {
 
 
             // Loops through the POIs on a floor
-            for (int i = 0; i < jsonPois.length(); i++) {
-                JSONObject poi = (JSONObject) jsonPois.get(i);
+            for (int i = 0; i < numPois; i++) {
+                JSONObject poi = (JSONObject) allPois.get(i);
 
                 // Looks through POI names, ID, and description
                 poiNames[i] = poi.getString("name");
