@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /** Implements the side panel of the Map screen
- * @author Tomas Garcia, Ethan Tiger Wakefield
- * @version 1.0
+ * @author Tomas Garcia, Ethan Tiger Wakefield, Daniel Oh
+ * @version 3.0
  * @see org.maps.MainPanel
  * @see org.maps.PoiPanel */
 public class SidePanel extends JLayeredPane {
@@ -28,7 +28,7 @@ public class SidePanel extends JLayeredPane {
     private JPanel selection;
 
     /** Represent types of POIs */
-    private static JToggleButton cRoom, nav, wash, entry, genL, res, collab;
+    private static JToggleButton cRoom, nav, wash, entry, genL, res, collab, user, favs;
 
     /** Stores the POI names for each floor */
     private static JComboBox<String> poiDrop;
@@ -69,12 +69,12 @@ public class SidePanel extends JLayeredPane {
         layer = new JPanel();
         layer.setLayout(new BorderLayout());
         layer.setBackground(Color.lightGray);
-        layer.setPreferredSize(new Dimension(200,220));
+        layer.setPreferredSize(new Dimension(200,245));
 
         /* Title for the layers panel */
         JLabel layerSelect = new JLabel("Layers");
 
-        checkPan = new JPanel(new GridLayout(7,1));
+        checkPan = new JPanel(new GridLayout(9,1));
 
         cRoom = new JToggleButton("Classrooms");
         cRoom.setSelected(true);
@@ -104,6 +104,16 @@ public class SidePanel extends JLayeredPane {
         collab.setSelected(true);
         addLayerChangeTracker(collab);
 
+        user = new JToggleButton("User Created POIs");
+        user.setSelected(true);
+        addLayerChangeTracker(user);
+
+        favs = new JToggleButton("Favourite POIs");
+        favs.setSelected(true);
+        addLayerChangeTracker(favs);
+
+        JButton access = new JButton("Accessibility");
+
         checkPan.add(cRoom);
         checkPan.add(nav);
         checkPan.add(wash);
@@ -111,9 +121,12 @@ public class SidePanel extends JLayeredPane {
         checkPan.add(genL);
         checkPan.add(res);
         checkPan.add(collab);
+        checkPan.add(user);
+        checkPan.add(favs);
 
         layer.add(layerSelect, BorderLayout.NORTH);
         layer.add(checkPan, BorderLayout.CENTER);
+        layer.add(access, BorderLayout.SOUTH);
 
         // Favourites
         favourites = new JPanel();
@@ -132,7 +145,7 @@ public class SidePanel extends JLayeredPane {
 
         /* Empty panel used to add distance between other panels */
         JPanel emptyPan = new JPanel();
-        emptyPan.setPreferredSize(new Dimension(200,130));
+        emptyPan.setPreferredSize(new Dimension(200,135));
 
         selection.add(poiList);
         selection.add(emptyPan);
@@ -369,6 +382,20 @@ public class SidePanel extends JLayeredPane {
         else {
             MapPanel.toggleLayerOff("Collaborative Room");
         }
+
+        if (user.isSelected()) {
+            MapPanel.toggleLayerOn("User POIs");
+        }
+        else {
+            MapPanel.toggleLayerOff("User POIs");
+        }
+
+        if (favs.isSelected()) {
+            MapPanel.toggleLayerOn("Favourites");
+        }
+        else {
+            MapPanel.toggleLayerOff("Favourites");
+        }
     }
 
     private void addLayerChangeTracker(JToggleButton toggle1) {
@@ -428,6 +455,20 @@ public class SidePanel extends JLayeredPane {
                             MapPanel.toggleLayerOff("Collaborative Room");
                         }
                     }
+                    else if (e.getSource() == user) {
+                        if (user.isSelected()) {
+                            MapPanel.toggleLayerOn("User POIs");
+                        } else {
+                            MapPanel.toggleLayerOff("User POIs");
+                        }
+                    }
+                    else if (e.getSource() == favs) {
+                        if (favs.isSelected()) {
+                            MapPanel.toggleLayerOn("Favourites");
+                        } else {
+                            MapPanel.toggleLayerOff("Favourites");
+                        }
+                    }
         });
     }
 
@@ -436,7 +477,7 @@ public class SidePanel extends JLayeredPane {
         poiList.getComponent(1).setEnabled(false);
         favourites.getComponent(1).setEnabled(false);
         for (Component c: checkPan.getComponents()) {
-            if (c instanceof JToggleButton) {
+            if (c instanceof JToggleButton || c instanceof JButton) {
                 c.setEnabled(false);
             }
         }
@@ -452,7 +493,7 @@ public class SidePanel extends JLayeredPane {
         poiList.getComponent(1).setEnabled(true);
         favourites.getComponent(1).setEnabled(true);
         for (Component c: checkPan.getComponents()) {
-            if (c instanceof JToggleButton) {
+            if (c instanceof JToggleButton || c instanceof JButton) {
                 c.setEnabled(true);
             }
         }

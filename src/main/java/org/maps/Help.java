@@ -23,7 +23,7 @@ public class Help extends JFrame implements ActionListener {
         // SET UP HELP PAGE
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(1000, 900);
-        this.setTitle("Western Campus Navigation");
+        this.setTitle("Western Campus Navigation - Help");
         this.setLocationRelativeTo(null);
         this.setLayout(null);
 
@@ -40,14 +40,14 @@ public class Help extends JFrame implements ActionListener {
 
         // BACK BUTTON
         back = new JButton("Back");
-        back.setBounds(800, 750, 100, 40);
+        back.setBounds(870, 734, 100, 40);
         back.addActionListener(this);
         back.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         this.add(back);
 
         // SCROLL PANE WITH ALL THE HELP GUIDE CONTENT
         JScrollPane helpScroll = new JScrollPane();
-        helpScroll.setBounds(5,100, 950, 600);
+        helpScroll.setBounds(0,100, 986, 620);
         helpScroll.setLayout(new ScrollPaneLayout());
         helpScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         Dimension helpViewport = helpScroll.getViewport().getViewSize();
@@ -114,7 +114,7 @@ public class Help extends JFrame implements ActionListener {
         JTextPane helpPanel3 = new JTextPane();
         helpPanel3.setContentType("text/html");
         helpPanel3.setEditorKit(new HTMLEditorKit());
-        helpPanel3.setText(helpPanel1text);
+        helpPanel3.setText(helpPanel3text);
         helpPanel3.setEditable(false);
         helpPanel3.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
         helpPanel3.setBounds(0,0, helpViewport.width, 50);
