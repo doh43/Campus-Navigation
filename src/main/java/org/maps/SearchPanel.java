@@ -1,3 +1,8 @@
+/** This class is responsible for creating a functional search bar and the corresponding building/floor labels so
+ * the user knows which building and floor they are in when they open the map.
+ * @author Ethan Tiger Wakefield, Taejun Ha, Tomas Garcia
+ * @version 1.0 */
+
 package org.maps;
 
 import org.json.JSONArray;
@@ -8,12 +13,6 @@ import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-/**
- * This class is responsible for creating a functional search bar and the corresponding building/floor labels so
- * the user knows which building and floor they are in when they open the map.
- *
- * @author ewakefi, tha7, tgarci3
- */
 public class SearchPanel extends JPanel {
     public static JLabel floorLabel;
 
@@ -79,13 +78,10 @@ public class SearchPanel extends JPanel {
         add(floorLabel);
     }
 
-    /**
-     * This method searches the JSON file to check if whatever the user inputted is in the database, if it is not,
+    /** Searches the JSON file to check if whatever the user inputted is in the database, if it is not,
      * then it will return nothing.
-     *
      * @param input uses the user's input to compare.
-     * @return the POI the user is looking for, if not found, return null.
-     */
+     * @return the POI the user is looking for, if not found, return null. */
     private JSONObject searchChecker(String input) {
         Data data = new Data();
         // Loop through all the POIs to see if there is a match with the user's search, if found, return the POI
@@ -145,12 +141,8 @@ public class SearchPanel extends JPanel {
         return null;
     }
 
-        /**
-         * When the method is called, it will change the floor label beside the search bar, it essentially refreshes the
-         * top panel of the GUI.
-         *
-         * @param floor takes in the floor number that the user selects.
-         */
+        /** Changes the floor label beside the search bar, it essentially refreshes the top panel of the GUI.
+         * @param floor takes in the floor number that the user selects. */
         public static void changeLabel (int floor) {
             String buildingName = Maps.getBuildingCode();
             Data d = Data.getInstance();

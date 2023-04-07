@@ -1,3 +1,7 @@
+/** A panel that displays a map image and allows users to interact with points of interest (POIs) on the map.
+ * @author Ethan Wakefield, Aryan Saxena
+ * @version 1.0 */
+
 package org.maps;
 
 import org.json.JSONArray;
@@ -7,49 +11,33 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 
-/**
- * A panel that displays a map image and allows users to interact with points of interest (POIs) on the map.
- *
- * @version 1.0
- * @author Ethan Wakefield, Aryan Saxena
- * */
 public class MapPanel extends JPanel {
     // STATIC VARIABLES
-    /**
-     * A static JPanel that is used to access the map panel.
-     * */
+    /** A static JPanel that is used to access the map panel. */
     private static JPanel staticMapPanel;
-    /**
-     * A static JScrollPane that is used to access the map scroll pane.
-     * */
+
+    /** A static JScrollPane that is used to access the map scroll pane. */
     private static JScrollPane mapScroll;
-    /**
-     * A static int that is used to access the current floor number.
-     * */
+
+    /** A static int that is used to access the current floor number. */
     private static int floorNum;
-    /**
-     * A static JLabel that is used to access the map image.
-     * */
+
+    /** A static JLabel that is used to access the map image. */
     private static JLabel imageLabel;
-    /**
-     * A static String that is used to access the building code.
-     * */
+
+    /** A static String that is used to access the building code. */
     static String buildingCode;
-    /**
-     * A static JLayeredPane that is used to access the layered pane.
-     * */
+
+    /** A static JLayeredPane that is used to access the layered pane. */
     private static JLayeredPane layeredPane;
-    /**
-     * A static HashMap that is used to access the type panels.
-     * */
+
+    /** A static HashMap that is used to access the type panels. */
     private static HashMap<String, Integer> typePanels;
-    /**
-     * A static HashMap that is used to access the buttons.
-     * */
+
+    /** A static HashMap that is used to access the buttons. */
     private static HashMap<Integer, JButton> allButtons;
-    /**
-     * Creates a new MapPanel object.
-     * */
+
+    /** Creates a new MapPanel object. */
     MapPanel() {
         staticMapPanel = this;
         buildingCode = Maps.getBuildingCode();
@@ -75,10 +63,8 @@ public class MapPanel extends JPanel {
         return floorNum;
     }
 
-    /**
-     * Jumps to a specific POI on the map.
-     * @param poi to jump to
-     * */
+    /** Jumps to a specific POI on the map.
+     * @param poi poi to jump to */
     public static void jumpToPoi(Poi poi){
         int id = poi.getId();
 
@@ -103,10 +89,8 @@ public class MapPanel extends JPanel {
         }
     }
 
-    /**
-     * Toggles a specific POI type off.
-     * @param type The type of POI to toggle off.
-     * */
+    /** Toggles a specific POI type off.
+     * @param type The type of POI to toggle off. */
     public static void toggleLayerOff(String type){
 
         if (typePanels.containsKey(type)) {
@@ -117,10 +101,8 @@ public class MapPanel extends JPanel {
         }
     }
 
-    /**
-     * Toggles a specific POI type on.
-     * @param type The type of POI to toggle on.
-     * */
+    /** Toggles a specific POI type on.
+     * @param type The type of POI to toggle on. */
     public static void toggleLayerOn(String type){
 
         if (typePanels.containsKey(type)) {
@@ -131,9 +113,7 @@ public class MapPanel extends JPanel {
         }
     }
 
-    /**
-     * Sets up the map and points of interest (POIs) on the map.
-     * */
+    /** Sets up the map and points of interest (POIs) on the map. */
     public static void setUpTypePanels() {
 
 
@@ -216,11 +196,9 @@ public class MapPanel extends JPanel {
         staticMapPanel.add(mapScroll);
     }
 
-    /**
-     * decide button color based on layer-type before adding to layer
+    /** Decides button color based on layer-type before adding to layer
      * @param button - JButton being configured during for loop iteration in setUpTypePanels()
-     * @param type - the layer type
-     */
+     * @param type - the layer type */
     public static void setButtonColor(JButton button, String type) {
 
         String temp = type.toLowerCase().substring(0,2);

@@ -2,6 +2,7 @@
  * @author Tomas Garcia
  * @version 1.0
  * @see org.maps.Floor */
+
 package org.maps;
 
 import org.json.JSONArray;
@@ -46,16 +47,19 @@ public class Building {
             floors[i] = new Floor(floorList, i);
         }
     }
+
     /** Returns the name of the building
      * @return Name of the building */
     public String getName() {
         return name;
     }
+
     /** Returns the floors of the building
      * @return Floors of the building */
     public Floor[] getFloors() {
         return floors;
     }
+
     /** Returns the number of floors in the building
      * @return Number of floors in the building */
     public int getNumFloors() {

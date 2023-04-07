@@ -1,24 +1,21 @@
+/** Help Page - Help Guide with picture and textual guidelines on how to interact with application
+ * @author Aryan Saxena, Tomas Garcia
+ * @version 1.2 */
+
 package org.maps;
+
 import javax.swing.*;
 import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Help Page - Help Guide with picture and textual guidelines on how to interact with application
- *
- * @version 1.2
- * @author Aryan Saxena, Tomas Garcia
- * */
-
 public class Help extends JFrame implements ActionListener {
+    /** Button that returns you to the Landing Page */
     JButton back;
 
-    /**
-     * Help Page Constructor
-     *
-     */
+    /** Help Page Constructor
+     * Creates a guide for the user that shows them how to use the application correctly */
     Help() {
         // SET UP HELP PAGE
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -160,6 +157,8 @@ public class Help extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
+    /** Makes the back button work when pressed
+     * @param event the event to be processed */
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == back) {

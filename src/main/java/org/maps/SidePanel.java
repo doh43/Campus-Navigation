@@ -1,3 +1,9 @@
+/** Implements the side panel of the Map screen
+ * @author Tomas Garcia, Ethan Tiger Wakefield, Daniel Oh
+ * @version 3.0
+ * @see org.maps.MainPanel
+ * @see org.maps.PoiPanel */
+
 package org.maps;
 
 import org.json.JSONArray;
@@ -6,13 +12,8 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 
-/** Implements the side panel of the Map screen
- * @author Tomas Garcia, Ethan Tiger Wakefield, Daniel Oh
- * @version 3.0
- * @see org.maps.MainPanel
- * @see org.maps.PoiPanel */
 public class SidePanel extends JLayeredPane {
-    /** Displays existing POIs*/
+    /** Displays existing POIs */
     private static JPanel poiList;
 
     /** Displays the layers currently selected/deselected on the map */
@@ -35,6 +36,7 @@ public class SidePanel extends JLayeredPane {
 
     /** Stores the POI IDs for each floor */
     private static int[] floorPoiIDs;
+
     /** Stores the favourites dropdown */
     private static JComboBox<String> favBox;
 
@@ -160,8 +162,9 @@ public class SidePanel extends JLayeredPane {
         String[] favNames = makeFavNameList();
         favBox.setModel(new DefaultComboBoxModel<>(favNames));
     }
+
     /** Creates a JComboBox with the favourited poi names
-     * @return JComboBox<String> */
+     * @return the dropdown menu that stores the favourited pois */
     public static JComboBox<String> makeFavouritesDropdown() {
         Data d = Data.getInstance();
         String[] favNames = makeFavNameList();
@@ -201,6 +204,7 @@ public class SidePanel extends JLayeredPane {
         });
         return favBox;
     }
+
     /** Creates a list of the names of the favourites
      * @return String[] of favourite names */
     public static String[] makeFavNameList() {
@@ -251,11 +255,8 @@ public class SidePanel extends JLayeredPane {
         return newFavNames;
     }
 
-    /**
-     * This method is responsible for retrieving all the POIs on a floor and storing it in a list.
-     *
-     * @return the POI names for the dropdown list
-     */
+    /** This method is responsible for retrieving all the POIs on a floor (built-ins and custom) and storing them in a list.
+     * @return the POI names for the Select POI dropdown list */
     private static String[] makePoiNameList() {
         Data data = new Data();
 
@@ -279,11 +280,8 @@ public class SidePanel extends JLayeredPane {
         return poiNames;
     }
 
-    /**
-     * This method creates the dropdown list and makes the dropdown list functional whenever a user selects a POI from it.
-     *
-     * @return cb, the combo-box or the dropdown list
-     */
+    /** This method creates the dropdown list and makes the dropdown list functional whenever a user selects a POI from it.
+     * @return cb, the combo-box or the Select POI dropdown list */
     private static JComboBox<String> addPoiDropdown() {
         Data data = new Data();
 
@@ -322,15 +320,16 @@ public class SidePanel extends JLayeredPane {
     }
 
 
-    /**
-     * Updates the dropdown list with new POIs.
-     */
+    /** Updates the dropdown list with new POIs. */
     public static void updateDropDown() {
         String[] poiNames = makePoiNameList();
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>( poiNames );
         poiDrop.setModel(model);
     }
 
+    /** Tracks what layers are selected/deselected to control the POIs visible on the map
+     * @see org.maps.MapPanel#toggleLayerOn(String)
+     * @see org.maps.MapPanel#toggleLayerOff(String) */
     public static void layerTracker() {
         if (cRoom.isSelected()) {
             MapPanel.toggleLayerOn("Classroom");
@@ -396,6 +395,10 @@ public class SidePanel extends JLayeredPane {
         }
     }
 
+    /** Updates the layers visible on the map depending on the new state of a layer toggle button
+     * @param toggle1 a button that represents a POI layer that has just been selected/deselected
+     * @see org.maps.MapPanel#toggleLayerOn(String)
+     * @see org.maps.MapPanel#toggleLayerOff(String) */
     private void addLayerChangeTracker(JToggleButton toggle1) {
         toggle1.addItemListener(e -> {
                     if (e.getSource() == cRoom) {
@@ -495,7 +498,5 @@ public class SidePanel extends JLayeredPane {
                 c.setEnabled(true);
             }
         }
-
-
     }
 }

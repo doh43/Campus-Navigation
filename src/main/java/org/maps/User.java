@@ -1,3 +1,7 @@
+/** Used to store basic information about a user
+ * @author Daniel Oh
+ * @version 2.0 */
+
 package org.maps;
 
 import org.json.JSONArray;
@@ -7,32 +11,27 @@ import org.json.JSONTokener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-/**
- * User class
- * @author Daniel Oh
- * @version 2.0 (working on customPOI array)
- */
 public class User {
+    /** Name of the user */
     private String username;
+
+    /** Password of the user */
     private String password;
+
+    /** Type of the user (admin/regular)*/
     private String userType;
 
-    /**
-     * Class constructor
-     *
+    /** Class constructor
      * @param username username
-     * @param password password
-     */
+     * @param password password */
     public User(String username, String password, String userType) {
         this.username = username;
         this.password = password;
         this.userType = userType;
     }
 
-    /**
-     * Creates a JSONObject to hold user data inside the user's json file
-     * @return JSONObject representing the User object
-     */
+    /** Creates a JSONObject to hold user data inside the user's json file
+     * @return JSONObject representing the User object */
     public JSONObject toJSONObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("username", this.username);

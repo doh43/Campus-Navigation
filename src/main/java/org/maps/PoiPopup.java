@@ -1,3 +1,7 @@
+/** This class is responsible for adding a popup that displays POI information when it (the POI) is selected by the user.
+ * @author Ethan Wakefield, Aryan Saxena, Taejun Ha, Tomas Garcia
+ * @version 1.0 */
+
 package org.maps;
 
 import org.json.JSONArray;
@@ -7,43 +11,35 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-
-/**
- * This class is responsible for creating the search bar and the corresponding building/floor labels so the user knows
- * which building and floor they are in when they open the map.
- *
- * @version 1.0
- * @author Ethan Wakefield, Aryan Saxena, Taejun Ha, Tomas Garcia, Aryan Saxena
- */
 public class PoiPopup extends JDialog  {
     /** JLabel for displaying the type of POI */
     private JLabel poiType;
+
     /** JLabel for displaying the room number of the POI */
     private JLabel poiRoomNum;
+
     /** JLabel for displaying the description of the POI */
     private JLabel poiDescription;
 
     /** JButton for favoriting a POI */
     private JButton favoriteButton;
+
     /** JButton for editing a POI */
     private JButton editButton;
+
     /** JButton for deleting a POI */
     private JButton deleteButton;
 
-
     /** JPanel for holding the label components */
     JPanel labelPanel = new JPanel();       //handled by initPopupDialog()
+
     /** JPanel for holding the button components */
     JPanel buttonPanel = new JPanel();      //control statements based on Poi.user
 
-
-
     /** PoiPopup()
-     * constructor for the PoiPopup class
-     * sets up the dialog box
-     *
-     * @param selectedPoi - the POI that was clicked on
-     */
+     * Constructor for the PoiPopup class.
+     * Sets up the dialog box,
+     * @param selectedPoi - the POI that was clicked on. */
     PoiPopup(Poi selectedPoi, JButton selectedButton) {
         super(Maps.getMapFrame(), selectedPoi.getName(), true);
         /* DIALOG TITLE
@@ -56,7 +52,6 @@ public class PoiPopup extends JDialog  {
 
         //set up the label panel with POI description/name/type
         initPopupDialog(selectedPoi);
-
 
         /*  SELECT favoriteOnly or edit Dialog to display
          *      BASED ON
@@ -71,10 +66,7 @@ public class PoiPopup extends JDialog  {
             editDialog(selectedPoi);
         }
 
-
         Point mousePosRelativeToViewport = MapPanel.getMapScroll().getMousePosition();
-
-
 
         this.add(labelPanel);
         this.add(buttonPanel);
@@ -100,14 +92,11 @@ public class PoiPopup extends JDialog  {
                 selectedButton.setBackground(holdButtonColor);
             }
         });
-
     }
 
     /** initPopupDialog()
-     * sets up the label panel with POI description/name/type
-     *
-     * @param selectedPoi - the POI that was clicked on
-     */
+     * Sets up the label panel with POI description/name/type.
+     * @param selectedPoi - the POI that was clicked on. */
     private void initPopupDialog(Poi selectedPoi) {
 
         //make sure getter methods are in place for POIs name, type, description
@@ -131,8 +120,7 @@ public class PoiPopup extends JDialog  {
     }
 
     /** favoriteOnlyDialog()
-     * sets up the button panel with only the favorite button
-     */
+     * Sets up the button panel with only the favorite button */
     private void favoriteOnlyDialog(Poi selectedPoi){
         favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavourite" : "Favourite");
         buttonPanel.add(favoriteButton);
@@ -146,10 +134,8 @@ public class PoiPopup extends JDialog  {
     }
 
     /** editDialog()
-     * sets up the button panel with the edit and delete buttons
-     *
-     * @param selectedPoi - the POI that was clicked on
-     */
+     * Sets up the button panel with the edit and delete buttons.
+     * @param selectedPoi - the POI that was clicked on. */
     private void editDialog(Poi selectedPoi){
         favoriteButton = new JButton(isFavourited(selectedPoi) ? "Unfavourite" : "Favourite");
         editButton = new JButton("Edit");
@@ -194,11 +180,10 @@ public class PoiPopup extends JDialog  {
         buttonPanel.setLayout(new FlowLayout());
 
     }
+
     /** deletePoi()
-     * deletes a POI from the data file
-     *
-     * @param p - the POI to be deleted
-     */
+     * Deletes a POI from the data file
+     * @param p - the POI to be deleted */
     public void deletePoi(Poi p) {
         Data d = Data.getInstance();
         // If the user is an admin, delete the POI from the savedData
@@ -233,12 +218,11 @@ public class PoiPopup extends JDialog  {
         SidePanel.updateDropDown();         // ADDED RECENTLY TO UPDATE SIDE PANEL
         SidePanel.updateFavourites();
     }
+
     /** isFavourited()
-     * checks if a POI is favourited
-     *
-     * @param p - the POI to be checked
-     * @return true if the POI is favourited, false otherwise
-     */
+     * Checks if a POI is favourited.
+     * @param p - the POI to be checked.
+     * @return true if the POI is favourited, false otherwise. */
     public boolean isFavourited(Poi p) {
         Data d = Data.getInstance();
         JSONArray a = d.getFavourites();

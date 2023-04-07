@@ -4,12 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Small bugfix for SidePanel: custom POIs appeared in the POI dropdown but were not selectable - Tomas Garcia">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added a small feature: The Search bar prompt will now disappear when the user clicks on it. Also deleted outdated main method from Maps - Tomas Garcia">
       <change afterPath="$PROJECT_DIR$/data/userData/.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/data/userData/tgarci3.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/About.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/BottomPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Floor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/LandingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/MapPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Poi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Poi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/PoiPopup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SearchPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SessionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,25 +74,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/JavaSwing Test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/JavaSwing Test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data" />
@@ -344,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680840856789</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added a small feature: The Search bar prompt will now disappear when the user clicks on it. Also deleted outdated main method from Maps - Tomas Garcia">
+      <created>1680842396514</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680842396514</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +431,8 @@
     <MESSAGE value="Added the two missing layers as well as the (nonfunctional) accessibility layer. Made some UI improvements and fixed a minor bug in Help.java - Tomas Garcia" />
     <MESSAGE value="Updated the content and graphics of Help.java (also fixed a minor bug). Finished all sections of the README page except for Build and Run Guide. Corrected an error in buildings.json - Tomas Garcia" />
     <MESSAGE value="Small bugfix for SidePanel: custom POIs appeared in the POI dropdown but were not selectable - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small bugfix for SidePanel: custom POIs appeared in the POI dropdown but were not selectable - Tomas Garcia" />
+    <MESSAGE value="Added a small feature: The Search bar prompt will now disappear when the user clicks on it. Also deleted outdated main method from Maps - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a small feature: The Search bar prompt will now disappear when the user clicks on it. Also deleted outdated main method from Maps - Tomas Garcia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

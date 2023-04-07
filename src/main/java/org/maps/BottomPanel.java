@@ -1,25 +1,24 @@
+/** This class is responsible for creating the buttons for the bottom panel of the map viewer GUI.
+ * @author Ethan Tiger Wakefield, Taejun Ha, Tomas Garcia
+ * @version 1.5 */
+
 package org.maps;
+
 import org.json.JSONArray;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * This class is responsible for creating the buttons for the bottom panel of the map viewer GUI.
- *
- * @author ewakefi, tha7, tgarci3
- */
-
 public class BottomPanel extends JPanel implements ActionListener {
+    /** Building that the floors belong to */
     String building;
+
     JButton[] floor = new JButton[10];
 
-    /**
-     * This takes in the parameter btn to create the different buttons.
-     *
-     * @param btn
-     */
+    /** This takes in the parameter btn to create the different buttons.
+     * @param btn - Back button that exits the Map page and returns the user to the Landing Page.
+     * @see Maps#Maps(String) */
     BottomPanel(JButton btn) {
         setLayout(new BorderLayout());
         JPanel floorPanel = new JPanel();
@@ -39,12 +38,8 @@ public class BottomPanel extends JPanel implements ActionListener {
         add(btn, BorderLayout.EAST);
     }
 
-
-    /**
-     * When the method is called, it retrieves the image from the maps folder and changes the current map to the new map
-     *
-     * @param i
-     */
+    /** When the method is called, it retrieves the image from the maps folder and changes the current map to the new map
+     * @param i - specifies what the new floor will be */
     public void changeFloor(int i) {
         MapPanel.setFloorNum(i);
 //        MapPanel.getImageLabel().setIcon(new ImageIcon("./data/maps/"+buildingCode+"/"+buildingCode+i+".png"));
@@ -53,12 +48,9 @@ public class BottomPanel extends JPanel implements ActionListener {
 
     }
 
-    /**
-     * This method is responsible for making the buttons functional, whenever users click the button it will load the
+    /** This method is responsible for making the buttons functional. Whenever users click the button it will load the
      * corresponding floor map.
-     *
-     * @param e the event to be processed
-     */
+     * @param e the event to be processed */
     @Override
     public void actionPerformed(ActionEvent e) {
         Data d = Data.getInstance();

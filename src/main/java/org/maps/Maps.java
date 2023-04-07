@@ -7,19 +7,27 @@
  * @see org.maps.SidePanel
  * @see org.maps.BottomPanel
  * @see org.maps.SearchPanel */
+
 package org.maps;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Maps extends JFrame {
+    /** Frame for the map */
     private static JFrame frame;
-    /* Used to access the specific building in the buildings JSON file */
+
+    /** Used to access the specific building in the buildings JSON file */
     private static String buildingCode;
 
-    /* The building being displayed */
+    /** The building being displayed */
     private static Building mapBuilding;
+
+    /** Constructor for the Maps class
+     * Generates a default map of the building given as a parameter
+     * @param choice - building code of the building that will be displayed in the map */
     Maps(String choice) {
 
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -65,7 +73,6 @@ public class Maps extends JFrame {
         add(new MainPanel(botPan), BorderLayout.CENTER);
         add(new SidePanel(), BorderLayout.WEST);
 
-//        pack();
         setVisible(true);
 
 
@@ -85,13 +92,12 @@ public class Maps extends JFrame {
                 }
             }
         });
-
-
     }
 
     public static String getBuildingCode() {
         return buildingCode;
     }
+
     public static JFrame getMapFrame() {
         return frame;
     }

@@ -1,3 +1,8 @@
+/** Login frame responsible for registering and signing in users.
+ * First screen of the application that controls access to the rest of it.
+ * @author Daniel Oh
+ * @version 2.0 */
+
 package org.maps;
 
 import java.awt.*;
@@ -8,15 +13,16 @@ import java.nio.file.Files;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Login frame responsible for registering and signing in users.
- * @author Daniel Oh
- * @version 2.0
- */
 public class LoginFrame extends JFrame {
+    /** Field where the user inputs their password */
     private JPasswordField passwordField;
+
+    /** Field where the user inputs their username */
     private JTextField usernameField;
+
     private JLabel passwordLabel, usernameLabel, message;
+
+    /** Buttons that allow the user to register an account or to sign in with an existing account */
     private JButton signInButton, registerButton;
 
     public LoginFrame() {
@@ -47,7 +53,7 @@ public class LoginFrame extends JFrame {
         passwordField = new JPasswordField();
         passwordField.setBounds(300,250,300,40);
 
-        /** Registers new users by creating a unique JSON file */
+        /* Registers new users by creating a unique JSON file */
         registerButton = new JButton("Register");
         registerButton.setBounds(420,300,100,40);
         registerButton.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 12));
@@ -128,6 +134,8 @@ public class LoginFrame extends JFrame {
         this.add(message);
     }
 
+    /** Creates a new Login frame.
+     * This is the only point of entry for the entire application. */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             LoginFrame frame = new LoginFrame();

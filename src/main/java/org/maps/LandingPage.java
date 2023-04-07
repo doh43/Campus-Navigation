@@ -1,25 +1,30 @@
+/** This is the landing page GUI.
+ * The user will be able to choose a map from a dropdown list.
+ * Users can also discover the about/help section using the buttons.
+ * @author Taejun Ha
+ * @version 1.5 */
+
 package org.maps;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * This is the landing page GUI.
- * The user will be able to choose a map from a dropdown list.
- * Users can also discover the about/help section using the buttons.
- *
- * @author tha7
- */
 public class LandingPage extends JFrame implements ActionListener {
+    /** Dropdown containing all campus buildings that exist in the application */
     JComboBox<String> campusBuildings;
+
+    /** Contains Text with basic instructions for the user */
     JLabel boxLabel;
+
+    /** Buttons that lead to different screens of the application */
     JButton help, back, about, openMap;
+
+    /** Building code of the map to be opened */
     String choice;
 
-    /**
-     * Generates all the buttons for the landing page and the dropdown list.
-     */
+    /** Generates a default Landing Page with all buttons and the dropdown list. */
     LandingPage() {
         choice = "ncb";
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,11 +77,9 @@ public class LandingPage extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
-    /**
-     * This class will retrieve the selected map's data.
+    /** Retrieves the selected building's code.
      * Displays an error if the building cannot be found.
-     * @param campusBuildings
-     */
+     * @param campusBuildings - Dropdown containing all campus buildings that exist in the application. */
     private void buildingSelection(JComboBox<String> campusBuildings) {
         try {
             String string = campusBuildings.getSelectedItem().toString();
@@ -96,11 +99,8 @@ public class LandingPage extends JFrame implements ActionListener {
         }
     }
 
-    /**
-     * Generates a certain action depending on which button the user selects.
-     *
-     * @param event the event to be processed
-     */
+    /** Generates a certain action depending on which button the user clicks on.
+     * @param event the event to be processed */
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == back) {
@@ -125,4 +125,3 @@ public class LandingPage extends JFrame implements ActionListener {
         }
     }
 }
-

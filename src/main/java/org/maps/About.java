@@ -1,21 +1,18 @@
+/** About Page - application version and developer contact information
+ * @author Aryan Saxena
+ * @version 1.0 */
+
 package org.maps;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * About Page - application version and developer contact information
- *
- * @version 1.0
- * @author Aryan Saxena
- * */
 public class About extends JFrame implements ActionListener {
-
+    /** Button that returns you to the Landing Page */
     JButton back;
 
-    /**
-     * About Constructor - sets up all information and back button to be displayed on page
-     */
+    /** About Constructor - sets up all information and back button to be displayed on page */
     About() {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(700, 500);
@@ -51,6 +48,8 @@ public class About extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
+    /** Makes the back button work when pressed
+     * @param event the event to be processed */
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == back) {

@@ -2,14 +2,12 @@
  * @author Tomas Garcia
  * @version 1.0
  * @see org.maps.Building */
+
 package org.maps;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-/** Provides a way to work with JSON floor data abstractly
- * @author Tomas Garcia
- * @version 1.0
- * @see org.maps.Building */
+
 public class Floor {
     /** Name of the floor */
     private String name;
@@ -36,16 +34,19 @@ public class Floor {
         /* Uses information from floor to get the floor's POIs */
         pois = (JSONArray) floor.get("pois");
     }
+
     /** Returns the name of the floor
      * @return Name of the floor */
     public String getName() {
         return name;
     }
+
     /** Returns the id of the floor
      * @return ID of the floor */
     public int getId() {
         return id;
     }
+
     /** Returns the POIs in the floor
      * @return POIs in the floor */
     public JSONArray getPois() {
