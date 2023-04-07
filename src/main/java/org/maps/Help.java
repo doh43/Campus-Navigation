@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 /**
  * Help Page - Help Guide with picture and textual guidelines on how to interact with application
  *
- * @version 1.0
- * @author Aryan Saxena
+ * @version 1.2
+ * @author Aryan Saxena, Tomas Garcia
  * */
 
 public class Help extends JFrame implements ActionListener {
