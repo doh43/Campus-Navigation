@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Updated the content and graphics of Help.java (also fixed a minor bug). Finished all sections of the README page except for Build and Run Guide. Corrected an error in buildings.json - Tomas Garcia">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Small bugfix for SidePanel: custom POIs appeared in the POI dropdown but were not selectable - Tomas Garcia">
       <change afterPath="$PROJECT_DIR$/data/userData/.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/data/userData/tgarci3.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SearchPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680838596578</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Small bugfix for SidePanel: custom POIs appeared in the POI dropdown but were not selectable - Tomas Garcia">
+      <created>1680840856789</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680840856789</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +407,8 @@
     <MESSAGE value="Fixed a bug in the layer toggle buttons from SidePanel.java - Tomas Garcia" />
     <MESSAGE value="Added the two missing layers as well as the (nonfunctional) accessibility layer. Made some UI improvements and fixed a minor bug in Help.java - Tomas Garcia" />
     <MESSAGE value="Updated the content and graphics of Help.java (also fixed a minor bug). Finished all sections of the README page except for Build and Run Guide. Corrected an error in buildings.json - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the content and graphics of Help.java (also fixed a minor bug). Finished all sections of the README page except for Build and Run Guide. Corrected an error in buildings.json - Tomas Garcia" />
+    <MESSAGE value="Small bugfix for SidePanel: custom POIs appeared in the POI dropdown but were not selectable - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small bugfix for SidePanel: custom POIs appeared in the POI dropdown but were not selectable - Tomas Garcia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

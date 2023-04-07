@@ -99,11 +99,4 @@ public class Maps extends JFrame {
     public static Building getMapBuilding() {
         return mapBuilding;
     }
-
-    /** Used to test the Maps class
-     * @ //TODO: delete after testing */
-    public static void main(String[] args) {
-
-        new Maps("mc");
-    }
 }

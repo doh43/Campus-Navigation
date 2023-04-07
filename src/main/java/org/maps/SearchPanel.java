@@ -5,6 +5,8 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  * This class is responsible for creating a functional search bar and the corresponding building/floor labels so
@@ -38,6 +40,16 @@ public class SearchPanel extends JPanel {
 
         JTextField searchPrompt = new JTextField("Search for POIs");
         searchPrompt.setPreferredSize(new Dimension(190,25));
+        searchPrompt.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                searchPrompt.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+            }
+        });
 
         JButton searchButton = new JButton("Search");
         searchButton.addActionListener(e -> {
