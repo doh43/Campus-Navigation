@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Fixed a bug in the layer toggle buttons from SidePanel.java - Tomas Garcia">
+    <list default="true" id="28ed489e-5b3b-4981-90a8-f2d2338b7d5a" name="Changes" comment="Added the two missing layers as well as the (nonfunctional) accessibility layer. Made some UI improvements and fixed a minor bug in Help.java - Tomas Garcia">
       <change afterPath="$PROJECT_DIR$/data/userData/.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/data/userData/tgarci3.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/buildings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/maps/SidePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680650660670</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added the two missing layers as well as the (nonfunctional) accessibility layer. Made some UI improvements and fixed a minor bug in Help.java - Tomas Garcia">
+      <created>1680822875418</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680822875418</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +392,8 @@
     <MESSAGE value="Fixed the Layer Panel so that it can deselect/select a layer for multiple floors. Addressed some light intelliJ warnings for multiple classes and deleted unwanted main methods - Tomas Garcia" />
     <MESSAGE value="Fixed more intelliJ warnings, did not touch functionality at all - Tomas Garcia" />
     <MESSAGE value="Fixed a bug in the layer toggle buttons from SidePanel.java - Tomas Garcia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug in the layer toggle buttons from SidePanel.java - Tomas Garcia" />
+    <MESSAGE value="Added the two missing layers as well as the (nonfunctional) accessibility layer. Made some UI improvements and fixed a minor bug in Help.java - Tomas Garcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the two missing layers as well as the (nonfunctional) accessibility layer. Made some UI improvements and fixed a minor bug in Help.java - Tomas Garcia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
