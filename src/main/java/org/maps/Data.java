@@ -65,7 +65,6 @@ public final class Data {
         try {
             String contents =  new String(Files.readAllBytes(Paths.get("./data/buildings.json")));
             savedData = new JSONObject(contents);
-//            System.out.println(savedData);
         } catch (IOException e) {
             e.printStackTrace();
         }
