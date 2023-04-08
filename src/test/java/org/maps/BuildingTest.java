@@ -1,18 +1,14 @@
+/** Testing for Building class
+ * @author tha7 */
+
 package org.maps;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- * Testing for Building class
- *
- * @author tha7
- */
 public class BuildingTest {
 
-    /**
-     * Testing for getName in Building class
-     */
+    /** Testing for getName in Building class */
     @Test
     public void testGetName() {
         User user = new User("john_doe", "password123", "base");
@@ -23,9 +19,7 @@ public class BuildingTest {
         assertEquals(expectedName, build.getName());
     }
 
-    /**
-     * Test for getNumFloors in Building class
-     */
+    /** Test for getNumFloors in Building class */
     @Test
     public void testGetNumFloors() {
         User user = new User("john_doe", "password123", "base");
@@ -35,9 +29,7 @@ public class BuildingTest {
         assertEquals(5, build.getNumFloors());
     }
 
-    /**
-     * Test for getFloors in Building class
-     */
+    /** Test for getFloors in Building class */
     @Test
     public void testGetFloors() {
         User user = new User("john_doe", "password123", "base");
@@ -48,5 +40,4 @@ public class BuildingTest {
         assertNotNull(floors);
         assertEquals(5, floors.length);
     }
-
 }

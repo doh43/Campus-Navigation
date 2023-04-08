@@ -1,3 +1,6 @@
+/** Testing for POI class
+ * @author Taejun Ha */
+
 package org.maps;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,11 +9,6 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/**
- * Testing for POI class
- *
- * @author tha7
- */
 public class PoiTest {
 
     @BeforeEach
@@ -20,9 +18,7 @@ public class PoiTest {
 
     }
 
-    /**
-     * Tests getName method of class Poi
-     */
+    /** Tests getName method of class Poi */
     @Test
     public void testGetName() {
         System.out.print("Test getName");
@@ -33,9 +29,7 @@ public class PoiTest {
         assertEquals(expectedResult, result);
     }
 
-    /**
-     * Tests getRoomNum method of class POI
-     */
+    /** Tests getRoomNum method of class POI */
     @Test
     public void testGetRoomNum() {
         System.out.print("Test getRoomNum");
@@ -46,9 +40,7 @@ public class PoiTest {
         assertEquals(expectedResult, result);
     }
 
-    /**
-     * Tests getType method of class POI
-     */
+    /** Tests getType method of class POI */
     @Test
     public void testGetType() {
         System.out.print("Test getType");
@@ -59,9 +51,7 @@ public class PoiTest {
         assertEquals(expectedResult, result);
     }
 
-    /**
-     * Tests getDesc method of class POI
-     */
+    /** Tests getDesc method of class POI */
     @Test
     public void testGetDesc() {
         System.out.print("Test getDesc");
@@ -72,9 +62,7 @@ public class PoiTest {
         assertEquals(expectedResult, result);
     }
 
-    /**
-     * Tests getPosX method of class POI
-     */
+    /** Tests getPosX method of class POI */
     @Test
     public void testGetPosX() {
         System.out.print("Test getPosX");
@@ -85,9 +73,7 @@ public class PoiTest {
         assertEquals(expectedResult, result);
     }
 
-    /**
-     * Tests getGetPosY method of class POI
-     */
+    /** Tests getGetPosY method of class POI */
     @Test
     public void testGetPosY() {
         System.out.print("Test getPosY");
@@ -98,9 +84,7 @@ public class PoiTest {
         assertEquals(expectedResult, result);
     }
 
-    /**
-     * Tests getBuiltIn method of class POI
-     */
+    /** Tests getBuiltIn method of class POI */
     @Test
     public void testGetBuiltIn() {
         System.out.print("Test getBuiltIn");
@@ -111,9 +95,7 @@ public class PoiTest {
         assertEquals(expectedResult, result);
     }
 
-    /**
-     * Tests getId method of class POI
-     */
+    /** Tests getId method of class POI */
     @Test
     public void testGetId() {
         System.out.print("Test getId");
@@ -124,9 +106,7 @@ public class PoiTest {
         assertEquals(expectedResult, result);
     }
 
-    /**
-     * Tests convertJSON method of class POI
-     */
+    /** Tests convertJSON method of class POI */
     @Test
     public void testConvertJSON() {
         System.out.print("Test convertJSON");
