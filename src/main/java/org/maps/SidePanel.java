@@ -180,6 +180,8 @@ public class SidePanel extends JLayeredPane {
                         // set the floor and poi
                         MapPanel.setFloorNum(i);
                         MapPanel.setUpTypePanels();
+                        SidePanel.layerTracker();
+                        SearchPanel.changeLabel(i);
                         MapPanel.jumpToPoi(new Poi(poi));
                         return;
                     }
@@ -194,6 +196,8 @@ public class SidePanel extends JLayeredPane {
                         // set the floor and poi
                         MapPanel.setFloorNum(i);
                         MapPanel.setUpTypePanels();
+                        SidePanel.layerTracker();
+                        SearchPanel.changeLabel(i);
                         MapPanel.jumpToPoi(new Poi(poi));
                         return;
                     }
