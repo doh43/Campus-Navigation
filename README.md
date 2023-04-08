@@ -8,7 +8,7 @@ and editing of map metadata by developers and the creation of custom points of i
 ### Required Libraries
 No third party libraries are required for this program. However, it is greatly recommended to check that a recent version of the JRE and JDK are installed.
 ### Build Guide
-In IntelliJ, use the maven side window to install all dependencies and plugins. Ensure you are in the group57 directory. In the maven side window go to app/Plugins/assembly/assembly:single and run it to build WesternMaps.jar
+In IntelliJ, use the Maven side window to install all dependencies and plugins. Ensure you are in the group57 directory. In the Maven side window go to app/Plugins/assembly/assembly:single and run it to build WesternMaps.jar
 ### Running Guide
 From group57 directory, run the following command in the terminal:
 ```java -jar target/WesternMaps.jar```
@@ -49,9 +49,10 @@ button on the login page. Alternatively, you can use the default user account jo
 Regular users can create, edit, or remove custom points of 
 interest and can also favourite built-in or custom points of interest to create a favourites list.
 Be aware that built-in POIs cannot be made, edited, or removed by regular users but can be manipulated by admin users 
-(developers). To access developer mode, use one of the 
-two admin accounts doh43 or admin both of which have the password cs2212. This will allow you to manipulate built-in 
-points of interest. However, it will not allow you to create custom points of interest or favourite a point of interest.
+(developers). 
+#### Developer Mode
+To access developer mode, use one of the two admin accounts: <b>doh43</b> or <b>admin</b>, both of which have the password: <b>cs2212</b>. This will allow you to manipulate built-in 
+points of interest. However, it will not allow you to create custom points of interest or favourite a points of interest.
 
 No separate application is required to access the editing mode as it is built into the Map screen. Whether the editing 
 mode is one for regular users or developers is determined by the login information provided when opening the application. 
