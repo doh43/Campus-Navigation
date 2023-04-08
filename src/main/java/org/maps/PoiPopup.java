@@ -1,7 +1,3 @@
-/** This class is responsible for adding a popup that displays POI information when it (the POI) is selected by the user.
- * @author Ethan Wakefield, Aryan Saxena, Taejun Ha, Tomas Garcia
- * @version 1.0 */
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -11,6 +7,9 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/** This class is responsible for adding a popup that displays POI information when it (the POI) is selected by the user.
+ * @author Ethan Wakefield, Aryan Saxena, Taejun Ha, Tomas Garcia
+ * @version 1.0 */
 public class PoiPopup extends JDialog  {
     /** JLabel for displaying the type of POI */
     private JLabel poiType;

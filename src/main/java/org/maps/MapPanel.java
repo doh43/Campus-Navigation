@@ -1,7 +1,3 @@
-/** A panel that displays a map image and allows users to interact with points of interest (POIs) on the map.
- * @author Ethan Wakefield, Aryan Saxena
- * @version 1.0 */
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -11,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 
+/** A panel that displays a map image and allows users to interact with points of interest (POIs) on the map.
+ * @author Ethan Wakefield, Aryan Saxena
+ * @version 1.0 */
 public class MapPanel extends JPanel {
     // STATIC VARIABLES
     /** A static JPanel that is used to access the map panel. */

@@ -1,7 +1,3 @@
-/** Help Page - Help Guide with picture and textual guidelines on how to interact with application
- * @author Aryan Saxena, Tomas Garcia
- * @version 1.2 */
-
 package org.maps;
 
 import javax.swing.*;
@@ -10,6 +6,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** Help Page - Help Guide with picture and textual guidelines on how to interact with application
+ * @author Aryan Saxena, Tomas Garcia
+ * @version 1.2 */
 public class Help extends JFrame implements ActionListener {
     /** Button that returns you to the Landing Page */
     JButton back;

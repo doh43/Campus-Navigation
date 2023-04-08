@@ -1,13 +1,12 @@
+package org.maps;
+
+import org.json.JSONObject;
+
 /** The Poi (Point of Interest) class is used to represent a location on a map.
  * It contains information about the location's name, type, id, room number, description, icon, position (x, y),
  * whether it's built-in or not and whether it's favourited or not.
  * @author Ethan Wakefield
  * @version 1.0 */
-
-package org.maps;
-
-import org.json.JSONObject;
-
 public class Poi {
     /** Name of the poi. */
     private String name;

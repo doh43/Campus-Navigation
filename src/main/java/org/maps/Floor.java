@@ -1,13 +1,12 @@
-/** Provides a way to work with JSON floor data abstractly
- * @author Tomas Garcia
- * @version 1.0
- * @see org.maps.Building */
-
 package org.maps;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/** Provides a way to work with JSON floor data abstractly
+ * @author Tomas Garcia
+ * @version 1.0
+ * @see org.maps.Building */
 public class Floor {
     /** Name of the floor */
     private String name;

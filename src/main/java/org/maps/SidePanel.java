@@ -1,9 +1,3 @@
-/** Implements the side panel of the Map screen
- * @author Tomas Garcia, Ethan Tiger Wakefield, Daniel Oh
- * @version 3.0
- * @see org.maps.MainPanel
- * @see org.maps.PoiPanel */
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -12,6 +6,11 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 
+/** Implements the side panel of the Map screen
+ * @author Tomas Garcia, Ethan Tiger Wakefield, Daniel Oh
+ * @version 3.0
+ * @see org.maps.MainPanel
+ * @see org.maps.PoiPanel */
 public class SidePanel extends JLayeredPane {
     /** Displays existing POIs */
     private static JPanel poiList;

@@ -1,8 +1,3 @@
-/** Login frame responsible for registering and signing in users.
- * First screen of the application that controls access to the rest of it.
- * @author Daniel Oh
- * @version 2.0 */
-
 package org.maps;
 
 import java.awt.*;
@@ -13,6 +8,10 @@ import java.nio.file.Files;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/** Login frame responsible for registering and signing in users.
+ * First screen of the application that controls access to the rest of it.
+ * @author Daniel Oh
+ * @version 2.0 */
 public class LoginFrame extends JFrame {
     /** Field where the user inputs their password */
     private JPasswordField passwordField;

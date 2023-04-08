@@ -1,7 +1,3 @@
-/** This class is responsible for creating the buttons for the bottom panel of the map viewer GUI.
- * @author Ethan Tiger Wakefield, Taejun Ha, Tomas Garcia
- * @version 1.5 */
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -10,6 +6,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** This class is responsible for creating the buttons for the bottom panel of the map viewer GUI.
+ * @author Ethan Tiger Wakefield, Taejun Ha, Tomas Garcia
+ * @version 1.5 */
 public class BottomPanel extends JPanel implements ActionListener {
     /** Building that the floors belong to */
     String building;

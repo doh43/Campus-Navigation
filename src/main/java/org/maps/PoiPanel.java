@@ -1,8 +1,3 @@
-/** PoiPanel is a JPanel used to create and submit Point of Interest (POI) objects.
- * It implements ActionListener, EditTool, and MouseListener.
- * @author Ethan Wakefield
- * @version 1.0 */
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -14,6 +9,10 @@ import java.awt.event.*;
 import java.util.Objects;
 import java.util.Random;
 
+/** PoiPanel is a JPanel used to create and submit Point of Interest (POI) objects.
+ * It implements ActionListener, EditTool, and MouseListener.
+ * @author Ethan Wakefield
+ * @version 1.0 */
 public class PoiPanel extends JPanel implements ActionListener, MouseListener {
     /** Holds the name of the current user logged in */
     SessionManager sessionManager;

@@ -1,9 +1,3 @@
-/** This is the landing page GUI.
- * The user will be able to choose a map from a dropdown list.
- * Users can also discover the about/help section using the buttons.
- * @author Taejun Ha
- * @version 1.5 */
-
 package org.maps;
 
 import javax.swing.*;
@@ -11,6 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** This is the landing page GUI.
+ * The user will be able to choose a map from a dropdown list.
+ * Users can also discover the about/help section using the buttons.
+ * @author Taejun Ha
+ * @version 1.5 */
 public class LandingPage extends JFrame implements ActionListener {
     /** Dropdown containing all campus buildings that exist in the application */
     JComboBox<String> campusBuildings;

@@ -1,7 +1,3 @@
-/** Used to store basic information about a user
- * @author Daniel Oh
- * @version 2.0 */
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -11,6 +7,9 @@ import org.json.JSONTokener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+/** Used to store basic information about a user
+ * @author Daniel Oh
+ * @version 2.0 */
 public class User {
     /** Name of the user */
     private String username;

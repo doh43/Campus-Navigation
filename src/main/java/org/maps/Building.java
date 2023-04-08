@@ -1,8 +1,3 @@
-/** Provides a way to work with JSON building data abstractly
- * @author Tomas Garcia
- * @version 1.0
- * @see org.maps.Floor */
-
 package org.maps;
 
 import org.json.JSONArray;

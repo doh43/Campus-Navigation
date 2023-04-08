@@ -1,7 +1,3 @@
-/** This class represents the data manager responsible for storing and retrieving data from the buildings.json file.
- * @author Ethan Tiger Wakefield
- * @version 1.2 */
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -12,6 +8,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/** This class represents the data manager responsible for storing and retrieving data from the buildings.json file.
+ * @author Ethan Tiger Wakefield
+ * @version 1.2 */
 public final class Data {
     /** The singleton instance of the session manager. */
     SessionManager sessionManager;

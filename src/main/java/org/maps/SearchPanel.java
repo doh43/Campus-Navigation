@@ -1,8 +1,3 @@
-/** This class is responsible for creating a functional search bar and the corresponding building/floor labels so
- * the user knows which building and floor they are in when they open the map.
- * @author Ethan Tiger Wakefield, Taejun Ha, Tomas Garcia
- * @version 1.0 */
-
 package org.maps;
 
 import org.json.JSONArray;
@@ -13,6 +8,10 @@ import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
+/** This class is responsible for creating a functional search bar and the corresponding building/floor labels so
+ * the user knows which building and floor they are in when they open the map.
+ * @author Ethan Tiger Wakefield, Taejun Ha, Tomas Garcia
+ * @version 1.0 */
 public class SearchPanel extends JPanel {
     public static JLabel floorLabel;
 

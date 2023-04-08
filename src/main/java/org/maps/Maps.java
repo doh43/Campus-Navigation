@@ -1,3 +1,10 @@
+package org.maps;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 /** Displays a map page for a specific building, including all floors and associated POIs. A side panel and search panel
  * are used to access/modify map data.
  * @author Tomas Garcia, Ethan Tiger Wakefield, Taejun Ha
@@ -7,14 +14,6 @@
  * @see org.maps.SidePanel
  * @see org.maps.BottomPanel
  * @see org.maps.SearchPanel */
-
-package org.maps;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 public class Maps extends JFrame {
     /** Frame for the map */
     private static JFrame frame;

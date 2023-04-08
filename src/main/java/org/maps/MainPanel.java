@@ -1,16 +1,14 @@
+package org.maps;
+
+import javax.swing.*;
+import java.awt.*;
+
 /** Main panel that holds all other panels in the Map Page.
  * @author Tom Garcia
  * @version 2.0
  * @see org.maps.SearchPanel
  * @see org.maps.MapPanel
  * @see org.maps.BottomPanel */
-
-package org.maps;
-
-import javax.swing.*;
-import java.awt.*;
-
-
 public class MainPanel extends JPanel {
     /** Map panel that holds the map image */
     private static JPanel map;

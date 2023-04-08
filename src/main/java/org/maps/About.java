@@ -1,13 +1,12 @@
-/** About Page - application version and developer contact information
- * @author Aryan Saxena
- * @version 1.0 */
-
 package org.maps;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** About Page - application version and developer contact information
+ * @author Aryan Saxena
+ * @version 1.0 */
 public class About extends JFrame implements ActionListener {
     /** Button that returns you to the Landing Page */
     JButton back;
