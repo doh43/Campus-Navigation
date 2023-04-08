@@ -233,6 +233,9 @@ public class PoiPopup extends JDialog  {
         return false;
     }
 
+    /** favouritePoi()
+     * Adds or removes a POI from the favourites array.
+     * @param selectedPoi - the POI to be favourited/unfavourited. */
     public void favouritePoi(Poi selectedPoi) {
         if (SessionManager.getCurrentUser().getUsername().equals("admin")) {
             JOptionPane.showMessageDialog(null, "Admins cannot favourite POIs", "Error", JOptionPane.ERROR_MESSAGE);

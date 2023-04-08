@@ -150,6 +150,8 @@ public class PoiPanel extends JPanel implements ActionListener, MouseListener {
     public static Point getMousePosAbsolute() {
         return mousePosAbsolute;
     }
+
+    /** Enters edit mode for {@link PoiPanel} */
     public static void enterEditMode() {
         editMode = true;
     }

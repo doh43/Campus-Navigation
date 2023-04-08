@@ -6,6 +6,7 @@ package org.maps;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/** Testing for Building class */
 public class BuildingTest {
 
     /** Testing for getName in Building class */

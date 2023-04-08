@@ -13,7 +13,7 @@ public class BottomPanel extends JPanel implements ActionListener {
     /** Building that the floors belong to */
     String building;
 
-    JButton[] floor = new JButton[10];
+    JButton[] floor = new JButton[10]; // The floor buttons
 
     /** This takes in the parameter btn to create the different buttons.
      * @param btn - Back button that exits the Map page and returns the user to the Landing Page.

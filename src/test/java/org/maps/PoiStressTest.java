@@ -9,6 +9,11 @@ import org.json.JSONObject;
  */
 public class PoiStressTest {
 
+    /**
+     * The main method for the PoiStressTest class.
+     *
+     * @param args the command line arguments
+     */
     public static void main(String args []) {
         // Create a new user to make custom POIs
         User user = new User("test", "1234", "base");

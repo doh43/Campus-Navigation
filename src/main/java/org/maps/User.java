@@ -22,7 +22,9 @@ public class User {
 
     /** Class constructor
      * @param username username
-     * @param password password */
+     * @param password password
+     * @param userType
+     */
     public User(String username, String password, String userType) {
         this.username = username;
         this.password = password;

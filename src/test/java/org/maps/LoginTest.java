@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/** Testing for Login class */
 public class LoginTest {
 
     /** Test for login of base user with correct credentials */

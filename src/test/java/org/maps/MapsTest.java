@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+/** Test for the class Maps */
 public class MapsTest {
 
     private static Maps maps;

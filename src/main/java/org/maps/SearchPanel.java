@@ -13,7 +13,7 @@ import java.awt.event.FocusListener;
  * @author Ethan Tiger Wakefield, Taejun Ha, Tomas Garcia
  * @version 1.0 */
 public class SearchPanel extends JPanel {
-    public static JLabel floorLabel;
+    public static JLabel floorLabel; // The floor label
 
     SearchPanel() {
 

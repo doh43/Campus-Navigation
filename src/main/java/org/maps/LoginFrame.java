@@ -19,11 +19,12 @@ public class LoginFrame extends JFrame {
     /** Field where the user inputs their username */
     private JTextField usernameField;
 
-    private JLabel passwordLabel, usernameLabel, message;
+    private JLabel passwordLabel, usernameLabel, message; // Labels for the username and password fields
 
     /** Buttons that allow the user to register an account or to sign in with an existing account */
     private JButton signInButton, registerButton;
 
+    /** Constructor for the LoginFrame class */
     public LoginFrame() {
 
         super("Login");
@@ -134,7 +135,9 @@ public class LoginFrame extends JFrame {
     }
 
     /** Creates a new Login frame.
-     * This is the only point of entry for the entire application. */
+     * This is the only point of entry for the entire application.
+     * @param args
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             LoginFrame frame = new LoginFrame();
