@@ -262,7 +262,7 @@ public class SidePanel extends JLayeredPane {
     /** This method is responsible for retrieving all the POIs on a floor (built-ins and custom) and storing them in a list.
      * @return the POI names for the Select POI dropdown list */
     private static String[] makePoiNameList() {
-        Data data = new Data();
+        Data data = Data.getInstance();
 
         String building = Maps.getBuildingCode();
         int floorNum = MapPanel.getFloorNum();
@@ -287,7 +287,7 @@ public class SidePanel extends JLayeredPane {
     /** This method creates the dropdown list and makes the dropdown list functional whenever a user selects a POI from it.
      * @return cb, the combo-box or the Select POI dropdown list */
     private static JComboBox<String> addPoiDropdown() {
-        Data data = new Data();
+        Data data = Data.getInstance();
 
         String[] poiNames = makePoiNameList();
         JComboBox<String> cb = new JComboBox<>(poiNames);
