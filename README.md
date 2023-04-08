@@ -8,7 +8,7 @@ and editing of map metadata by developers and the creation of custom points of i
 ### Required Libraries
 No third party libraries are required for this program. However, it is greatly recommended to check that a recent version of the JRE and JDK are installed.
 ### Build Guide
-In IntelliJ, use the maven sidewindow to install all dependencies and plugins. In the maven side window go to app/Plugins/assembly/assembly:single and run it to build WesternMaps.jar
+In IntelliJ, use the maven side window to install all dependencies and plugins. Ensure you are in the group57 directory. In the maven side window go to app/Plugins/assembly/assembly:single and run it to build WesternMaps.jar
 ### Running Guide
 From group57 directory, run the following command in the terminal:
 ```java -jar target/WesternMaps.jar```
