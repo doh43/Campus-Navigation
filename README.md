@@ -43,7 +43,9 @@ When the 'Edit' button is pressed, the side panel will change to allow the user 
 When the 'Delete' button is pressed, the POI is removed from the map permanently. To protect against accidental deletion, you will be asked to confirm after choosing this option.
 ### Account Guide / Edit Mode
 To make a regular user account, simply input your chosen username and password (not hardcoded) and click the register 
-button on the login page. Then click on the login button. Regular users can create, edit, or remove custom points of 
+button on the login page. Alternatively, you can use the default user account john_doe with the password: password123 that has predefined favourites and user-created POIs. Then click on the login button. 
+
+Regular users can create, edit, or remove custom points of 
 interest and can also favourite built-in or custom points of interest to create a favourites list.
 Be aware that built-in POIs cannot be made, edited, or removed by regular users but can be manipulated by admin users 
 (developers). To access developer mode, use one of the 
