@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 
 /** Implements the side panel of the Map screen
  * @author Tomas Garcia, Ethan Tiger Wakefield, Daniel Oh
@@ -335,66 +336,83 @@ public class SidePanel extends JLayeredPane {
      * @see org.maps.MapPanel#toggleLayerOff(String) */
     public static void layerTracker() {
         if (cRoom.isSelected()) {
-            MapPanel.toggleLayerOn("Classroom");
+//            MapPanel.toggleLayerOn("Classroom");
+            MapPanel.toggleON("Classroom");
         }
         else {
-            MapPanel.toggleLayerOff("Classroom");
+//            MapPanel.toggleLayerOff("Classroom");
+            MapPanel.toggleOFF("Classroom");
         }
 
         if (nav.isSelected()) {
-            MapPanel.toggleLayerOn("Navigation");
+//            MapPanel.toggleLayerOn("Navigation");
+            MapPanel.toggleON("Navigation");
         }
         else {
-            MapPanel.toggleLayerOff("Navigation");
+//            MapPanel.toggleLayerOff("Navigation");
+            MapPanel.toggleOFF("Navigation");
         }
 
         if (wash.isSelected()) {
-            MapPanel.toggleLayerOn("Washroom");
+//            MapPanel.toggleLayerOn("Washroom");
+            MapPanel.toggleON("Washroom");
         }
         else {
-            MapPanel.toggleLayerOff("Washroom");
+//            MapPanel.toggleLayerOff("Washroom");
+            MapPanel.toggleOFF("Washroom");
         }
 
         if (entry.isSelected()) {
-            MapPanel.toggleLayerOn("Entry / Exit");
+//            MapPanel.toggleLayerOn("Entry / Exit");
+            MapPanel.toggleON("Entry / Exit");
         }
         else {
-            MapPanel.toggleLayerOff("Entry / Exit");
+//            MapPanel.toggleLayerOff("Entry / Exit");
+            MapPanel.toggleOFF("Entry / Exit");
         }
 
         if (genL.isSelected()) {
-            MapPanel.toggleLayerOn("Lab");
+//            MapPanel.toggleLayerOn("Lab");
+            MapPanel.toggleON("Lab");
         }
         else {
-            MapPanel.toggleLayerOff("Lab");
+//            MapPanel.toggleLayerOff("Lab");
+            MapPanel.toggleOFF("Lab");
         }
 
         if (res.isSelected()) {
-            MapPanel.toggleLayerOn("Restaurant");
+//            MapPanel.toggleLayerOn("Restaurant");
+            MapPanel.toggleON("Restaurant");
         }
         else {
-            MapPanel.toggleLayerOff("Restaurant");
+//            MapPanel.toggleLayerOff("Restaurant");
+            MapPanel.toggleOFF("Restaurant");
         }
-
         if (collab.isSelected()) {
-            MapPanel.toggleLayerOn("Collaborative Room");
+//            MapPanel.toggleLayerOn("Collaborative Room");
+            MapPanel.toggleON("Collaborative Room");
         }
         else {
-            MapPanel.toggleLayerOff("Collaborative Room");
+//            MapPanel.toggleLayerOff("Collaborative Room");
+            MapPanel.toggleOFF("Collaborative Room");
         }
 
         if (user.isSelected()) {
-            MapPanel.toggleLayerOn("User POIs");
+//            MapPanel.toggleLayerOn("User POIs");
+            MapPanel.toggleON("User POIs");
         }
         else {
-            MapPanel.toggleLayerOff("User POIs");
+//            MapPanel.toggleLayerOff("User POIs");
+            MapPanel.toggleOFF("User POIs");
         }
 
         if (favs.isSelected()) {
-            MapPanel.toggleLayerOn("Favourites");
+//            MapPanel.toggleLayerOn("Favourites");
+            MapPanel.toggleON("Favourites");
         }
         else {
-            MapPanel.toggleLayerOff("Favourites");
+//            MapPanel.toggleLayerOff("Favourites");
+            MapPanel.toggleOFF("Favourites");
         }
     }
 
@@ -406,71 +424,89 @@ public class SidePanel extends JLayeredPane {
         toggle1.addItemListener(e -> {
                     if (e.getSource() == cRoom) {
                         if (cRoom.isSelected()) {
-                            MapPanel.toggleLayerOn("Classroom");
+//                            MapPanel.toggleLayerOn("Classroom");
+                            MapPanel.toggleON("Classroom");
                         }
                         else {
-                            MapPanel.toggleLayerOff("Classroom");
+//                            MapPanel.toggleLayerOff("Classroom");
+                            MapPanel.toggleOFF("Classroom");
                         }
                     }
                     else if (e.getSource() == nav) {
                         if (nav.isSelected()) {
-                            MapPanel.toggleLayerOn("Navigation");
+//                            MapPanel.toggleLayerOn("Navigation");
+                            MapPanel.toggleON("Navigation");
                         }
                         else {
-                            MapPanel.toggleLayerOff("Navigation");
+//                            MapPanel.toggleLayerOff("Navigation");
+                            MapPanel.toggleOFF("Navigation");
                         }
                     }
                     else if (e.getSource() == wash) {
                         if (wash.isSelected()) {
-                            MapPanel.toggleLayerOn("Washroom");
+//                            MapPanel.toggleLayerOn("Washroom");
+                            MapPanel.toggleON("Washroom");
                         }
                         else {
-                            MapPanel.toggleLayerOff("Washroom");
+//                            MapPanel.toggleLayerOff("Washroom");
+                            MapPanel.toggleOFF("Washroom");
                         }
                     }
                     else if (e.getSource() == entry) {
                         if (entry.isSelected()) {
-                            MapPanel.toggleLayerOn("Entry / Exit");
+//                            MapPanel.toggleLayerOn("Entry / Exit");
+                            MapPanel.toggleON("Entry / Exit");
                         }
                         else {
-                            MapPanel.toggleLayerOff("Entry / Exit");
+//                            MapPanel.toggleLayerOff("Entry / Exit");
+                            MapPanel.toggleOFF("Entry / Exit");
                         }
                     }
                     else if (e.getSource() == genL) {
                         if (genL.isSelected()) {
-                            MapPanel.toggleLayerOn("Lab");
+//                            MapPanel.toggleLayerOn("Lab");
+                            MapPanel.toggleON("Lab");
                         }
                         else {
-                            MapPanel.toggleLayerOff("Lab");
+//                            MapPanel.toggleLayerOff("Lab");
+                            MapPanel.toggleOFF("Lab");
                         }
                     }
                     else if (e.getSource() == res) {
                         if (res.isSelected()) {
-                            MapPanel.toggleLayerOn("Restaurant");
+//                            MapPanel.toggleLayerOn("Restaurant");
+                            MapPanel.toggleON("Restaurant");
                         }
                         else {
-                            MapPanel.toggleLayerOff("Restaurant");
+//                            MapPanel.toggleLayerOff("Restaurant");
+                            MapPanel.toggleOFF("Restaurant");
                         }
                     }
                     else if (e.getSource() == collab) {
                         if (collab.isSelected()) {
-                            MapPanel.toggleLayerOn("Collaborative Room");
+//                            MapPanel.toggleLayerOn("Collaborative Room");
+                            MapPanel.toggleON("Collaborative Room");
                         } else {
-                            MapPanel.toggleLayerOff("Collaborative Room");
+//                            MapPanel.toggleLayerOff("Collaborative Room");
+                            MapPanel.toggleOFF("Collaborative Room");
                         }
                     }
                     else if (e.getSource() == user) {
                         if (user.isSelected()) {
-                            MapPanel.toggleLayerOn("User POIs");
+//                            MapPanel.toggleLayerOn("User POIs");
+                            MapPanel.toggleON("User POIs");
                         } else {
-                            MapPanel.toggleLayerOff("User POIs");
+//                            MapPanel.toggleLayerOff("User POIs");
+                            MapPanel.toggleOFF("User POIs");
                         }
                     }
                     else if (e.getSource() == favs) {
                         if (favs.isSelected()) {
-                            MapPanel.toggleLayerOn("Favourites");
+//                            MapPanel.toggleLayerOn("Favourites");
+                            MapPanel.toggleON("Favourites");
                         } else {
-                            MapPanel.toggleLayerOff("Favourites");
+//                            MapPanel.toggleLayerOff("Favourites");
+                            MapPanel.toggleOFF("Favourites");
                         }
                     }
         });
