@@ -5,7 +5,12 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+
 
 /** A panel that displays a map image and allows users to interact with points of interest (POIs) on the map.
  * @author Ethan Wakefield, Aryan Saxena
@@ -35,6 +40,18 @@ public class MapPanel extends JPanel {
 
     /** A static HashMap that is used to access the buttons. */
     private static HashMap<Integer, JButton> allButtons;
+
+
+    private static HashMap<JButton, String> typeButtons = new HashMap<>();            // (JButton, String)
+
+    private static HashMap<String, String> toggleState = new HashMap<>();
+
+
+    private static HashMap<Integer, List<Object>> allToggleButtons = new HashMap<>();
+        // (id, [type, fav, builtIn, JButton] )
+        // (x, ["xx", true, true, JButton object] )
+
+
 
     /** Creates a new MapPanel object. */
     MapPanel() {
@@ -88,29 +105,107 @@ public class MapPanel extends JPanel {
         }
     }
 
-    /** Toggles a specific POI type off.
-     * @param type The type of POI to toggle off. */
-    public static void toggleLayerOff(String type){
-
-        if (typePanels.containsKey(type)) {
-
-            Integer targetLayerValue = typePanels.get(type);
-            JPanel targetPanel = (JPanel) layeredPane.getComponentsInLayer(targetLayerValue)[0];
-            targetPanel.setVisible(false);
-        }
-    }
-
     /** Toggles a specific POI type on.
-     * @param type The type of POI to toggle on. */
-    public static void toggleLayerOn(String type){
+     * @param name The type of POI to toggle off. */
+    public static void toggleON(String name){
 
-        if (typePanels.containsKey(type)) {
+        String temp = name.toLowerCase().substring(0,2);
+        toggleState.put(temp,"showing");
 
-            Integer targetLayerValue = typePanels.get(type);
-            JPanel targetPanel = (JPanel) layeredPane.getComponentsInLayer(targetLayerValue)[0];
-            targetPanel.setVisible(true);
+        //FAVORITES
+        if(temp.equals("fa")) {
+            for (Map.Entry<Integer, List<Object>> entry : allToggleButtons.entrySet()) {
+
+                // SKIP - skip if type is "hidden"
+                if (toggleState.get((String)entry.getValue().toArray()[0]).equals("hidden"))
+                    continue;
+
+                // SKIP - skip if builtIn "us" is "hidden"
+                else if ( !(Boolean)entry.getValue().toArray()[3] && toggleState.get("us").equals("hidden"))
+                    continue;
+
+                else
+                    ((JButton)entry.getValue().toArray()[1]).setVisible(true);
+
+            }
+        }
+
+        //USER CREATED
+        else if(temp.equals("us")) {
+            for (Map.Entry<Integer, List<Object>> entry : allToggleButtons.entrySet()) {
+
+                // SKIP - if type is "hidden"
+                if (toggleState.get((String)entry.getValue().toArray()[0]).equals("hidden"))
+                    continue;
+
+                // SKIP - if favorite is "hidden"
+                else if ( (Boolean)entry.getValue().toArray()[2] && toggleState.get("fa").equals("hidden"))
+                    continue;
+
+                else
+                    ((JButton)entry.getValue().toArray()[1]).setVisible(true);
+            }
+        }
+
+        // TYPES
+        else {
+            for (Map.Entry<Integer, List<Object>> entry : allToggleButtons.entrySet()) {
+
+                // SKIP - if favorite is "hidden"
+                if ( (Boolean)entry.getValue().toArray()[2] && toggleState.get("fa").equals("hidden"))
+                    continue;
+
+                // SKIP - if user-created is "hidden"
+                else if ( !(Boolean)entry.getValue().toArray()[3] && toggleState.get("us").equals("hidden"))
+                    continue;
+
+                // SHOW if type matches
+                else if ( ((String)(entry.getValue().toArray()[0])).equals(temp) )
+                    ((JButton)entry.getValue().toArray()[1]).setVisible(true);
+            }
         }
     }
+
+    /** Toggles a specific POI type off.
+     * @param name type of poi to toggle. */
+    public static void toggleOFF(String name){
+        String temp = name.toLowerCase().substring(0,2);
+        toggleState.put(temp,"hidden");
+
+        //FAVORITES
+        if(temp.equals("fa")) {
+            for (Map.Entry<Integer, List<Object>> entry : allToggleButtons.entrySet()) {
+
+
+               if ( (Boolean)entry.getValue().toArray()[2] ) {
+
+                   ((JButton)entry.getValue().toArray()[1]).setVisible(false);
+               }
+
+            }
+        }
+
+        //USER CREATED
+        else if(temp.equals("us")) {
+            for (Map.Entry<Integer, List<Object>> entry : allToggleButtons.entrySet()) {
+
+                if ( !((Boolean)entry.getValue().toArray()[3]) )
+
+                    ((JButton)entry.getValue().toArray()[1]).setVisible(false);
+            }
+        }
+
+        // TYPES
+        else {
+            for (Map.Entry<Integer, List<Object>> entry : allToggleButtons.entrySet()) {
+
+                if (entry.getValue().toArray()[0].equals(temp))
+
+                    ((JButton)entry.getValue().toArray()[1]).setVisible(false);
+            }
+        }
+    }
+
 
     /** Sets up the map and points of interest (POIs) on the map. */
     public static void setUpTypePanels() {
@@ -136,6 +231,18 @@ public class MapPanel extends JPanel {
         allPois.putAll(floorPois);
         allPois.putAll(userFloorPois);
 
+        //TOGGLE STUFF
+        JSONArray userFavs = d.getFavourites();
+
+        toggleState.put("cl","showing");
+        toggleState.put("na","showing");
+        toggleState.put("wa","showing");
+        toggleState.put("en","showing");
+        toggleState.put("la","showing");
+        toggleState.put("re","showing");
+        toggleState.put("co","showing");
+        toggleState.put("us","showing");
+        toggleState.put("fa","showing");
 
 
         // SETUP STATIC VARIABLES
@@ -165,6 +272,12 @@ public class MapPanel extends JPanel {
                 layerDepth += 1;
             }
 
+            // BUILD USER-CREATED and FAVORITES TOGGLE HASHMAP
+            if(poi.getBoolean("favourited")){
+
+            }
+
+
             // SETUP BUTTON
             int posX = poi.getInt("posX");
             int posY = poi.getInt("posY");
@@ -183,11 +296,37 @@ public class MapPanel extends JPanel {
                     p.setVisible(true);
                 }
             });
+
             // button: add, register
             int accessLayerValue = typePanels.get(type);
             JPanel targetPanel = (JPanel) (layeredPane.getComponentsInLayer(accessLayerValue))[0];
             targetPanel.add(button);
             allButtons.put(poi.getInt("id"), button);  //register poi (name,button) into hashMap
+
+
+            // LOAD BY TYPES
+                // tempList -> ["ca", JButton, favourited, builtin]
+
+            List<Object> tempList = new ArrayList<>();
+
+            tempList.add(type.toLowerCase().substring(0,2));            // ["ca",
+            tempList.add(button);                                       // JButton,
+
+            tempList.add(false);                                        // [2] favourited - false,
+
+            // CHANGE FAVORITES
+            for (int i=0; i < userFavs.length(); i++){
+
+                if ( userFavs.getInt(i) == poi.getInt("id") )       // change to true if it's a favorite
+                    tempList.set(2,true);
+            }
+
+            // LOAD USER-CREATED
+            tempList.add(true);                                        // [3] true - built in
+            if(!poi.getBoolean("builtIn"))                         //       false - user-created
+                tempList.set(3, false);
+
+            allToggleButtons.put(poi.getInt("id"), tempList);
         }
 
         // ADD TO SCROLL PANE DISPLAY
