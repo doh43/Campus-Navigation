@@ -5,7 +5,6 @@ Buildings currently supported are Middlesex College (MC), North Campus Building 
 
 This program is written in Java, with the GUI built using Swing. Javadocs and JUnit tests are included.
 <img width="1875" alt="Screenshot 2024-02-23 at 11 38 16 PM" src="https://github.com/doh43/Campus-Navigation/assets/64013855/e833a5b9-f56d-4951-a3f9-49b1e0ce22d6">
-
 ### Features
 #### User Registration and Login 
 Supports new user creation and login with persistent data storage. 
