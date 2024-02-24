@@ -4,19 +4,22 @@ A desktop application that uses public floor plans to allow users to navigate th
 Buildings currently supported are Middlesex College (MC), North Campus Building (NCB), and Alumni Hall (AH). 
 
 This program is written in Java, with the GUI built using Swing. Javadocs and JUnit tests are included.
-<img width="1875" alt="Screenshot 2024-02-23 at 11 38 16 PM" src="https://github.com/doh43/Campus-Navigation/assets/64013855/e833a5b9-f56d-4951-a3f9-49b1e0ce22d6">
+
 ### Features
 #### User Registration and Login 
 Supports new user creation and login with persistent data storage. 
+<img width="812" alt="Screenshot 2024-02-23 at 11 41 40 PM" src="https://github.com/doh43/Campus-Navigation/assets/64013855/62d5299d-46c3-48c2-91ca-aea6fbacbe89">
 
 #### Browsing Maps
 Users can navigate through a directory of different buildings on campus. Within each building, corresponding maps are provided for each floor.
+<img width="768" alt="Screenshot 2024-02-23 at 11 41 19 PM" src="https://github.com/doh43/Campus-Navigation/assets/64013855/17d137c5-ba70-49e7-8987-3b660813dcf0">
 
 #### Searching Maps
 A search menu is available for users to search for a specific POI (both user-made and built-in) on the map.
 
 #### Built-In Points of Interest
 Each floor map within a building contains built-in points of interest that users can layer onto the map while browsing or searching throughout the floor. Facilities including but not limited to classrooms, washrooms, computer labs, eateries, and even common stairways or elevators may be layered or hidden from the map.
+<img width="1875" alt="Screenshot 2024-02-23 at 11 38 16 PM" src="https://github.com/doh43/Campus-Navigation/assets/64013855/e833a5b9-f56d-4951-a3f9-49b1e0ce22d6">
 
 #### Favourites
 Users can favourite and un-favourite specific points of interest for quick access. Favourited POIs can be found in the favourites menu.
